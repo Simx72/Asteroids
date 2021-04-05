@@ -1,5 +1,5 @@
 import AsteroidsMainScene from '../scenes/main-scene';
-export default function disparo(game: AsteroidsMainScene) {
+export default function disparo(this: AsteroidsMainScene) {
 
   const nave = this.objeto<Phaser.Types.Physics.Arcade.ImageWithDynamicBody>('nave')
 
