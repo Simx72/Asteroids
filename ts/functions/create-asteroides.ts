@@ -47,7 +47,11 @@ export default function createAsteroides(this: AsteroidsMainScene) {
   this.physics.add.overlap(
     this.objeto<Phaser.Physics.Arcade.Group>('grupo.ast'),
     this.objeto<Phaser.Physics.Arcade.Group>('grupo.disparos'),
-    (asteroide, disparo) => {
+    (obj1, obj2) => {
+
+      let asteroide = obj1 as Phaser.Physics.Arcade.Sprite
+      let disparo = obj2 as Phaser.Physics.Arcade.Sprite
+
       let exp = this.objeto<Phaser.GameObjects.Sprite>('explosion')
       exp.setPosition(asteroide.body.position.x, asteroide.body.position.y)
 
