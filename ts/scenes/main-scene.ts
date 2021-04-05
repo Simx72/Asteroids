@@ -14,8 +14,8 @@ export default class AsteroidsMainScene extends AsteroidsScene {
     });
   }
 
-  disparo = () => disparo.bind(this)
-  muerte = () => muerte.bind(this)
+  disparo = disparo.bind(this)
+  muerte = muerte.bind(this)
 
   /***************
    * PRELOAD
@@ -59,11 +59,11 @@ export default class AsteroidsMainScene extends AsteroidsScene {
       );
     }
 
-    createNave.bind(this)
+    createNave.bind(this)()
 
-    createAsteroides.bind(this)
+    createAsteroides.bind(this)()
 
-    detectarMuerte.bind(this)
+    detectarMuerte.bind(this)()
 
   }
 
@@ -88,7 +88,7 @@ export default class AsteroidsMainScene extends AsteroidsScene {
       })) + '\n'
     }
 
-    updateNave.bind(this)
+    updateNave.bind(this)()
 
     let asteroides = <Phaser.GameObjects.Group>this.objeto('grupo.ast')
 
