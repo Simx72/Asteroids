@@ -51,13 +51,11 @@ export default function createNave(this: AsteroidsMainScene) {
 
   let disparos = this.objeto(
     'grupo.disparos',
-    this.physics.add.group([])
+    this.physics.add.group([], {
+      
+    })
   )
 
-  disparos.add(this.add.circle(
-    this.centerX,
-    this.centerY,
-    5, 0xFFFFFF
-  ))
+  this.add.circle(this.centerX, this.centerY, 5, 0xFFFFFF)
 
 }
