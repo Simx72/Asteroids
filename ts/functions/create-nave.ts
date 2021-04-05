@@ -49,7 +49,7 @@ export default function createNave(this: AsteroidsMainScene) {
   exp.setVisible(false)
 
 
-  let disparos = this.objeto(
+  this.objeto(
     'grupo.disparos',
     this.physics.add.group([], {
       defaultKey: 'fueguito'
