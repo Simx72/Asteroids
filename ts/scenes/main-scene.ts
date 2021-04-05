@@ -6,7 +6,7 @@ import createAsteroides from '../functions/create-asteroides';
 import updateNave from '../functions/update-nave';
 
 export default class AsteroidsMainScene extends AsteroidsScene {
-  constructor(config: Phaser.Types.Scenes.SettingsConfig) {
+  constructor() {
     super({
       active: false,
       visible: false,
