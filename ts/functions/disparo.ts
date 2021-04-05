@@ -11,6 +11,13 @@ export default function disparo(this: AsteroidsMainScene) {
 
   disp.body.angle = Phaser.Math.DegToRad(disp.angle)
 
+  let angle = ((nave.angle - 90 >= 0) ? nave.angle : 360 + nave.angle) - 90,
+    vel = 350,
+    vX = vel * Math.cos(Phaser.Math.DegToRad(angle)),
+    vY = vel * Math.sin(Phaser.Math.DegToRad(angle));
+
+  disp.setVelocity(vX, vY)
+
   if (this.physics.config.debug) {
     // const texto = this.objeto<Phaser.GameObjects.Text>('texto.debug')
     console.log('disparo')
