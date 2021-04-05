@@ -33,7 +33,7 @@ export default class AsteroidsMainScene extends AsteroidsScene {
 
     for (let i = 0; i < 50; i++) {
       i.valueOf
-      this.load.image('fueguito.1', '../../../firebase/Y/asteroids-assets/images/PNG/fueguito/efecto_fuego_00049.png')
+      this.load.image('fueguito', 'images/PNG/fueguito/efecto_fuego_00049.png')
     }
 
     this.load.spritesheet({
