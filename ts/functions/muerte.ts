@@ -2,7 +2,7 @@ import AsteroidsMainScene from '../scenes/main-scene';
 export function muerte(this: AsteroidsMainScene) {
   if (this.dato('vivo')) {
     if (this.dato('vidas', this.dato<number>('vidas') - 1) < 0) {
-      perder.bind(this)
+      perder.bind(this)()
     } else {
 
       if (this.physics.config.debug) console.log(this.dato('vidas'));
