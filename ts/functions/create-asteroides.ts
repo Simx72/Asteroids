@@ -53,7 +53,7 @@ export default function createAsteroides(this: AsteroidsMainScene) {
       let disparo = obj2 as Phaser.Physics.Arcade.Sprite
 
       let exp = this.objeto<Phaser.GameObjects.Sprite>('explosion')
-      exp.setPosition(asteroide.body.position.x + (asteroide.displayWidth / 2), asteroide.body.position.x + (asteroide.displayHeight / 2))
+      exp.setPosition(asteroide.displayOriginX, asteroide.displayOriginY)
 
       asteroide.destroy()
       disparo.destroy()
