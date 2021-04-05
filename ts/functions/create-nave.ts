@@ -56,6 +56,4 @@ export default function createNave(this: AsteroidsMainScene) {
     })
   )
 
-  this.add.circle(this.centerX, this.centerY, 5, 0xFFFFFF)
-
 }
