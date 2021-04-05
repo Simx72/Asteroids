@@ -48,6 +48,8 @@ export default function createAsteroides(this: AsteroidsMainScene) {
     this.objeto<Phaser.Physics.Arcade.Group>('grupo.ast'),
     this.objeto<Phaser.Physics.Arcade.Group>('grupo.disparos'),
     (asteroide, disparo) => {
+      let exp = this.objeto<Phaser.GameObjects.Sprite>('explosion')
+      
       asteroide.destroy()
       disparo.destroy()
       if (this.physics.config.debug) {
