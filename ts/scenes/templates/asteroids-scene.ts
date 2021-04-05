@@ -57,6 +57,7 @@ export default class AsteroidsScene extends Phaser.Scene {
 
   defaultPreload() {
     this.load.setBaseURL(this.dato<string>('assets url'))
+    this.load.setCORS('anonymous')
     this.centerX = this.scale.width / 2
     this.centerY = this.scale.height / 2
   }
