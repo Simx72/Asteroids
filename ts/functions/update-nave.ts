@@ -64,6 +64,12 @@ export default function updateNave(this: AsteroidsMainScene) {
   if (this.input.keyboard.checkDown(keys['space'], 700)) {
     this.disparo()
   }
+  let disparos = this.objeto<Phaser.Physics.Arcade.Group>('grupo.disparos')
+  disparos.children.each(obj => {
+    if (0 >= obj.body.position.x || obj.body.position.x > this.scale.width || 0 >= obj.body.position.y || obj.body.position.y > this.scale.height) {
+      obj.destroy()
+    }
+  })
 
   if (nave.x < (0 - (nave.displayWidth / 2)) || nave.x > (this.scale.width + nave.displayWidth / 2) || nave.y < (0 - (nave.displayHeight / 2)) || nave.y > (this.scale.height + nave.displayHeight / 2)) {
     /* al morir en algun borde */
