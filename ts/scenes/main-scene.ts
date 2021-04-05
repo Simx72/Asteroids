@@ -31,7 +31,10 @@ export default class AsteroidsMainScene extends AsteroidsScene {
     this.load.svg('asteroide.2', 'images/SVG/asteroide-2.svg')
     this.load.svg('asteroide.3', 'images/SVG/asteroide-3.svg')
 
-    this.load.image('laser', 'images/PNG/EnemyLaser.png')
+    for (let i = 0; i < 50; i++) {
+      i.valueOf
+      this.load.image('fueguito.1', '../../../firebase/Y/asteroids-assets/images/PNG/fueguito/efecto_fuego_00049.png')
+    }
 
     this.load.spritesheet({
       key: 'explosion',
@@ -50,6 +53,8 @@ export default class AsteroidsMainScene extends AsteroidsScene {
    * CREATE
    **************/
   public create() {
+
+    for (let num = 0; num < 500; num ++) { console.log('\x1b[32m'+num+'\x1b[0m', (0xFFFFFF / 10).toFixed(0), (((0xFFFFFF >> num) << num) / 10).toFixed(0)), (((0xFFFFFF / 10).toFixed(0) == (((0xFFFFFF >> num) << num) / 10).toFixed(0))? '\x1b[32m\u2714' : '') }
 
     if (this.physics.config.debug) {
       this.objeto(
