@@ -62,7 +62,7 @@ export function muerte(this: AsteroidsMainScene) {
       exp
         .setPosition(nave.x, nave.y)
         .setVisible(true)
-        .on('animationcomplete', restart)
+        .once('animationcomplete', restart)
         .anims.play('explotar')
 
       let audio = this.sound.add('audio.explo')
@@ -102,7 +102,7 @@ function perder(this: AsteroidsMainScene) {
   exp
     .setPosition(nave.x, nave.y)
     .setVisible(true)
-    .on('animationcomplete', end)
+    .once('animationcomplete', end)
     .anims.play('explotar')
 
   let audio = this.sound.add('audio.explo')
