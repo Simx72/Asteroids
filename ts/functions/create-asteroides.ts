@@ -51,7 +51,7 @@ export default function createAsteroides(this: AsteroidsMainScene) {
       asteroide.destroy()
       disparo.destroy()
       if (this.physics.config.debug) {
-        console.log(asteroide, 'se estrello con', disparo)
+        console.log(disparo, 'destruyo a', asteroide)
       }
     }
   )
