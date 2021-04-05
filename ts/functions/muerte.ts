@@ -1,8 +1,8 @@
 import AsteroidsMainScene from '../scenes/main-scene';
-export function muerte(game: AsteroidsMainScene) {
+export function muerte(this: AsteroidsMainScene) {
   if (this.dato('vivo')) {
     if (this.dato('vidas', this.dato<number>('vidas') - 1) < 0) {
-      perder(game)
+      perder.bind(this)
     } else {
 
       if (this.physics.config.debug) console.log(this.dato('vidas'));
@@ -74,15 +74,15 @@ export function muerte(game: AsteroidsMainScene) {
   }
 }
 
-export function detectarMuerte(game: AsteroidsMainScene) {
+export function detectarMuerte(this: AsteroidsMainScene) {
   this.physics.add.overlap(
     this.objeto<Phaser.Physics.Arcade.Group>('grupo.ast'),
     this.objeto<Phaser.Types.Physics.Arcade.ImageWithDynamicBody>('nave'),
-    () => muerte(game)
+    () => muerte.bind(this)
   )
 }
 
-function perder(game: AsteroidsMainScene) {
+function perder(this: AsteroidsMainScene) {
   if (this.physics.config.debug) {
     const texto = <Phaser.GameObjects.Text>this.objeto('texto.debug')
     texto.text += `Sin vidas! \n`
