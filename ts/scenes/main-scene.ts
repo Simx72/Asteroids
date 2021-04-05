@@ -74,17 +74,6 @@ export default class AsteroidsMainScene extends AsteroidsScene {
     if (this.physics.config.debug) {
       const texto = <Phaser.GameObjects.Text>this.objeto('texto.debug')
       texto.text = `[scene]: Main Scene (${this.scene.key}) \n\n`
-      texto.text += JSON.stringify(this.objeto<Phaser.Physics.Arcade.Group>('grupo.disparos').getChildren().map(gameObj => {
-        let obj: { [c: string]: any } = {
-          x: gameObj.body.position.x,
-          y: gameObj.body.position.y
-        }
-
-        if ('angle' in gameObj) obj['angle'] = gameObj['angle']
-
-        return obj
-
-      })) + '\n'
     }
 
     updateNave.bind(this)()
