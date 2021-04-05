@@ -52,7 +52,7 @@ export default class AsteroidsLooseScene extends AsteroidsScene {
 
     button.on('pointerdown', () => {
       button.setFillStyle(0xFFFFFF)
-      this.game.scene.switch('loose-scene', 'main-scene')
+      this.game.scene.switch('loose-scene', 'game-scene')
       this.game.canvas.style.cursor = 'default'
     })
     button.on('pointerover', () => {
