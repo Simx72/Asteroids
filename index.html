@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- 
+        <div>Iconos diseñados por <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es</a></div>
+        <div>Iconos diseñados por <a href="https://www.flaticon.es/autores/good-ware" title="Good Ware">Good Ware</a> from <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es</a></div>
+        <div>Iconos diseñados por <a href="https://www.flaticon.es/autores/dinosoftlabs" title="DinosoftLabs">DinosoftLabs</a> from <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es</a></div>
+        <div>Iconos diseñados por <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es</a></div>
+        https://fonts.google.com/specimen/Chakra+Petch
+     -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <title>Asteroids</title>
+    <style>
+        @font-face {
+            font-family: 'ChakraPetch';
+            src: url('assets/fonts/ChakraPetch/ChakraPetch-Regular.ttf') format('truetype'), url('assets/fonts/ChakraPetch/ChakraPetch-Regular.otf') format('opentype');
+        }
+        
+        html,
+        body,
+        canvas {
+            padding: 0 !important;
+            margin: 0 !important;
+            height: 100% !important;
+            width: 100% !important;
+        }
+        
+        body {
+            font-family: ChakraPetch, Verdana, Geneva, Tahoma, sans-serif
+        }
+    </style>
+</head>
+
+<body>
+    <!-- PHASER -->
+    <script src="phaser/phaser.min.js"></script>
+    <!-- REQUIREJS -->
+    <script src="requirejs/require.js"></script>
+    <!-- GAME -->
+    <script src="js/game.js"></script>
+    <!-- INIT -->
+    <script>
+        var asteroidsPhaserGame;
+        require(['main'], function(main) {
+            asteroidsPhaserGame = main
+        });
+    </script>
+</body>
+
+</html>
