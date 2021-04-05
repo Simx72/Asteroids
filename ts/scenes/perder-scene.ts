@@ -9,9 +9,7 @@ export default class AsteroidsLooseScene extends AsteroidsScene {
   }
 
   preload() {
-    this.load.setBaseURL(this.dato<string>('assets url'))
-    this.centerX = this.scale.width / 2
-    this.centerY = this.scale.height / 2
+    this.defaultPreload()
   }
 
   create() {
