@@ -21,6 +21,7 @@ export default class AsteroidsMainScene extends AsteroidsScene {
    * PRELOAD
    **************/
   public preload() {
+    this.load.setBaseURL(this.dato<string>('assets url'))
     this.centerX = this.game.scale.width / 2;
     this.centerY = this.game.scale.height / 2;
 
