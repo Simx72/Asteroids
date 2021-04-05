@@ -3,4 +3,3 @@ node_modules/
 assets/
 dist/
 .vscode/
-package-lock.json
