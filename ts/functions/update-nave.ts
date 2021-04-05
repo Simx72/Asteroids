@@ -65,8 +65,9 @@ export default function updateNave(this: AsteroidsMainScene) {
     this.disparo()
   }
   let disparos = this.objeto<Phaser.Physics.Arcade.Group>('grupo.disparos')
-  disparos.children.each(obj => {
-    if (0 >= obj.body.position.x || obj.body.position.x > this.scale.width || 0 >= obj.body.position.y || obj.body.position.y > this.scale.height) {
+  disparos.children.each(object => {
+    let obj = object as Phaser.Physics.Arcade.Sprite
+    if (obj.body.position.x < (0 - obj.displayWidth) || obj.body.position.x > (this.scale.width + obj.displayWidth) || obj.body.position.y < (0 - obj.displayHeight) || obj.body.position.y > (this.scale.height + obj.displayHeight)) {
       obj.destroy()
       console.log(obj, 'fue destruido!')
     }
