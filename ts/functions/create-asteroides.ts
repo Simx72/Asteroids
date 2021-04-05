@@ -49,9 +49,18 @@ export default function createAsteroides(this: AsteroidsMainScene) {
     this.objeto<Phaser.Physics.Arcade.Group>('grupo.disparos'),
     (asteroide, disparo) => {
       let exp = this.objeto<Phaser.GameObjects.Sprite>('explosion')
-      
+      exp.setPosition(asteroide.body.position.x, asteroide.body.position.y)
+
       asteroide.destroy()
       disparo.destroy()
+
+      exp
+        .setVisible(true)
+        .anims.play('explotar')
+
+      let audio = this.sound.add('audio.explo')
+      audio.play()
+
       if (this.physics.config.debug) {
         console.log(disparo, 'destruyo a', asteroide)
       }
