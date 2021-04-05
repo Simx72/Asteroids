@@ -78,7 +78,7 @@ export function detectarMuerte(this: AsteroidsMainScene) {
   this.physics.add.overlap(
     this.objeto<Phaser.Physics.Arcade.Group>('grupo.ast'),
     this.objeto<Phaser.Types.Physics.Arcade.ImageWithDynamicBody>('nave'),
-    () => muerte.bind(this)
+    muerte.bind(this)
   )
 }
 
