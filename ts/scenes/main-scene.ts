@@ -54,7 +54,7 @@ export default class AsteroidsMainScene extends AsteroidsScene {
    **************/
   public create() {
 
-    for (let num = 0; num < 500; num ++) { console.log('\x1b[32m'+num+'\x1b[0m', (0xFFFFFF / 10).toFixed(0), (((0xFFFFFF >> num) << num) / 10).toFixed(0)), (((0xFFFFFF / 10).toFixed(0) == (((0xFFFFFF >> num) << num) / 10).toFixed(0))? '\x1b[32m\u2714' : '') }
+    
 
     if (this.physics.config.debug) {
       this.objeto(
