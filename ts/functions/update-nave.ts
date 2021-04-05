@@ -68,6 +68,7 @@ export default function updateNave(this: AsteroidsMainScene) {
   disparos.children.each(obj => {
     if (0 >= obj.body.position.x || obj.body.position.x > this.scale.width || 0 >= obj.body.position.y || obj.body.position.y > this.scale.height) {
       obj.destroy()
+      console.log(obj, 'fue destruido!')
     }
   })
 
