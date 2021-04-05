@@ -52,7 +52,8 @@ export default function createNave(this: AsteroidsMainScene) {
   this.objeto(
     'grupo.disparos',
     this.physics.add.group([], {
-      defaultKey: 'fueguito.22'
+      defaultKey: 'fueguito.22',
+      key: 'fueguito.22'
     })
   )
 
