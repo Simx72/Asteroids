@@ -23,19 +23,19 @@ export default class AsteroidsMainScene extends AsteroidsScene {
   public preload() {
     this.defaultPreload()
 
-    this.load.audio('audio.laser', 'assets/sounds/laser.wav')
-    this.load.audio('audio.explo', 'assets/sounds/explosion.wav')
+    this.load.audio('audio.laser', 'sounds/laser.wav')
+    this.load.audio('audio.explo', 'sounds/explosion.wav')
 
-    this.load.svg('nave', 'assets/images/SVG/nave-espacial.svg')
-    this.load.svg('asteroide.1', 'assets/images/SVG/asteroide-1.svg')
-    this.load.svg('asteroide.2', 'assets/images/SVG/asteroide-2.svg')
-    this.load.svg('asteroide.3', 'assets/images/SVG/asteroide-3.svg')
+    this.load.svg('nave', 'images/SVG/nave-espacial.svg')
+    this.load.svg('asteroide.1', 'images/SVG/asteroide-1.svg')
+    this.load.svg('asteroide.2', 'images/SVG/asteroide-2.svg')
+    this.load.svg('asteroide.3', 'images/SVG/asteroide-3.svg')
 
-    this.load.image('laser', 'assets/images/PNG/EnemyLaser.png')
+    this.load.image('laser', 'images/PNG/EnemyLaser.png')
 
     this.load.spritesheet({
       key: 'explosion',
-      url: 'assets/images/PNG/exp2_0.png',
+      url: 'images/PNG/exp2_0.png',
       frameConfig: {
         frameWidth: 64,
         startFrame: 0,
