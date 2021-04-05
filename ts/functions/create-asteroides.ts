@@ -46,11 +46,13 @@ export default function createAsteroides(this: AsteroidsMainScene) {
 
   this.physics.add.overlap(
     this.objeto<Phaser.Physics.Arcade.Group>('grupo.ast'),
-    this.objeto<Phaser.Types.Physics.Arcade.ImageWithDynamicBody>('grupo.disparos'),
-    (obj1, obj2) => {
-      obj1.destroy()
-      obj2.destroy()
-      console.log(obj1, 'se estrello con', obj2)
+    this.objeto<Phaser.Physics.Arcade.Group>('grupo.disparos'),
+    (asteroide, disparo) => {
+      asteroide.destroy()
+      disparo.destroy()
+      if (this.physics.config.debug) {
+        console.log(asteroide, 'se estrello con', disparo)
+      }
     }
   )
 
