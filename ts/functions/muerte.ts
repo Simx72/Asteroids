@@ -1,4 +1,4 @@
-import AsteroidsMainScene from '../scenes/main-scene';
+import AsteroidsMainScene from '../scenes/game-scene';
 export function muerte(this: AsteroidsMainScene) {
   if (this.dato('vivo')) {
     if (this.dato('vidas', this.dato<number>('vidas') - 1) < 0) {

@@ -1,4 +1,4 @@
-import AsteroidsMainScene from '../scenes/main-scene';
+import AsteroidsMainScene from '../scenes/game-scene';
 export default function updateNave(this: AsteroidsMainScene) {
 
 

@@ -1,4 +1,4 @@
-import AsteroidsMainScene from '../scenes/main-scene';
+import AsteroidsMainScene from '../scenes/game-scene';
 export default function createNave(this: AsteroidsMainScene) {
   const nave = this.objeto(
     'nave',

@@ -1,4 +1,4 @@
-import AsteroidsMainScene from '../scenes/main-scene';
+import AsteroidsMainScene from '../scenes/game-scene';
 export default function createAsteroides(this: AsteroidsMainScene) {
   let asteroides = this.objeto(
     'grupo.ast',
