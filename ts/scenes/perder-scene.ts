@@ -1,6 +1,6 @@
 import AsteroidsScene from './templates/asteroids-scene';
 export default class AsteroidsLooseScene extends AsteroidsScene {
-  constructor(config: Phaser.Types.Scenes.SettingsConfig) {
+  constructor() {
     super({
       active: false,
       visible: false,
