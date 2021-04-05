@@ -21,9 +21,7 @@ export default function disparo(this: AsteroidsMainScene) {
   disp.setVelocity(vX, vY)
 
   if (this.physics.config.debug) {
-    // const texto = this.objeto<Phaser.GameObjects.Text>('texto.debug')
     console.log('disparo')
-    console.log(disp.angle, disp.body.angle, nave.angle, nave.body.angle)
   };
 
 }
