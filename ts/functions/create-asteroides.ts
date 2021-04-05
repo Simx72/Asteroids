@@ -48,6 +48,8 @@ export default function createAsteroides(this: AsteroidsMainScene) {
     this.objeto<Phaser.Physics.Arcade.Group>('grupo.ast'),
     this.objeto<Phaser.Types.Physics.Arcade.ImageWithDynamicBody>('grupo.disparos'),
     (obj1, obj2) => {
+      obj1.destroy()
+      obj2.destroy()
       console.log(obj1, 'se estrello con', obj2)
     }
   )
