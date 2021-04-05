@@ -12,7 +12,7 @@ export default function disparo(this: AsteroidsMainScene) {
 
   disp.setAngle(nave.angle - 90)
 
-  disp.body.setCircle(70, 120, 0)
+  disp.body.setCircle(70, 150, 0)
 
   disp.body.angle = Phaser.Math.DegToRad(disp.angle)
 
