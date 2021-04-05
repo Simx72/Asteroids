@@ -7,8 +7,8 @@ export default function disparo(this: AsteroidsMainScene) {
 
   let disp = disparos.create(nave.x, nave.y, 'fueguito.22') as Phaser.Types.Physics.Arcade.ImageWithDynamicBody
 
-  disp.displayWidth = 30;
-  disp.displayHeight = 30;
+  disp.displayWidth = 20;
+  disp.displayHeight = 50;
 
   disp.setAngle(nave.angle - 90)
 
