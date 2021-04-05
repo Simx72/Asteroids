@@ -54,8 +54,6 @@ export default class AsteroidsMainScene extends AsteroidsScene {
    **************/
   public create() {
 
-    
-
     if (this.physics.config.debug) {
       this.objeto(
         'texto.debug',
