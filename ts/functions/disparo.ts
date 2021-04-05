@@ -5,7 +5,7 @@ export default function disparo(this: AsteroidsMainScene) {
 
   let disparos = this.objeto<Phaser.Physics.Arcade.Group>('grupo.disparos')
 
-  let disp = disparos.create(nave.x, nave.y) as Phaser.Types.Physics.Arcade.ImageWithDynamicBody
+  let disp = disparos.create(nave.x, nave.y, 'fueguito.22') as Phaser.Types.Physics.Arcade.ImageWithDynamicBody
 
   disp.setAngle(nave.angle)
 
