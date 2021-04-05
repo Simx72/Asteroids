@@ -92,7 +92,7 @@ function perder(this: AsteroidsMainScene) {
   let exp = this.objeto<Phaser.GameObjects.Sprite>('explosion')
 
   let end = () => {
-    this.scene.stop('main-scene').run('loose-scene')
+    this.scene.stop('game-scene').run('loose-scene')
   }
 
   const nave = this.objeto<Phaser.Types.Physics.Arcade.ImageWithDynamicBody>('nave')
