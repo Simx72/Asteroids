@@ -14,8 +14,8 @@ export default class AsteroidsMainScene extends AsteroidsScene {
     });
   }
 
-  disparo = () => disparo(this)
-  muerte = () => muerte(this)
+  disparo = () => disparo.bind(this)
+  muerte = () => muerte.bind(this)
 
   /***************
    * PRELOAD
@@ -59,11 +59,11 @@ export default class AsteroidsMainScene extends AsteroidsScene {
       );
     }
 
-    createNave(this)
+    createNave.bind(this)
 
-    createAsteroides(this)
+    createAsteroides.bind(this)
 
-    detectarMuerte(this)
+    detectarMuerte.bind(this)
 
   }
 
