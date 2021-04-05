@@ -61,7 +61,7 @@ export default function createAsteroides(this: AsteroidsMainScene) {
 
       exp
         .setVisible(true)
-        .on('animationcomplete', () => exp.setVisible(false))
+        .once('animationcomplete', () => exp.setVisible(false))
         .anims.play('explotar')
 
       let audio = this.sound.add('audio.explo')
