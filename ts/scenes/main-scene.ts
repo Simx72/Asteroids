@@ -88,7 +88,7 @@ export default class AsteroidsMainScene extends AsteroidsScene {
       })) + '\n'
     }
 
-    updateNave(this)
+    updateNave.bind(this)
 
     let asteroides = <Phaser.GameObjects.Group>this.objeto('grupo.ast')
 
