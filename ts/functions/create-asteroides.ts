@@ -1,8 +1,8 @@
 import AsteroidsMainScene from '../scenes/main-scene';
 export default function createAsteroides(game: AsteroidsMainScene) {
-  let asteroides = game.objeto(
+  let asteroides = this.objeto(
     'grupo.ast',
-    game.physics.add.group([], {
+    this.physics.add.group([], {
       classType: Phaser.GameObjects.Image
     })
   )
@@ -20,9 +20,9 @@ export default function createAsteroides(game: AsteroidsMainScene) {
   Phaser.Actions.PlaceOnCircle(
     creado,
     new Phaser.Geom.Circle(
-      game.centerX,
-      game.centerY,
-      game.scale.height * 0.4
+      this.centerX,
+      this.centerY,
+      this.scale.height * 0.4
     )
   )
 
