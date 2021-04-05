@@ -2,27 +2,27 @@ import AsteroidsMainScene from '../scenes/main-scene';
 export default function updateNave(game: AsteroidsMainScene) {
 
 
-  const nave = game.objeto<Phaser.Types.Physics.Arcade.ImageWithDynamicBody>('nave')
+  const nave = this.objeto<Phaser.Types.Physics.Arcade.ImageWithDynamicBody>('nave')
 
-  if (game.physics.config.debug) {
-    const texto = <Phaser.GameObjects.Text>game.objeto('texto.debug')
+  if (this.physics.config.debug) {
+    const texto = <Phaser.GameObjects.Text>this.objeto('texto.debug')
     texto.text += `posición: \tx ${Math.floor(nave.x)} \t| y ${Math.floor(nave.y)} \n`
     texto.text += `velocidad:\tx ${Math.floor(nave.body.velocity.x)} \t| y ${Math.floor(nave.body.velocity.y)} \n`
     texto.text += `ángulo: \t${Math.floor(nave.angle)} \n`
-    texto.text += `vidas: \t${game.dato<number>('vidas') + 1} (${game.dato<number>('vidas')}) \n`
+    texto.text += `vidas: \t${this.dato<number>('vidas') + 1} (${this.dato<number>('vidas')}) \n`
   }
 
   const keys = {
-    'up-arrow': game.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP),
-    'down-arrow': game.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN),
-    'right-arrow': game.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT),
-    'left-arrow': game.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT),
-    'W': game.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W),
-    'S': game.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S),
-    'D': game.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D),
-    'A': game.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A),
-    'space': game.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE),
-    'c': game.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.C),
+    'up-arrow': this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP),
+    'down-arrow': this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN),
+    'right-arrow': this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT),
+    'left-arrow': this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT),
+    'W': this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W),
+    'S': this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S),
+    'D': this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D),
+    'A': this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A),
+    'space': this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE),
+    'c': this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.C),
   }
 
   let pressed = {
@@ -61,13 +61,13 @@ export default function updateNave(game: AsteroidsMainScene) {
   }
 
   /* disparo */
-  if (game.input.keyboard.checkDown(keys['space'], 700)) {
-    game.disparo()
+  if (this.input.keyboard.checkDown(keys['space'], 700)) {
+    this.disparo()
   }
 
-  if (nave.x < (0 - (nave.displayWidth / 2)) || nave.x > (game.scale.width + nave.displayWidth / 2) || nave.y < (0 - (nave.displayHeight / 2)) || nave.y > (game.scale.height + nave.displayHeight / 2)) {
+  if (nave.x < (0 - (nave.displayWidth / 2)) || nave.x > (this.scale.width + nave.displayWidth / 2) || nave.y < (0 - (nave.displayHeight / 2)) || nave.y > (this.scale.height + nave.displayHeight / 2)) {
     /* al morir en algun borde */
-    game.muerte()
+    this.muerte()
   }
 
 }
