@@ -1,5 +1,5 @@
 import AsteroidsMainScene from '../scenes/main-scene';
-export default function createNave(game: AsteroidsMainScene) {
+export default function createNave(this: AsteroidsMainScene) {
   const nave = this.objeto(
     'nave',
     this.physics.add.image(this.centerX, this.centerY, 'nave')
@@ -30,9 +30,9 @@ export default function createNave(game: AsteroidsMainScene) {
     nave.width * 0.16
   )
 
-  this.input.keyboard.on('keydown-SPACE', function () {
+  this.input.keyboard.on('keydown-SPACE', (function (this: AsteroidsMainScene) {
     this.disparo()
-  });
+  }).bind(this));
 
 
   let exp = this.objeto('explosion',
