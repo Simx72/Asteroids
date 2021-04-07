@@ -31,10 +31,7 @@ export default class AsteroidsMainScene extends AsteroidsScene {
     this.load.svg('asteroide.2', 'images/SVG/asteroide-2.svg')
     this.load.svg('asteroide.3', 'images/SVG/asteroide-3.svg')
 
-    /* for (let i = 0; i < 50; i++) {
-      i.valueOf */
-      this.load.image('fueguito.22', 'images/PNG/fueguito/efecto_fuego_00022.png')
-    /* } */
+    this.load.atlas('cargando', 'images/PNG/loading/atlas/spritesheet.png', 'images/PNG/loading/atlas/spritesheet.json')
 
     this.load.spritesheet({
       key: 'explosion',
