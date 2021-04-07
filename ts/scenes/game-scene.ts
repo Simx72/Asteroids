@@ -59,7 +59,6 @@ export default class AsteroidsMainScene extends AsteroidsScene {
     cargando.setOrigin(0.5, 0)
     cargando.anims.create({
       key: 'cargar',
-      frames: this.anims.generateFrameNumbers('cargando', { start: 0, end: 31 }),
       frameRate: 60,
       repeat: 0
     })
