@@ -30,7 +30,7 @@ export default class AsteroidsMainScene extends AsteroidsScene {
     this.load.svg('asteroide.1', 'images/SVG/asteroide-1.svg')
     this.load.svg('asteroide.2', 'images/SVG/asteroide-2.svg')
     this.load.svg('asteroide.3', 'images/SVG/asteroide-3.svg')
-    
+
     this.load.image('fueguito.22', 'images/PNG/fueguito/efecto_fuego_00022.png')
 
     this.load.atlas('cargando', 'images/PNG/loading/atlas/spritesheet.png', 'images/PNG/loading/atlas/spritesheet.json')
@@ -52,6 +52,17 @@ export default class AsteroidsMainScene extends AsteroidsScene {
    * CREATE
    **************/
   public create() {
+
+    let cargando = this.objeto('sprite.cargando',
+      this.add.sprite(this.centerX, this.centerY, 'cargando', 1)
+    )
+    cargando.setOrigin(0.5, 0.5)
+    cargando.anims.create({
+      key: 'cargar',
+      frames: this.anims.generateFrameNumbers('cargando', { start: 0, end: 31 }),
+      frameRate: 60,
+      repeat: 0
+    })
 
     if (this.physics.config.debug) {
       this.objeto(
