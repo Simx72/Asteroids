@@ -12,7 +12,7 @@ export var asteroidsPhaserGameConfig: Phaser.Types.Core.GameConfig = {
   physics: {
     default: 'arcade',
     arcade: {
-      debug: false
+      debug: true
     }
   },
 };

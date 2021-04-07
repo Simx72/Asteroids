@@ -23,6 +23,9 @@ export default function disparo(this: AsteroidsMainScene) {
 
   disp.setVelocity(vX, vY)
 
+  let audio = this.sound.add('audio.laser')
+  audio.play()
+
   if (this.physics.config.debug) {
     console.log('disparo')
   };
