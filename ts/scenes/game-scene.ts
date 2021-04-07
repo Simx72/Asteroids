@@ -63,9 +63,6 @@ export default class AsteroidsMainScene extends AsteroidsScene {
       frameRate: 60,
       repeat: 0
     })
-    try {
-      cargando.anims.play('cargar')
-    } catch (e) { console.dir(e) }
 
     if (this.physics.config.debug) {
       this.objeto(
