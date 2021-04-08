@@ -12,7 +12,7 @@ export function updateAsteroides(this: AsteroidsMainScene) {
     
     let asteroide = asteroides.create(x, y) as Phaser.Physics.Arcade.Image
 
-    alert(asteroide.texture.key)
+    console.log(asteroide)
 
   }
 }
