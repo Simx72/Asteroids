@@ -108,10 +108,10 @@ export default class AsteroidsMainScene extends AsteroidsScene {
 
 
     if (!this.dato<boolean>('cargado')) {
-      this.objeto<Phaser.GameObjects.Sprite>('cargando.sprite').depth -= 5
-      this.objeto<Phaser.GameObjects.Rectangle>('cargando.rect').depth -= 5
+      this.objeto<Phaser.GameObjects.Sprite>('cargando.sprite').alpha -= 5
+      this.objeto<Phaser.GameObjects.Rectangle>('cargando.rect').alpha -= 5
     }
-    if ((!this.dato<boolean>('cargado')) && (this.objeto<Phaser.GameObjects.Sprite>('cargando.sprite').depth == 0)) {
+    if ((!this.dato<boolean>('cargado')) && (this.objeto<Phaser.GameObjects.Sprite>('cargando.sprite').alpha == 0)) {
       this.objeto<Phaser.GameObjects.Sprite>('cargando.sprite').destroy()
       this.objeto<Phaser.GameObjects.Rectangle>('cargando.rect').destroy()
       this.dato('cargado', true)
