@@ -11,16 +11,14 @@ export default function disparo(this: AsteroidsMainScene) {
   disp.displayHeight = 20;
 
   disp.setAngle(nave.angle - 90)
-
-  let dispTopCenter = disp.getTopCenter();
-  disp.body.setCircle(70, dispTopCenter.x, dispTopCenter.y)
-
+  
   disp.body.angle = Phaser.Math.DegToRad(disp.angle)
   let angle = ((nave.angle - 90 >= 0) ? nave.angle : 360 + nave.angle) - 90,
     vel = 350,
     vX = vel * Math.cos(Phaser.Math.DegToRad(angle)),
     vY = vel * Math.sin(Phaser.Math.DegToRad(angle));
 
+  disp.body.setCircle(70, vX, vY)
   disp.setVelocity(vX, vY)
 
   let audio = this.sound.add('audio.laser')
