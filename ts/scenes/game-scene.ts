@@ -108,8 +108,8 @@ export default class AsteroidsMainScene extends AsteroidsScene {
 
 
     if (!this.dato<boolean>('cargado')) {
-      // this.objeto<Phaser.GameObjects.Sprite>('cargando.sprite').destroy()
-      // this.objeto<Phaser.GameObjects.Rectangle>('cargando.rect').destroy()
+      this.objeto<Phaser.GameObjects.Sprite>('cargando.sprite').destroy()
+      this.objeto<Phaser.GameObjects.Rectangle>('cargando.rect').destroy()
       this.dato('cargado', true)
     }
   }
