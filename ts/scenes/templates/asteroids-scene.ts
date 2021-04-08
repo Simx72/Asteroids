@@ -13,7 +13,7 @@ export default class AsteroidsScene extends Phaser.Scene {
           this.dato('assets url', 'https://pagina-simx72-aba9b.web.app/asteroids-assets/')
         }
       }
-      xhr.open('GET', 'https://pagina-simx72-aba9b.web.app/')
+      xhr.open('GET', 'https://pagina-simx72-aba9b.web.app/asteroids-assets/images/PNG/fueguito/efecto_fuego_00022.png')
       xhr.send()
     }
   }
