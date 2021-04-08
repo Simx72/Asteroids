@@ -12,7 +12,15 @@ export function updateAsteroides(this: AsteroidsMainScene) {
     
     let asteroide = asteroides.create(x, y) as Phaser.Physics.Arcade.Image
 
-    console.log(asteroide)
+    let texture = ''
+
+    switch (Phaser.Math.Between(1, 3)) {
+      case 1: texture = 'asteroide.1';
+      case 2: texture = 'asteroide.2';
+      case 3: texture = 'asteroide.3';
+    }
+
+    asteroide.setTexture(texture)
 
   }
 }
