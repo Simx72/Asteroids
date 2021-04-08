@@ -20,6 +20,8 @@ export function updateAsteroides(this: AsteroidsMainScene) {
       case 3: texture = 'asteroide.3';
     }
 
+    console.log(texture)
+
     asteroide.setTexture(texture)
 
   }
