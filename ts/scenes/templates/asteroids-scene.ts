@@ -5,7 +5,7 @@ export default class AsteroidsScene extends Phaser.Scene {
     this.centerY = 0;
     this._ = { objeto: {}, dato: {} };
     this.defaultFont = 'ChakraPetch, Verdana, Geneva, Tahoma, sans-serif';
-    this.dato('assets url', 'https://pagina-simx72-aba9b.web.app/asteroids-assets/');
+    this.dato('assets url', ((location.hostname == '127.0.0.1')? '/asteroids-assets' : 'https://pagina-simx72-aba9b.web.app/asteroids-assets/'));
   }
 
   defaultFont: string;
