@@ -102,7 +102,7 @@ export default class AsteroidsMainScene extends AsteroidsScene {
 
     updateNave.bind(this)()
 
-    updateAsteroides.bind(this)
+    updateAsteroides.bind(this)()
 
     if (!this.dato<boolean>('cargado')) {
       this.objeto<Phaser.GameObjects.Sprite>('cargando.sprite').alpha -= 0.01
