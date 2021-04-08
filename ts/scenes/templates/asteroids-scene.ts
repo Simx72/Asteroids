@@ -9,8 +9,9 @@ export default class AsteroidsScene extends Phaser.Scene {
     {
       let xhr = new XMLHttpRequest()
       xhr.onreadystatechange = () => {
-        if (xhr.readyState == 4 && xhr.status == 200)
-        this.dato('assets url', 'https://pagina-simx72-aba9b.web.app/asteroids-assets/')
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          this.dato('assets url', 'https://pagina-simx72-aba9b.web.app/asteroids-assets/')
+        }
       }
       xhr.open('GET', 'https://pagina-simx72-aba9b.web.app/')
       xhr.send()
