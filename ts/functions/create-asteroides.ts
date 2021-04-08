@@ -10,20 +10,12 @@ export default function createAsteroides(this: AsteroidsMainScene) {
 
   let creado = asteroides.createMultiple(
     {
-      quantity: 4,
+      quantity: 0,
       key: ['asteroide.1', 'asteroide.2'],
       setScale: { x: 0.12, y: 0.12 },
-      randomKey: true
+      randomKey: true,
+      setOrigin: { x: 0.5, y: 0.5 }
     }
-  )
-
-  Phaser.Actions.PlaceOnCircle(
-    creado,
-    new Phaser.Geom.Circle(
-      this.centerX,
-      this.centerY,
-      this.scale.height * 0.4
-    )
   )
 
   asteroides.children.each((go: any) => {
