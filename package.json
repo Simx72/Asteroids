@@ -5,7 +5,8 @@
     "main": "",
     "scripts": {
         "build": "tsc -p \"./tsconfig.json\"",
-        "vercel-install": "npm ci"
+        "vercel-install": "npm ci",
+        "local-install": "npm install --save extract-zip && curl -O https://pagina-simx72-aba9b.web.app/zip/asteroids-assets-latest.zip && mkdir asteroids-assets && ./node_modules/.bin/extract-zip asteroids-assets-latest.zip asteroids-assets"
     },
     "repository": {
         "type": "git",
