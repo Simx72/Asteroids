@@ -54,7 +54,7 @@ export default class AsteroidsMainScene extends AsteroidsScene {
   public create() {
 
     let cargando = this.objeto('sprite.cargando',
-      this.add.sprite(this.centerX, 10, 'cargando', 1)
+      this.add.sprite(this.centerX, 10, 'cargando', 'frame-0.png')
     )
     cargando.setOrigin(0.5, 0)
     cargando.anims.create({
