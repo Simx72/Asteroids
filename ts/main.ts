@@ -18,5 +18,5 @@ export var asteroidsPhaserGameConfig: Phaser.Types.Core.GameConfig = {
 };
 
 var asteroidsPhaserGame = new Phaser.Game(asteroidsPhaserGameConfig)
-
+console.log('Asteroids se ha iniciado!')
 export default asteroidsPhaserGame
