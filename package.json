@@ -6,7 +6,8 @@
     "scripts": {
         "build": "tsc -p \"./tsconfig.json\"",
         "vercel-install": "npm ci",
-        "local-install": "npm install --save extract-zip && curl -O https://pagina-simx72-aba9b.web.app/zip/asteroids-assets-latest.zip && mkdir asteroids-assets && ./node_modules/.bin/extract-zip asteroids-assets-latest.zip asteroids-assets"
+        "local-install": "npm ci && npm install --save decompress-cli && curl -O https://pagina-simx72-aba9b.web.app/zip/asteroids-assets-latest.zip && fse mkdirp asteroids-assets && ./node_modules/.bin/decompress asteroids-assets-latest.zip --out-dir=asteroids-assets && fse remove asteroids-assets-latest.zip && npm uninstall --save decompress-cli",
+        "start": " echo \"  Aplicación iniciada\n  Para jugar entre a\n  http://127.0.0.1:51234\n  En su navegador\n  Para terminar oprima Ctrl+C [^C en mac]\" && http-server -p 51234 -i true -d false -o \"./\" --silent"
     },
     "repository": {
         "type": "git",
@@ -20,6 +21,8 @@
     },
     "homepage": "https://github.com/Simx72/Asteroids#readme",
     "dependencies": {
+        "@atao60/fse-cli": "^0.0.55",
+        "http-server": "^0.12.3",
         "phaser": "^3.54.0",
         "requirejs": "^2.3.6"
     },
