@@ -22,7 +22,7 @@ export default function disparo(this: AsteroidsMainScene) {
     cX = col * Math.cos(Phaser.Math.DegToRad(angle)),
     cY = col * Math.sin(Phaser.Math.DegToRad(angle));
 
-  disp.body.setCircle(70, 150 + cX, -100 + cY)
+  disp.body.setCircle(70, 150, -100)
 
   disp.setVelocity(vX, vY)
 
