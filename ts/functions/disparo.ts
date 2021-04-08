@@ -12,14 +12,17 @@ export default function disparo(this: AsteroidsMainScene) {
 
   disp.setAngle(nave.angle - 90)
 
-  disp.body.setCircle(70, 150, -100)
-
   disp.body.angle = Phaser.Math.DegToRad(disp.angle)
 
   let angle = ((nave.angle - 90 >= 0) ? nave.angle : 360 + nave.angle) - 90,
     vel = 350,
     vX = vel * Math.cos(Phaser.Math.DegToRad(angle)),
-    vY = vel * Math.sin(Phaser.Math.DegToRad(angle));
+    vY = vel * Math.sin(Phaser.Math.DegToRad(angle)),
+    col = 50,
+    cX = col * Math.cos(Phaser.Math.DegToRad(angle)),
+    cY = col * Math.sin(Phaser.Math.DegToRad(angle));
+  
+  disp.body.setCircle(70, 100+cX, -100+cY)
 
   disp.setVelocity(vX, vY)
 
