@@ -3,7 +3,7 @@ export default function createNave(this: AsteroidsMainScene) {
   const nave = this.objeto(
     'nave',
     this.physics.add.image(this.centerX, this.centerY, 'nave')
-  ).setScale(0.06).setOrigin(0.5, 0.5)
+  ).setScale(0.06).setOrigin(0.5, 0.5).setDepth(10)
 
   this.dato('vivo', true)
   this.dato('vidas', 2)
