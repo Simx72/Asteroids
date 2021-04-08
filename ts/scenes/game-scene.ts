@@ -52,11 +52,15 @@ export default class AsteroidsMainScene extends AsteroidsScene {
    * CREATE
    **************/
   public create() {
+    this.dato('cargado', false)
 
-    let cargando = this.objeto('sprite.cargando',
+    let cargando = this.objeto('cargando.sprite',
       this.add.sprite(this.centerX, 10, 'cargando', 'frame-0.png')
     )
     cargando.setOrigin(0.5, 0).setDepth(100)
+    let cuadroCargando = this.objeto('cargando.rect'
+      this.add.rectangle(-1, -1, this.scale.width + 2, this.scale.height + 2)
+    )
 
     let cargandoFrames: Phaser.Types.Animations.AnimationFrame[] = []
     for (let i = 0; i < 31; i++) {
@@ -90,6 +94,10 @@ export default class AsteroidsMainScene extends AsteroidsScene {
    * UPDATE
    **************/
   public update() {
+    if (!this.dato<boolean>('cargado')) {
+      this.objeto<Phaser.GameObjects.Sprite>('cargando.sprite').destroy()
+      this.dato('cargado', true)
+    }
 
     if (this.physics.config.debug) {
       const texto = <Phaser.GameObjects.Text>this.objeto('texto.debug')
