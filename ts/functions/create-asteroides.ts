@@ -3,19 +3,12 @@ export default function createAsteroides(this: AsteroidsMainScene) {
   let asteroides = this.objeto(
     'grupo.ast',
     this.physics.add.group([], {
-      classType: Phaser.GameObjects.Image
-    })
-  )
-
-
-  let creado = asteroides.createMultiple(
-    {
-      quantity: 0,
+      classType: Phaser.GameObjects.Image,
       key: ['asteroide.1', 'asteroide.2'],
       setScale: { x: 0.12, y: 0.12 },
       randomKey: true,
       setOrigin: { x: 0.5, y: 0.5 }
-    }
+    })
   )
 
   asteroides.children.each((go: any) => {
