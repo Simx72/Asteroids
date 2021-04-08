@@ -4,6 +4,7 @@ import { muerte, detectarMuerte } from '../functions/muerte';
 import createNave from '../functions/create-nave';
 import createAsteroides from '../functions/create-asteroides';
 import updateNave from '../functions/update-nave';
+import { updateAsteroides } from '../functions/update-asteroides';
 
 export default class AsteroidsMainScene extends AsteroidsScene {
   constructor() {
@@ -101,11 +102,7 @@ export default class AsteroidsMainScene extends AsteroidsScene {
 
     updateNave.bind(this)()
 
-    let asteroides = <Phaser.GameObjects.Group>this.objeto('grupo.ast')
-
-    asteroides.rotate(Phaser.Math.DegToRad(3))
-
-
+    updateAsteroides.bind(this)
 
     if (!this.dato<boolean>('cargado')) {
       this.objeto<Phaser.GameObjects.Sprite>('cargando.sprite').alpha -= 0.01
