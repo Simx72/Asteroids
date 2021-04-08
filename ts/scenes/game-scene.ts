@@ -62,6 +62,7 @@ export default class AsteroidsMainScene extends AsteroidsScene {
     for (let i = 0; i < 31; i++) {
       cargandoFrames.push({ frame: `frame-${i}.png` })
     }
+    console.log(cargandoFrames)
     cargando.anims.create({
       key: 'cargar',
       frames: cargandoFrames,
