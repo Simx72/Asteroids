@@ -4,7 +4,7 @@ export default function createAsteroides(this: AsteroidsMainScene) {
     'grupo.ast',
     this.physics.add.group([], {
       classType: Phaser.GameObjects.Image,
-      key: ['asteroide.1', 'asteroide.2'],
+      defaultKey: 'asteroide.1',
       setScale: { x: 0.12, y: 0.12 },
       randomKey: true,
       setOrigin: { x: 0.5, y: 0.5 }
