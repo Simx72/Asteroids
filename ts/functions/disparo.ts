@@ -19,7 +19,7 @@ export default function disparo(this: AsteroidsMainScene) {
     rY = Math.sin(Phaser.Math.DegToRad(angle));
 
   disp.body.setCircle(70, 150 + rX*100, rY*100)
-  disp.setVelocity(rX*vel, rY+vel)
+  disp.setVelocity(rX*vel, rY*vel)
 
   let audio = this.sound.add('audio.laser')
   audio.play()
