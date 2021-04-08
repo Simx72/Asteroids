@@ -10,6 +10,9 @@ export function updateAsteroides(this: AsteroidsMainScene) {
       angulo = 0,
       vel = 0;
     
-    asteroides.create(x, y)
+    let asteroide = asteroides.create(x, y) as Phaser.Physics.Arcade.Image
+
+    alert(asteroide.texture.key)
+
   }
 }
