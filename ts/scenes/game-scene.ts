@@ -108,6 +108,7 @@ export default class AsteroidsMainScene extends AsteroidsScene {
 
 
     if (!this.dato<boolean>('cargado')) {
+      console.log(this.objeto<Phaser.GameObjects.Sprite>('cargando.sprite').alpha)
       this.objeto<Phaser.GameObjects.Sprite>('cargando.sprite').alpha -= 1
       this.objeto<Phaser.GameObjects.Rectangle>('cargando.rect').alpha -= 1
     }
