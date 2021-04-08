@@ -58,13 +58,13 @@ export default class AsteroidsMainScene extends AsteroidsScene {
     )
     cargando.setOrigin(0.5, 0)
 
-    let frames: Phaser.Types.Animations.AnimationFrame[] = []
+    let cargandoFrames: Phaser.Types.Animations.AnimationFrame[] = []
     for (let i = 0; i < 31; i++) {
-      frames.push({ frame: `frame-${i}.png` })
+      cargandoFrames.push({ frame: `frame-${i}.png` })
     }
     cargando.anims.create({
       key: 'cargar',
-      frames,
+      frames: cargandoFrames,
       frameRate: 60,
       repeat: 0
     })
