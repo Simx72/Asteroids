@@ -11,6 +11,8 @@ export default class AsteroidsScene extends Phaser.Scene {
       xhr.onreadystatechange = () => {
         if (xhr.readyState == 4 && xhr.status == 200) {
           this.dato('assets url', 'https://pagina-simx72-aba9b.web.app/asteroids-assets/')
+        } else {
+          console.log(xhr)
         }
       }
       xhr.open('GET', 'https://pagina-simx72-aba9b.web.app/asteroids-assets/images/PNG/fueguito/efecto_fuego_00022.png')
