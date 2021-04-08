@@ -4,7 +4,7 @@ export function updateAsteroides(this: AsteroidsMainScene) {
 
   asteroides.rotate(Phaser.Math.DegToRad(3))
 
-  if (this.game.getFrame() % 3 == 0) {
+  if (this.game.getFrame() % 3 == 0 && this.dato('cargado')) {
     let x = 0,
       y = 0,
       angulo = 0,
