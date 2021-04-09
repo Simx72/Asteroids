@@ -35,11 +35,11 @@ export default function createNave(this: AsteroidsMainScene) {
     nave.width * 0.16
   )
 
-  this.input.keyboard.on('keydown-SPACE', (function (this: AsteroidsMainScene) {
+  this.input.keyboard.on('keydown-SPACE', () => {
     if (this.dato('vivo') == true) {
       this.disparo()
     }
-  }).bind(this));
+  });
 
 
   let exp = this.objeto('explosion',
