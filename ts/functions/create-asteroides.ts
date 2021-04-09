@@ -34,6 +34,8 @@ export default function createAsteroides(this: AsteroidsMainScene) {
       let audio = this.sound.add('audio.explo')
       audio.play()
 
+      this.dato('puntos', this.dato<number>('puntos') + 1)
+
       if (this.physics.config.debug) {
         console.log(disparo, 'destruyo a', asteroide)
       }
