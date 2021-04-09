@@ -10,6 +10,13 @@ export default class AsteroidsLooseScene extends AsteroidsScene {
 
   preload() {
     this.defaultPreload()
+    let regexres = document.cookie.match(/puntos=(.+)/g)
+    if (regexres != null) {
+      this.dato('puntos', parseInt(regexres[1]))
+    } else {
+      this.dato('puntos', 0)
+    }
+    
   }
 
   create() {
@@ -19,6 +26,11 @@ export default class AsteroidsLooseScene extends AsteroidsScene {
         'texto.debug',
         this.add.text(0, 0, `[scene]: Perder Scene (${this.scene.key}) \n\n`).setOrigin(0, 0).setPosition(10, 10).setDepth(100)
       );
+    } else {
+      this.objeto(
+        'texto.puntos',
+        this.add.text(0, 0, this.dato<number>('puntos').toString(), { fontFamily: this.defaultFont, fontSize: '25pt' }).setOrigin(0, 0).setPosition(10, 10).setDepth(70)
+      )
     }
 
     let texto = this.add.text(
