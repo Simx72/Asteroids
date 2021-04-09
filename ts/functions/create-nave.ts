@@ -7,11 +7,16 @@ export default function createNave(this: AsteroidsMainScene) {
 
   this.dato('vivo', true)
   this.dato('vidas', 2)
+  this.dato('puntos', 0)
 
   let vidas = this.objeto(
     'grupo.vidas',
     this.add.group()
   )
+
+  this.dato('intervaloPuntos', window.setInterval(() => {
+    this.dato('puntos', this.dato<number>('puntos') + 1)
+  }, 1000))
 
   vidas.createMultiple({
     quantity: this.dato('vidas'),
