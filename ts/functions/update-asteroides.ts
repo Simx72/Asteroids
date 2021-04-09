@@ -5,10 +5,28 @@ export function updateAsteroides(this: AsteroidsMainScene) {
   asteroides.rotate(Phaser.Math.DegToRad(3))
 
   if (this.game.getFrame() % 3 == 0 && this.dato('cargado')) {
-    let x = 0,
-      y = 0,
-      angulo = 0,
-      vel = 0;
+
+    let side = Phaser.Math.Between(1, 4)
+    let x = 0, y = 0, angulo = 0, vel = 50;
+
+    if (side === 1) {
+      x = Phaser.Math.Between(0, this.scale.width)
+      y = -10
+      angulo = Phaser.Math.Between(135, 225)
+    } else if (side === 2) {
+      x = this.scale.width + 10
+      y = Phaser.Math.Between(0, this.scale.height)
+      angulo = Phaser.Math.Between(-45, -135)
+    } else if (side === 3) {
+      x = Phaser.Math.Between(0, this.scale.width)
+      y = this.scale.height + 10
+      angulo = Phaser.Math.Between(-45, 45)
+    } else if (side === 4) {
+      x = -10
+      y = Phaser.Math.Between(0, this.scale.height)
+      angulo = Phaser.Math.Between(45, 135)
+    }
+
 
     let asteroide = asteroides.create(x, y) as Phaser.Physics.Arcade.Image
 
@@ -19,7 +37,7 @@ export function updateAsteroides(this: AsteroidsMainScene) {
       case 2: texture = 'asteroide.2'; break;
       case 3: texture = 'asteroide.3'; break;
     }
-    
+
     asteroide.setTexture(texture).setScale(0.12, 0.12)
 
     if (asteroide.texture.key == 'asteroide.1')
@@ -36,9 +54,6 @@ export function updateAsteroides(this: AsteroidsMainScene) {
       )
 
     asteroide.body.pushable = false
-
-
-    this.scene.pause()
 
   }
 }
