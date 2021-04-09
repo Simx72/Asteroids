@@ -64,7 +64,7 @@ export default function updateNave(this: AsteroidsMainScene) {
   }
 
   /* disparo */
-  if (this.input.keyboard.checkDown(keys['space'], 250) && this.dato('vivo', true)) {
+  if (this.input.keyboard.checkDown(keys['space'], 250) && this.dato('vivo') == true) {
     this.disparo()
   }
   let disparos = this.objeto<Phaser.Physics.Arcade.Group>('grupo.disparos')
