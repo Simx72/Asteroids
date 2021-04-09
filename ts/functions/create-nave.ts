@@ -16,7 +16,7 @@ export default function createNave(this: AsteroidsMainScene) {
 
   this.dato('intervalo puntos', window.setInterval(() => {
     this.dato('puntos', this.dato<number>('puntos') + 1)
-  }, 1000))
+  }, 3000))
 
   vidas.createMultiple({
     quantity: this.dato('vidas'),
