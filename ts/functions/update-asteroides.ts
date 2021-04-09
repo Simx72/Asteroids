@@ -8,7 +8,7 @@ export function updateAsteroides(this: AsteroidsMainScene) {
     if ((-ast.displayWidth / 2) > ast.x && (ast.displayWidth / 2 + this.scale.width) < ast.x && (-ast.displayHeight / 2) > ast.y && (ast.displayHeight/2 + this.scale.height) < ast.y) ast.destroy()
   })
 
-  if (this.game.getFrame() % 4 == 0 && this.dato('cargado')) {
+  if (this.game.getFrame() % 3 == 0 && this.dato('cargado')) {
 
     let side = Phaser.Math.Between(1, 4)
     let x = 0, y = 0, angulo = 0, vel = 50;
