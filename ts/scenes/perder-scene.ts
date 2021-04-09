@@ -33,7 +33,7 @@ export default class AsteroidsLooseScene extends AsteroidsScene {
     } else {
       this.objeto(
         'texto.puntos',
-        this.add.text(0, 0, this.dato<number>('puntos').toString(), { fontFamily: this.defaultFont, fontSize: '25pt' }).setOrigin(0, 0).setPosition(10, 10).setDepth(70)
+        this.add.text(0, 0, 'Tu puntaje: '+this.dato<number>('puntos'), { fontFamily: this.defaultFont, fontSize: '25pt' }).setOrigin(0, 0).setPosition(10, 10).setDepth(70)
       )
     }
 
