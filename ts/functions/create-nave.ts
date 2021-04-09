@@ -36,7 +36,9 @@ export default function createNave(this: AsteroidsMainScene) {
   )
 
   this.input.keyboard.on('keydown-SPACE', (function (this: AsteroidsMainScene) {
-    this.disparo()
+    if (this.dato('vivo') == true) {
+      this.disparo()
+    }
   }).bind(this));
 
 
