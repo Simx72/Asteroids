@@ -1,6 +1,6 @@
 import AsteroidsMainScene from '../scenes/game-scene';
 export default function createAsteroides(this: AsteroidsMainScene) {
-  let asteroides = this.objeto(
+  this.objeto(
     'grupo.ast',
     this.physics.add.group([], {
       classType: Phaser.GameObjects.Image,
@@ -10,24 +10,6 @@ export default function createAsteroides(this: AsteroidsMainScene) {
       setOrigin: { x: 0.5, y: 0.5 }
     })
   )
-
-  asteroides.children.each((go: any) => {
-    let ast = go as Phaser.Types.Physics.Arcade.ImageWithDynamicBody;
-    if (ast.texture.key == 'asteroide.1')
-      ast.body.setCircle(
-        ast.height * 0.45,
-        ast.height * 0.05,
-        ast.height * 0.05
-      )
-    if (ast.texture.key == 'asteroide.2')
-      ast.body.setCircle(
-        ast.height * 0.32,
-        ast.height * 0.18,
-        ast.height * 0.18
-      )
-
-    ast.body.pushable = false
-  })
 
   this.physics.add.overlap(
     this.objeto<Phaser.Physics.Arcade.Group>('grupo.ast'),
