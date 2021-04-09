@@ -10,6 +10,9 @@ export default function updateNave(this: AsteroidsMainScene) {
     texto.text += `velocidad:\tx ${Math.floor(nave.body.velocity.x)} \t| y ${Math.floor(nave.body.velocity.y)} \n`
     texto.text += `ángulo: \t${Math.floor(nave.angle)} \n`
     texto.text += `vidas: \t${this.dato<number>('vidas') + 1} (${this.dato<number>('vidas')}) \n`
+    texto.text += `puntos: \t${this.dato<number>('puntos')} \n`
+  } else {
+    this.objeto<Phaser.GameObjects.Text>('texto.puntos').text = this.dato('puntos')
   }
 
   const keys = {
