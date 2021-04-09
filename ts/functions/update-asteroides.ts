@@ -53,6 +53,11 @@ export function updateAsteroides(this: AsteroidsMainScene) {
         asteroide.height * 0.18
       )
 
+    asteroide.setVelocity(
+      vel * Math.sin(angulo),
+      vel * Math.cos(angulo)
+    )
+
     asteroide.body.pushable = false
 
   }
