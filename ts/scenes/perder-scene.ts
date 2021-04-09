@@ -28,7 +28,7 @@ export default class AsteroidsLooseScene extends AsteroidsScene {
     if (this.physics.config.debug) {
       this.objeto(
         'texto.debug',
-        this.add.text(0, 0, `[scene]: Perder Scene (${this.scene.key}) \n\n`).setOrigin(0, 0).setPosition(10, 10).setDepth(100)
+        this.add.text(0, 0, `[scene]: Perder Scene (${this.scene.key}) \n\nPuntos: ${this.dato<number>('puntos')}\n`).setOrigin(0, 0).setPosition(10, 10).setDepth(100)
       );
     } else {
       this.objeto(
