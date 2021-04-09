@@ -84,6 +84,11 @@ export default class AsteroidsMainScene extends AsteroidsScene {
         'texto.debug',
         this.add.text(0, 0, `[scene]: Main Scene (${this.scene.key}) \n\n`).setOrigin(0, 0).setPosition(10, 10).setDepth(100)
       );
+    } else {
+      this.objeto(
+        'texto.puntos',
+        this.add.text(0, 0, '0', { fontFamily: this.defaultFont, fontSize: '20pt' }).setOrigin(0, 0).setPosition(10, 10).setDepth(70)
+      )
     }
 
     createNave.bind(this)()
