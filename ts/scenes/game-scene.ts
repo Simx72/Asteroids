@@ -87,7 +87,7 @@ export default class AsteroidsMainScene extends AsteroidsScene {
     } else {
       this.objeto(
         'texto.puntos',
-        this.add.text(0, 0, '0', { fontFamily: this.defaultFont, fontSize: '20pt' }).setOrigin(0, 0).setPosition(10, 10).setDepth(70)
+        this.add.text(0, 0, '0', { fontFamily: this.defaultFont, fontSize: '25pt' }).setOrigin(0, 0).setPosition(10, 10).setDepth(70)
       )
     }
 
