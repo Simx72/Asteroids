@@ -14,7 +14,7 @@ export default function createNave(this: AsteroidsMainScene) {
     this.add.group()
   )
 
-  this.dato('intervaloPuntos', window.setInterval(() => {
+  this.dato('intervalo puntos', window.setInterval(() => {
     this.dato('puntos', this.dato<number>('puntos') + 1)
   }, 1000))
 
