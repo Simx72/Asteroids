@@ -44,6 +44,8 @@ export function muerte(this: AsteroidsMainScene) {
 
       this.dato('vivo', false)
 
+      this.objeto<Phaser.Physics.Arcade.Group>('grupo.ast').clear(true, true)
+
       const nave = this.objeto<Phaser.Types.Physics.Arcade.ImageWithDynamicBody>('nave')
 
       nave.body.setVelocity(0, 0)
