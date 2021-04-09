@@ -10,7 +10,7 @@ export default class AsteroidsLooseScene extends AsteroidsScene {
 
   preload() {
     this.defaultPreload()
-    let regexres = document.cookie.match(/puntos=(.+)/g)
+    let regexres = (/puntos=(\d+)/g).exec(document.cookie)
     if (regexres != null) {
       this.dato('puntos', parseInt(regexres[1]))
     } else {
