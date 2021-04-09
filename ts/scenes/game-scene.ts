@@ -33,7 +33,7 @@ export default class AsteroidsMainScene extends AsteroidsScene {
     this.load.svg('asteroide.3', 'images/SVG/asteroide-3.svg')
 
     this.load.image('fueguito.22', 'images/PNG/fueguito/efecto_fuego_00022.png')
-    this.load.image('controles', 'https://pagina-simx72-aba9b.web.app/asteroids-assets/images/PNG/Controles.png')
+    this.load.image('controles', 'images/PNG/Controles.png')
 
     this.load.atlas('cargando', 'images/PNG/loading/atlas/spritesheet.png', 'images/PNG/loading/atlas/spritesheet.json')
 
