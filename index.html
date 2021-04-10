@@ -21,6 +21,10 @@
             src: url('https://pagina-simx72-aba9b.web.app/asteroids-assets/fonts/ChakraPetch/ChakraPetch-Regular.ttf') format('truetype'), url('https://pagina-simx72-aba9b.web.app/asteroids-assets/fonts/ChakraPetch/ChakraPetch-Regular.otf') format('opentype');
         }
         
+        body.loose {
+            background: 0;
+        }
+        
         .level-1 {
             background: rgb(2, 0, 36);
             background: linear-gradient(160deg, rgba(2, 0, 36, 1) 48%, rgba(3, 3, 40, 1) 100%);
@@ -44,21 +48,12 @@
         @keyframes glassmorphism {
             from {
                 background: #0000;
-                box-shadow: 08px32px0rgba(31, 38, 135, 0.00);
-                -webkit-backdrop-filter: blur(0px);
-                backdrop-filter: blur(0px);
             }
             50% {
-                background: rgba(255, 255, 255, 0.10);
-                box-shadow: 08px32px0rgba(31, 38, 135, 0.37);
-                -webkit-backdrop-filter: blur(4px);
-                backdrop-filter: blur(4px);
+                background: #FFFF;
             }
             to {
                 background: #0000;
-                box-shadow: 08px32px0rgba(31, 38, 135, 0.00);
-                -webkit-backdrop-filter: blur(0px);
-                backdrop-filter: blur(0px);
             }
         }
         
