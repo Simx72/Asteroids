@@ -19,11 +19,11 @@ function animateCSS(element: string, animation: string, prefix = 'animate__') {
 }
 
 export function mostrarTexto(texto: string) {
-  let elt = document.getElementById('motrar-texto')
+  let elt = document.getElementById('mostrar-texto')
   if (elt) {
     elt.classList.remove('hide')
     elt.innerHTML = texto
-    animateCSS('#motrar-texto', 'zoomInDown')
+    animateCSS('#mostrar-texto', 'zoomInDown')
       .then(() => {
         animateCSS('#mostrar-texto', 'zoomOutDown')
           .then(() => {
