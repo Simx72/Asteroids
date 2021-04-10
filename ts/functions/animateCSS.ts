@@ -1,6 +1,6 @@
-const animateCSS = (element: string, animation: string, prefix = 'animate__') =>
+export function animateCSS(element: string, animation: string, prefix = 'animate__') {
   // We create a Promise and return it
-  new Promise((resolve, reject) => {
+  return new Promise((resolve, _reject) => {
     const animationName = `${prefix}${animation}`;
     const node = document.querySelector(element);
 
@@ -12,7 +12,8 @@ const animateCSS = (element: string, animation: string, prefix = 'animate__') =>
       node.addEventListener('animationend', (event) => {
         event.stopPropagation();
         node.classList.remove(`${prefix}animated`, animationName);
-        resolve('Animation ended');
+        resolve(void 0);
       }, { once: true });
     }
   });
+}
