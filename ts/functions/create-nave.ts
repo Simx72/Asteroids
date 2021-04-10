@@ -1,5 +1,5 @@
 import AsteroidsMainScene from '../scenes/game-scene';
-import { ActualizarNivel } from './cargar-menu';
+import { actualizarNivel } from './cargar-menu';
 export default function createNave(this: AsteroidsMainScene) {
   const nave = this.objeto(
     'nave',
@@ -17,7 +17,7 @@ export default function createNave(this: AsteroidsMainScene) {
 
   this.dato('intervalo puntos', window.setInterval(() => {
     this.dato('puntos', this.dato<number>('puntos') + 1)
-    ActualizarNivel.bind(this)()
+    actualizarNivel.bind(this)()
   }, 3000))
 
   vidas.createMultiple({
