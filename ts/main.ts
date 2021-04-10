@@ -8,7 +8,8 @@ export var asteroidsPhaserGameConfig: Phaser.Types.Core.GameConfig = {
     height: innerHeight ? innerHeight - 1 : undefined || document.documentElement.clientHeight || document.body.clientHeight
   },
   scene: Scenes,
-  backgroundColor: '#000000',
+  backgroundColor: '#00000000',
+  transparent: true,
   physics: {
     default: 'arcade',
     arcade: {
