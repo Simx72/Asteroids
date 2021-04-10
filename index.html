@@ -78,7 +78,7 @@
             background: #0000;
         }
         
-        .mostrar-texto {
+        #mostrar-texto {
             position: absolute;
             top: 0;
             left: 0;
@@ -90,6 +90,10 @@
             font-size: 38pt;
             cursor: default;
         }
+        
+        .hide {
+            display: none;
+        }
     </style>
     <script>
         window.addEventListener('load', e => {
@@ -99,7 +103,7 @@
     </script>
 </head>
 
-<body class="level-1">
+<body id="level-1">
     <div class="mostrar-texto">Nivel 1</div>
     <!-- PHASER -->
     <script src="node_modules/phaser/dist/phaser.min.js"></script>
