@@ -41,6 +41,31 @@
             background: radial-gradient(circle, rgba(0, 25, 3, 1) 0%, rgba(131, 0, 0, 1) 8%, rgba(79, 0, 0, 1) 18%, rgba(135, 0, 0, 1) 23%, rgba(58, 3, 1, 1) 28%, rgba(124, 0, 0, 1) 33%, rgba(54, 3, 1, 1) 39%, rgba(130, 0, 0, 1) 47%, rgba(54, 3, 1, 1) 54%, rgba(128, 0, 0, 1) 60%, rgba(125, 0, 0, 1) 61%, rgba(0, 6, 1, 1) 100%);
         }
         
+        @keyframes glassmorphism {
+            from {
+                background: #0000;
+                box-shadow: 08px32px0rgba(31, 38, 135, 0.00);
+                -webkit-backdrop-filter: blur(0px);
+                backdrop-filter: blur(0px);
+            }
+            50% {
+                background: rgba(255, 255, 255, 0.10);
+                box-shadow: 08px32px0rgba(31, 38, 135, 0.37);
+                -webkit-backdrop-filter: blur(4px);
+                backdrop-filter: blur(4px);
+            }
+            to {
+                background: #0000;
+                box-shadow: 08px32px0rgba(31, 38, 135, 0.00);
+                -webkit-backdrop-filter: blur(0px);
+                backdrop-filter: blur(0px);
+            }
+        }
+        
+        canvas.level-4 {
+            animation: glassmorphism 5000 infinite;
+        }
+        
         html,
         body,
         canvas {
