@@ -27,7 +27,7 @@ export function muerte(this: AsteroidsMainScene) {
 
           let vidas = this.objeto<Phaser.GameObjects.Group>('grupo.vidas')
 
-          vidas.children.each(vida => vida.destroy()).clear()
+          vidas.clear(true, true)
 
           vidas.createMultiple({
             quantity: this.dato('vidas'),
@@ -35,7 +35,8 @@ export function muerte(this: AsteroidsMainScene) {
             "setXY.stepX": nave.displayWidth + 2,
             key: 'nave',
             setScale: { x: 0.06, y: 0.06 },
-            setOrigin: { x: 0, y: 0 }
+            setOrigin: { x: 0, y: 0 },
+            "setDepth.value": 60
           })
 
         }
