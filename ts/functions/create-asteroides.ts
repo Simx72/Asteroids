@@ -50,8 +50,8 @@ export default function createAsteroides(this: AsteroidsMainScene) {
 
 }
 
-export function nuevoAsteroide(this: AsteroidsMainScene) {
-  let side = Phaser.Math.Between(1, 4)
+export function nuevoAsteroide(this: AsteroidsMainScene, pos?: 1|2|3|4) {
+  let side = (typeof pos != 'undefined') ? pos : Phaser.Math.Between(1, 4);
   let x = 0, y = 0, angulo = 0, vel = 50;
 
   if (side === 1) {
