@@ -83,13 +83,20 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 30px;
+            height: 100px;
             color: white;
             align-content: center;
             justify-content: center;
             text-align: center;
+            font-size: 38pt;
         }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', e => {
+            let mostrar = document.getElementsByClassName('mostrar-texto')[0]
+            mostrar.style.top = (window.innerWidth / 2) - 50 + 'px'
+        })
+    </script>
 </head>
 
 <body class="level-1">
