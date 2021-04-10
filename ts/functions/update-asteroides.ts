@@ -9,7 +9,23 @@ export function updateAsteroides(this: AsteroidsMainScene) {
     if ((-ast.displayWidth / 2) > ast.x && (ast.displayWidth / 2 + this.scale.width) < ast.x && (-ast.displayHeight / 2) > ast.y && (ast.displayHeight / 2 + this.scale.height) < ast.y) ast.destroy()
   })
 
-  if (this.game.getFrame() % 2 == 0 && this.dato('cargado') && !this.physics.config.debug) {
+  let densidad = 1;
+  switch (this.dato('nivel')) {
+    case 1:
+      densidad = 4
+      break;
+      case 2:
+      densidad = 3
+      break;
+      case 3:
+      densidad = 2
+      break;
+      case 4:
+      densidad = 1
+      break;
+  }
+
+  if (this.game.getFrame() % densidad == 0 && this.dato('cargado') && !this.physics.config.debug) {
     nuevoAsteroide.bind(this)()
   }
 
