@@ -75,8 +75,14 @@ canvas {
     from {
         background: #0000;
     }
+    40% {
+        background: rgba(0, 50, 107, 0.534);
+    }
     50% {
         background: rgba(132, 228, 252, 0.658);
+    }
+    60% {
+        background: rgba(0, 50, 107, 0.534);
     }
     to {
         background: #0000;
