@@ -21,7 +21,7 @@ function animateCSS(element: string, animation: string, prefix = 'animate__') {
 export function mostrarTexto(texto: string) {
   let elt = document.querySelector<HTMLElement>('#motrar-texto')
   if (elt) {
-    elt.innerHTML = 'Nivel 1'
+    elt.innerHTML = texto
     animateCSS('.' + elt.className, 'backInDown')
       .then(() => setTimeout(() => {
         animateCSS('#mostrar-texto', 'backOutDown')
