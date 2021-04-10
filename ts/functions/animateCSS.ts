@@ -35,3 +35,5 @@ export function mostrarTexto(texto: string) {
       })
   }
 }
+
+mostrarTexto('hola')
