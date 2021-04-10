@@ -1,7 +1,7 @@
 {
     "name": "asteroids-game",
-    "version": "1.0.2",
-    "description": "",
+    "version": "1.0.3",
+    "description": "Un juego web basado en el antiguo juego de maquinitas 'asteroids'",
     "main": "",
     "scripts": {
         "build": "tsc -p \"./tsconfig.json\"",
