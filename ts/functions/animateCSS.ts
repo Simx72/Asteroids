@@ -35,5 +35,3 @@ export function mostrarTexto(texto: string) {
       })
   }
 }
-
-mostrarTexto('Nivel 1')
