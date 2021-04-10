@@ -19,7 +19,7 @@ export default class AsteroidsLooseScene extends AsteroidsScene {
     if (this.physics.config.debug) {
       console.log(regexres, document.cookie, this.dato('puntos'))
     }
-    document.cookie = ''
+    document.cookie = 'puntos=null'
     
   }
 
