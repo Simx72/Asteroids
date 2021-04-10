@@ -9,13 +9,22 @@ export function actualizarNivel(this: AsteroidsScene) {
     }
     document.body.className = "level-1"
   } else if (puntos < 400) {
-    this.dato('nivel', 2)
+    if (this.dato('nivel') != 2) {
+      this.dato('nivel', 2)
+      mostrarTexto('Nivel 2')
+    }
     document.body.className = "level-2"
   } else if (puntos < 1000) {
-    this.dato('nivel', 3)
+    if (this.dato('nivel') != 3) {
+      this.dato('nivel', 3)
+      mostrarTexto('Nivel 3')
+    }
     document.body.className = "level-3"
-  } else if (puntos < 2000) {
-    this.dato('nivel', 4)
+  } else {
+    if (this.dato('nivel') != 4) {
+      this.dato('nivel', 4)
+      mostrarTexto('Nivel 4')
+    }
     document.body.className = "level-4"
   }
 }
