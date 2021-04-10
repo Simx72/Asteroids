@@ -49,7 +49,7 @@ export default function createAsteroides(this: AsteroidsMainScene) {
       if (res != null) {
         side = <(1|2|3|4)>parseInt(res)
       } else {
-        side = void 0;
+        side = undefined;
       }
       nuevoAsteroide.bind(this)(side)
     });
