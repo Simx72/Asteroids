@@ -57,7 +57,7 @@ export function nuevoAsteroide(this: AsteroidsMainScene, pos?: 1|2|3|4) {
   if (side === 1) {
     x = Phaser.Math.Between(0, this.scale.width)
     y = -10
-    angulo = (Phaser.Math.Between(0, 100) < 50)? Phaser.Math.Between(135, 180) : - Phaser.Math.Between(135, 179)
+    angulo = (Phaser.Math.Between(0, 100) < 50)? Phaser.Math.Between(135, 180) : -Phaser.Math.Between(135, 179)
   } else if (side === 2) {
     x = this.scale.width + 10
     y = Phaser.Math.Between(0, this.scale.height)
