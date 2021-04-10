@@ -25,6 +25,7 @@ export function mostrarTexto(texto: string) {
     elt.innerHTML = texto
     animateCSS('#mostrar-texto', 'zoomInDown')
       .then(() => {
+        setTimeout(() =>
         animateCSS('#mostrar-texto', 'zoomOutDown')
           .then(() => {
             if (elt) {
@@ -32,6 +33,7 @@ export function mostrarTexto(texto: string) {
               elt.innerHTML = ""
             }
           })
+        , 1500)
       })
   }
 }
