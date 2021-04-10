@@ -42,4 +42,12 @@ export default function createAsteroides(this: AsteroidsMainScene) {
     }
   )
 
+  if (this.physics.config.debug) {
+    this.input.keyboard.on('keydown-M', () => {
+      if (this.dato('vivo') == true) {
+        this.disparo()
+      }
+    });
+  }
+
 }
