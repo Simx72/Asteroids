@@ -34,7 +34,6 @@ export function mostrarTexto(texto: string) {
           })
       })
   }
-  console.log(elt)
 }
 
-mostrarTexto('hola')
+mostrarTexto('Nivel 1')
