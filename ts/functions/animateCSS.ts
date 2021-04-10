@@ -20,14 +20,16 @@ function animateCSS(element: string, animation: string, prefix = 'animate__') {
 
 export function mostrarTexto(texto: string) {
   let elt = document.querySelector<HTMLElement>('#motrar-texto')
-  if (elt != null) {
+  if (elt) {
     elt.innerHTML = 'Nivel 1'
     animateCSS('.' + elt.className, 'backInDown')
       .then(() => setTimeout(() => {
         animateCSS('#mostrar-texto', 'backOutDown')
           .then(() => {
-            elt?.classList.add('hidden')
-            elt?.innerHTML = ""
+            if (elt) {
+              elt.classList.add('hidden')
+              elt.innerHTML = ""
+            }
           })
       }, 1500))
   }
