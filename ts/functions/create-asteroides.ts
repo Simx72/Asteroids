@@ -15,7 +15,6 @@ export default function createAsteroides(this: AsteroidsMainScene) {
     this.objeto<Phaser.Physics.Arcade.Group>('grupo.ast'),
     this.objeto<Phaser.Physics.Arcade.Group>('grupo.disparos'),
     (obj1, obj2) => {
-
       let asteroide = obj1 as Phaser.Physics.Arcade.Sprite
       let disparo = obj2 as Phaser.Physics.Arcade.Sprite
 
@@ -25,6 +24,8 @@ export default function createAsteroides(this: AsteroidsMainScene) {
 
       asteroide.destroy()
       disparo.destroy()
+
+      actualizarFondo.bind(this)()
 
       exp
         .setVisible(true)
