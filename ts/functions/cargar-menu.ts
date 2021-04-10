@@ -1,5 +1,5 @@
 import AsteroidsScene from "../scenes/templates/asteroids-scene";
-export function actualizarFondo(this: AsteroidsScene) {
+export function actualizarNivel(this: AsteroidsScene) {
   let puntos = this.dato('puntos')
   if (puntos < 100) {
     document.body.className = "level-1"
