@@ -91,13 +91,13 @@ canvas {
 
 @keyframes anim3 {
     from {
-        background: #0000;
+        background: rgba(17, 87, 0, 0.418);
     }
     50% {
         background: rgba(17, 87, 0, 0.678);
     }
     to {
-        background: #0000;
+        background: rgba(17, 87, 0, 0.418);
     }
 }
 
