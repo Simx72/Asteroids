@@ -31,7 +31,7 @@ export default function createNave(this: AsteroidsMainScene) {
   })
 
   nave.body.setMaxSpeed(250)
-  nave.body.setDrag(0.5, 0.5)
+  nave.body.setDrag(1, 1)
 
   nave.body.setCircle(
     nave.width * 0.34,
