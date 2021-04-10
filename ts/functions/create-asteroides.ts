@@ -57,6 +57,8 @@ export default function createAsteroides(this: AsteroidsMainScene) {
     });
   }
 
+  this.objeto('')
+
 }
 
 export function nuevoAsteroide(this: AsteroidsMainScene, pos?: 1 | 2 | 3 | 4) {
