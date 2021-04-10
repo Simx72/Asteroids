@@ -107,6 +107,18 @@ canvas {
     }
 }
 
-canvas {
-    animation: glassmorphism 5000ms infinite;
+canvas.level-1 {
+    animation: anim1 5000ms infinite;
+}
+
+canvas.level-2 {
+    animation: anim2 5000ms infinite;
+}
+
+canvas.level-3 {
+    animation: anim3 5000ms infinite;
+}
+
+canvas.level-4 {
+    animation: anim4 5000ms infinite;
 }
