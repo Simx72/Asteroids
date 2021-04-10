@@ -1,4 +1,4 @@
-export function animateCSS(element: string, animation: string, prefix = 'animate__') {
+function animateCSS(element: string, animation: string, prefix = 'animate__') {
   // We create a Promise and return it
   return new Promise((resolve, _reject) => {
     const animationName = `${prefix}${animation}`;
@@ -16,4 +16,19 @@ export function animateCSS(element: string, animation: string, prefix = 'animate
       }, { once: true });
     }
   });
+}
+
+export function mostrarTexto(texto: string) {
+  let elt = document.querySelector<HTMLElement>('#motrar-texto')
+  if (elt != null) {
+    elt.innerHTML = 'Nivel 1'
+    animateCSS('.' + elt.className, 'backInDown')
+      .then(() => setTimeout(() => {
+        animateCSS('#mostrar-texto', 'backOutDown')
+          .then(() => {
+            elt?.classList.add('hidden')
+            elt?.innerHTML = ""
+          })
+      }, 1500))
+  }
 }
