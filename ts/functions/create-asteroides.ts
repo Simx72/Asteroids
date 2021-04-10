@@ -51,7 +51,7 @@ export default function createAsteroides(this: AsteroidsMainScene) {
       } else {
         side = void 0;
       }
-      nuevoAsteroide.bind(this)()
+      nuevoAsteroide.bind(this)(side)
     });
   }
 
