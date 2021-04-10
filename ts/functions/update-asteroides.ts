@@ -9,10 +9,8 @@ export function updateAsteroides(this: AsteroidsMainScene) {
     if ((-ast.displayWidth / 2) > ast.x && (ast.displayWidth / 2 + this.scale.width) < ast.x && (-ast.displayHeight / 2) > ast.y && (ast.displayHeight / 2 + this.scale.height) < ast.y) ast.destroy()
   })
 
-  if (!this.physics.config.debug) {
-    if (this.game.getFrame() % 2 == 0 && this.dato('cargado')) {
-      nuevoAsteroide.bind(this)()
-    }
+  if (this.game.getFrame() % 2 == 0 && this.dato('cargado') && !this.physics.config.debug) {
+    nuevoAsteroide.bind(this)()
   }
 
 }
