@@ -24,7 +24,7 @@ export function mostrarTexto(texto: string) {
     elt.classList.remove('hide')
     elt.innerHTML = texto
     animateCSS('#motrar-texto', 'backInDown')
-      .then(() => setTimeout(() => {
+      .then(() => {
         animateCSS('#mostrar-texto', 'backOutDown')
           .then(() => {
             if (elt) {
@@ -32,6 +32,6 @@ export function mostrarTexto(texto: string) {
               elt.innerHTML = ""
             }
           })
-      }, 1500))
+      })
   }
 }
