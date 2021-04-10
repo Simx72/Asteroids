@@ -44,7 +44,7 @@ export default class AsteroidsLooseScene extends AsteroidsScene {
       { fontFamily: this.defaultFont }
     ).setOrigin(0.5, 0.5)
       .setFontSize(this.scale.width * 0.08)
-      .setColor('#a60000')
+      .setColor('#e40000')
 
     let button = this.add.rectangle(
       this.centerX,
