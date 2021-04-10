@@ -47,7 +47,7 @@ export default function createAsteroides(this: AsteroidsMainScene) {
       let res = prompt("Posición: ", "")
       let side: 1 | 2 | 3 | 4 | undefined;
       if (res != null) {
-        side = <(1|2|3|4)>parseInt(res)
+        side = <(1 | 2 | 3 | 4)>parseInt(res)
       } else {
         side = undefined;
       }
@@ -57,8 +57,8 @@ export default function createAsteroides(this: AsteroidsMainScene) {
 
 }
 
-export function nuevoAsteroide(this: AsteroidsMainScene, pos?: 1|2|3|4) {
-  let side = <(1|2|3|4)> ((typeof pos != 'undefined') ? pos : Phaser.Math.Between(1, 4));
+export function nuevoAsteroide(this: AsteroidsMainScene, pos?: 1 | 2 | 3 | 4) {
+  let side = <(1 | 2 | 3 | 4)>((typeof pos != 'undefined') ? pos : Phaser.Math.Between(1, 4));
   let x = 0, y = 0, angulo = 0, vel = 50;
 
   if (side === 1) {
@@ -78,6 +78,8 @@ export function nuevoAsteroide(this: AsteroidsMainScene, pos?: 1|2|3|4) {
     y = Phaser.Math.Between(0, this.scale.height)
     angulo = Phaser.Math.Between(45, 135)
   }
+
+  if (typeof pos != 'undefined') console.log({ x, y, angulo, vel, sin: (vel * Math.sin(angulo)), cos: (vel * Math.cos(angulo)) })
 
   let asteroides = <Phaser.Physics.Arcade.Group>this.objeto('grupo.ast')
   let asteroide = asteroides.create(x, y) as Phaser.Physics.Arcade.Image
