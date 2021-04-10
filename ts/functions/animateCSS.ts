@@ -23,9 +23,9 @@ export function mostrarTexto(texto: string) {
   if (elt) {
     elt.classList.remove('hide')
     elt.innerHTML = texto
-    animateCSS('#motrar-texto', 'backInDown')
+    animateCSS('#motrar-texto', 'zoomInDown')
       .then(() => {
-        animateCSS('#mostrar-texto', 'backOutDown')
+        animateCSS('#mostrar-texto', 'zoomOutDown')
           .then(() => {
             if (elt) {
               elt.classList.add('hide')
