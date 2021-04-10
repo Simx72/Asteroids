@@ -19,7 +19,7 @@ function animateCSS(element: string, animation: string, prefix = 'animate__') {
 }
 
 export function mostrarTexto(texto: string) {
-  let elt = document.querySelector<HTMLElement>('#motrar-texto')
+  let elt = document.getElementById('motrar-texto')
   if (elt) {
     elt.innerHTML = texto
     elt.classList.remove('hide')
