@@ -23,6 +23,7 @@ export default class AsteroidsMainScene extends AsteroidsScene {
    **************/
   public preload() {
     this.defaultPreload()
+    document.body.className = "level-1"
 
     this.load.audio('audio.laser', 'sounds/laser.wav')
     this.load.audio('audio.explo', 'sounds/explosion.wav')
