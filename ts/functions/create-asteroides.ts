@@ -44,6 +44,13 @@ export default function createAsteroides(this: AsteroidsMainScene) {
 
   if (this.physics.config.debug) {
     this.input.keyboard.on('keydown-M', () => {
+      let res = prompt("Posición: ", "")
+      let side: 1 | 2 | 3 | 4 | undefined;
+      if (res != null) {
+        side = <(1|2|3|4)>parseInt(res)
+      } else {
+        side = void 0;
+      }
       nuevoAsteroide.bind(this)()
     });
   }
