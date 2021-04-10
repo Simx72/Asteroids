@@ -109,7 +109,7 @@ export function nuevoAsteroide(this: AsteroidsMainScene, pos?: 1 | 2 | 3 | 4) {
 
   asteroide.setVelocity(
     vel * Math.sin(angulo),
-    vel * Math.cos(angulo)
+    vel * Math.cos(angulo) * -1
   )
 
   asteroide.body.pushable = false
