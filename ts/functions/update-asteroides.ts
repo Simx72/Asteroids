@@ -1,5 +1,5 @@
 import AsteroidsMainScene from '../scenes/game-scene';
-import { nuevoAsteroide } from './update-asteroides';
+import { nuevoAsteroide } from './create-asteroides';
 export function updateAsteroides(this: AsteroidsMainScene) {
   let asteroides = <Phaser.Physics.Arcade.Group>this.objeto('grupo.ast')
 
