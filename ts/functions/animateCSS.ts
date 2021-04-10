@@ -22,12 +22,13 @@ export function mostrarTexto(texto: string) {
   let elt = document.querySelector<HTMLElement>('#motrar-texto')
   if (elt) {
     elt.innerHTML = texto
+    elt.classList.remove('hide')
     animateCSS('#motrar-texto', 'backInDown')
       .then(() => setTimeout(() => {
         animateCSS('#mostrar-texto', 'backOutDown')
           .then(() => {
             if (elt) {
-              elt.classList.add('hidden')
+              elt.classList.add('hide')
               elt.innerHTML = ""
             }
           })
