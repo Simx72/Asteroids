@@ -1,8 +1,17 @@
 import AsteroidsScene from "../scenes/templates/asteroids-scene";
+import { animateCSS } from './animateCSS';
 export function actualizarNivel(this: AsteroidsScene) {
   let puntos = this.dato('puntos')
   if (puntos < 100) {
-    this.dato('nivel', 1)
+    if (this.dato('nivel') != 1) {
+      this.dato('nivel', 1)
+      let texto = document.querySelector('.motrar-texto')
+      if (texto != null && typeof texto.innerHTML != 'undefined') {
+        texto.innerHTML = 'Nivel 1'
+        animateCSS('.' + texto.className, 'backInDown')
+          .then(() => setTimeout(() => animateCSS('.'+texto?.className, 'backOutDown'), 1500))
+      }
+    }
     document.body.className = "level-1"
   } else if (puntos < 400) {
     this.dato('nivel', 2)
