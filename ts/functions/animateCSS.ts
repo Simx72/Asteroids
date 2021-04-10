@@ -22,7 +22,7 @@ export function mostrarTexto(texto: string) {
   let elt = document.querySelector<HTMLElement>('#motrar-texto')
   if (elt) {
     elt.innerHTML = texto
-    animateCSS('.' + elt.className, 'backInDown')
+    animateCSS('#motrar-texto', 'backInDown')
       .then(() => setTimeout(() => {
         animateCSS('#mostrar-texto', 'backOutDown')
           .then(() => {
