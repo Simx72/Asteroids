@@ -5,11 +5,11 @@ export function actualizarNivel(this: AsteroidsScene) {
   if (puntos < 100) {
     if (this.dato('nivel') != 1) {
       this.dato('nivel', 1)
-      let texto = document.querySelector('.motrar-texto')
+      let texto = document.querySelector<HTMLElement>('.motrar-texto')
       if (texto != null && typeof texto.innerHTML != 'undefined') {
         texto.innerHTML = 'Nivel 1'
         animateCSS('.' + texto.className, 'backInDown')
-          .then(() => setTimeout(() => animateCSS('.'+texto?.className, 'backOutDown'), 1500))
+          .then(() => setTimeout(() => animateCSS('.' + texto?.className, 'backOutDown').then(() => texto?.style.display = "hidden"), 1500))
       }
     }
     document.body.className = "level-1"
