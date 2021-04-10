@@ -21,8 +21,8 @@ function animateCSS(element: string, animation: string, prefix = 'animate__') {
 export function mostrarTexto(texto: string) {
   let elt = document.getElementById('motrar-texto')
   if (elt) {
-    elt.innerHTML = texto
     elt.classList.remove('hide')
+    elt.innerHTML = texto
     animateCSS('#motrar-texto', 'backInDown')
       .then(() => setTimeout(() => {
         animateCSS('#mostrar-texto', 'backOutDown')
