@@ -10,6 +10,7 @@ export default class AsteroidsLooseScene extends AsteroidsScene {
 
   preload() {
     this.defaultPreload()
+    document.body.className = "loose"
     let regexres = (/puntos=(\d+)/g).exec(document.cookie)
     if (regexres != null) {
       this.dato('puntos', parseInt(regexres[1]))
