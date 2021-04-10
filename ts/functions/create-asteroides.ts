@@ -1,4 +1,5 @@
 import AsteroidsMainScene from '../scenes/game-scene';
+import { nuevoAsteroide } from './update-asteroides';
 export default function createAsteroides(this: AsteroidsMainScene) {
   this.objeto(
     'grupo.ast',
@@ -44,9 +45,7 @@ export default function createAsteroides(this: AsteroidsMainScene) {
 
   if (this.physics.config.debug) {
     this.input.keyboard.on('keydown-M', () => {
-      if (this.dato('vivo') == true) {
-        this.disparo()
-      }
+      nuevoAsteroide.bind(this)()
     });
   }
 
