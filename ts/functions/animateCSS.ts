@@ -26,14 +26,14 @@ export function mostrarTexto(texto: string) {
     animateCSS('#mostrar-texto', 'zoomInDown')
       .then(() => {
         setTimeout(() =>
-        animateCSS('#mostrar-texto', 'zoomOutDown')
-          .then(() => {
-            if (elt) {
-              elt.classList.add('hide')
-              elt.innerHTML = ""
-            }
-          })
-        , 1500)
+          animateCSS('#mostrar-texto', 'zoomOutDown')
+            .then(() => {
+              if (elt) {
+                elt.classList.add('hide')
+                elt.innerHTML = ""
+              }
+            })
+          , 1500)
       })
   }
 }
