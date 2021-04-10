@@ -79,7 +79,7 @@ export function nuevoAsteroide(this: AsteroidsMainScene, pos?: 1 | 2 | 3 | 4) {
     angulo = Phaser.Math.Between(45, 135)
   }
 
-  if (typeof pos != 'undefined') console.log({ x, y, angulo, vel, sin: (vel * Math.sin(angulo)), cos: (vel * Math.cos(angulo)) })
+  if (typeof pos != 'undefined') console.log({ x, y, angulo, vel, sin: (vel * Math.sin(angulo)), cos: -(vel * Math.cos(angulo)) })
 
   let asteroides = <Phaser.Physics.Arcade.Group>this.objeto('grupo.ast')
   let asteroide = asteroides.create(x, y) as Phaser.Physics.Arcade.Image
