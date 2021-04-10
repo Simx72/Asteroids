@@ -107,9 +107,10 @@ export function nuevoAsteroide(this: AsteroidsMainScene, pos?: 1 | 2 | 3 | 4) {
       asteroide.height * 0.18
     )
 
+  let d2r = (x: number) => Phaser.Math.DegToRad(x);
   asteroide.setVelocity(
-    vel * Math.sin(angulo),
-    vel * Math.cos(angulo) * -1
+    vel * Math.sin(d2r(angulo)),
+    vel * Math.cos(d2r(angulo)) * -1
   )
 
   asteroide.body.pushable = false
