@@ -1,5 +1,5 @@
 import AsteroidsMainScene from '../scenes/game-scene';
-import { actualizarFondo } from './cargar-menu';
+import { ActualizarNivel } from './cargar-menu';
 export default function createAsteroides(this: AsteroidsMainScene) {
   this.objeto(
     'grupo.ast',
@@ -26,7 +26,7 @@ export default function createAsteroides(this: AsteroidsMainScene) {
       asteroide.destroy()
       disparo.destroy()
 
-      actualizarFondo.bind(this)()
+      ActualizarNivel.bind(this)()
 
       exp
         .setVisible(true)
