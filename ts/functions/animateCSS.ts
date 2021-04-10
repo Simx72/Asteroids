@@ -26,7 +26,7 @@ export function mostrarTexto(texto: string) {
     animateCSS('#mostrar-texto', 'zoomInDown')
       .then(() => {
         setTimeout(() =>
-          animateCSS('#mostrar-texto', 'zoomOutDown')
+          animateCSS('#mostrar-texto', 'fadeOut')
             .then(() => {
               if (elt) {
                 elt.classList.add('hide')
