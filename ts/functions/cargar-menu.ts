@@ -4,13 +4,13 @@ export function actualizarNivel(this: AsteroidsScene) {
   if (puntos < 100) {
     this.dato('nivel', 1)
     document.body.className = "level-1"
-  } else if (puntos < 200) {
+  } else if (puntos < 400) {
     this.dato('nivel', 2)
     document.body.className = "level-2"
-  } else if (puntos < 300) {
+  } else if (puntos < 1000) {
     this.dato('nivel', 3)
     document.body.className = "level-3"
-  } else if (puntos < 400) {
+  } else if (puntos < 2000) {
     this.dato('nivel', 4)
     document.body.className = "level-4"
   }
