@@ -5,6 +5,7 @@ import createNave from '../functions/create-nave';
 import createAsteroides from '../functions/create-asteroides';
 import updateNave from '../functions/update-nave';
 import { updateAsteroides } from '../functions/update-asteroides';
+import Cookies from '../../node_modules/ts-cookies/index';
 
 export default class AsteroidsMainScene extends AsteroidsScene {
   constructor() {
@@ -58,7 +59,8 @@ export default class AsteroidsMainScene extends AsteroidsScene {
   public create() {
     this.sound.add('audio.crystal-cave')
       .play(void 0, {
-        loop: true
+        loop: true,
+        volume: Cookies.get('config-volume-music')
       })
 
     this.dato('cargado', false)
