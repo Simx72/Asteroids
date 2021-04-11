@@ -1,3 +1,4 @@
+import Cookies from "../../node_modules/ts-cookies/index";
 import AsteroidsScene from "../scenes/templates/asteroids-scene";
 import { mostrarTexto } from './animateCSS';
 export function actualizarNivel(this: AsteroidsScene) {
@@ -37,6 +38,8 @@ export function actualizarNivel(this: AsteroidsScene) {
 }
 
 export function cargarMenu(this: AsteroidsScene) {
+  Cookies.set('config-volumen-fx', '10')
+  Cookies.set('config-volumen-music', '10')
   let menu = document.createElement("button")
   menu.id = "menu"
 }
