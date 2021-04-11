@@ -56,6 +56,11 @@ export default class AsteroidsMainScene extends AsteroidsScene {
    * CREATE
    **************/
   public create() {
+    this.sound.add('audio.crystal-cave')
+      .play(void 0, {
+        loop: true
+      })
+
     this.dato('cargado', false)
 
     let cargando = this.objeto('cargando.sprite',
