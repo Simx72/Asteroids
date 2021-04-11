@@ -26,9 +26,9 @@
         "@atao60/fse-cli": "^0.0.55",
         "animate.css": "^4.1.1",
         "http-server": "^0.12.3",
-        "js-cookie": "^2.2.1",
         "phaser": "^3.54.0",
-        "requirejs": "^2.3.6"
+        "requirejs": "^2.3.6",
+        "ts-cookies": "^1.0.0"
     },
     "devDependencies": {
         "ecstatic": ">=4.1.3",
