@@ -1,3 +1,4 @@
+import Cookies from '../../node_modules/ts-cookies/index';
 import AsteroidsMainScene from '../scenes/game-scene';
 export default function disparo(this: AsteroidsMainScene) {
 
@@ -22,7 +23,9 @@ export default function disparo(this: AsteroidsMainScene) {
   disp.setVelocity(rX * vel, rY * vel)
 
   let audio = this.sound.add('audio.laser')
-  audio.play()
+  audio.play(void 0, {
+    volume: Cookies.get('config-volume-fx')/100
+  })
 
   if (this.physics.config.debug) {
     console.log('disparo')
