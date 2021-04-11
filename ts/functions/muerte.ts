@@ -1,4 +1,3 @@
-import Cookies from '../../node_modules/ts-cookies/index';
 import AsteroidsMainScene from '../scenes/game-scene';
 export function muerte(this: AsteroidsMainScene) {
   if (this.dato('vivo')) {
