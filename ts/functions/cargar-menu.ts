@@ -38,8 +38,8 @@ export function actualizarNivel(this: AsteroidsScene) {
 }
 
 export function cargarMenu(this: AsteroidsScene) {
-  Cookies.set('config-volumen-fx', '10')
-  Cookies.set('config-volumen-music', '10')
+  Cookies.set('config-volumen-fx', '100')
+  Cookies.set('config-volumen-music', '100')
   let menu = document.createElement("button")
   menu.id = "menu"
 }
