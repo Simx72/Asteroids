@@ -35,3 +35,8 @@ export function actualizarNivel(this: AsteroidsScene) {
     }
   }
 }
+
+export function cargarMenu(this: AsteroidsScene) {
+  let menu = document.createElement("button")
+  menu.id = "menu"
+}
