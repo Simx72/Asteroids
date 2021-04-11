@@ -1,3 +1,4 @@
+import Cookies from '../../node_modules/ts-cookies/index';
 import AsteroidsMainScene from '../scenes/game-scene';
 export function muerte(this: AsteroidsMainScene) {
   if (this.dato('vivo')) {
@@ -69,7 +70,9 @@ export function muerte(this: AsteroidsMainScene) {
         .anims.play('explotar')
 
       let audio = this.sound.add('audio.explo')
-      audio.play()
+      audio.play(void 0, {
+        volume: Cookies.get('config-volume-fx')/100
+      })
 
       this.physics.pause() /* stops everything */
 
@@ -112,7 +115,9 @@ function perder(this: AsteroidsMainScene) {
     .anims.play('explotar')
 
   let audio = this.sound.add('audio.explo')
-  audio.play()
+  audio.play(void 0, {
+    volume: Cookies.get('config-volume-fx')/100
+  })
 
   this.physics.pause() /* stops everything */
 
