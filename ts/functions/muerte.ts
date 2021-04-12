@@ -96,7 +96,7 @@ function perder(this: AsteroidsMainScene) {
   this.dato('vivo', false)
 
   window.clearInterval(this.dato('intervalo puntos'))
-  document.cookie = 'puntos=' + this.dato<number>('puntos')
+  cookies.set('puntos', this.dato<number>('puntos').toString())
 
   let exp = this.objeto<Phaser.GameObjects.Sprite>('explosion')
 
