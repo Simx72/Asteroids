@@ -1,3 +1,4 @@
+import Cookies from 'ts-cookies';
 import AsteroidsMainScene from '../scenes/game-scene';
 export default function disparo(this: AsteroidsMainScene) {
 
