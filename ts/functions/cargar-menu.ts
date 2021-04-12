@@ -54,7 +54,10 @@ export function crearMenu() {
   <!-- !html -->
   `
   let menuButton = document.createElement("button")
+  document.body.appendChild(menuButton)
   menuButton.id = 'menu-button'
+  menuButton.style.display = 'none'
+  menuButton.style.position = 'absolute'
   menuButton.addEventListener('click', e => {
     e.preventDefault()
     if (menu.style.display == "flex") {
@@ -69,6 +72,12 @@ export function crearMenu() {
 export function cargarMenu(this: AsteroidsScene) {
   let menuButton = document.querySelector<HTMLButtonElement>('#menu-button')
   if (menuButton != null) {
+    menuButton.style.display = 'block'
+    menuButton.style.width = '60px'
+    menuButton.style.height = '60px'
+    menuButton.style.top = (this.scale.height - 66) + 'px'
+    menuButton.style.left = (this.scale.width - 66) + 'px'
+
     menuButton.addEventListener("click", e => {
       if (this.physics.config.isPaused) {
         this.physics.resume()
