@@ -1,6 +1,6 @@
 import AsteroidsScene from "../scenes/templates/asteroids-scene";
 import { mostrarTexto } from './animateCSS';
-import { Cookies } from 'cookies-ts';
+import Cookies from 'cookies-ts';
 export function actualizarNivel(this: AsteroidsScene) {
   let puntos = this.dato('puntos')
   let canvas = document.querySelector('canvas')
