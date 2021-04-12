@@ -19,5 +19,8 @@ export var asteroidsPhaserGameConfig: Phaser.Types.Core.GameConfig = {
 };
 
 var asteroidsPhaserGame = new Phaser.Game(asteroidsPhaserGameConfig)
+
+if (location.hostname != '127.0.0.1') console.clear()
+
 console.log('Asteroids se ha iniciado!')
 export default asteroidsPhaserGame
