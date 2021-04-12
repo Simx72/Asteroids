@@ -69,6 +69,7 @@ export function cargarMenu(this: AsteroidsScene) {
       try {
         let musica = this.sound.get('audio.crystal-cave')
         let volumen = cookies.getNum('config-volumen-musica', true) / 100
+        console.log(musica, volumen)
         eval("musica.config.volume = volumen")
       } catch (e) { console.error(e) }
 
