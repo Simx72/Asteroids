@@ -62,7 +62,7 @@ export default class AsteroidsMainScene extends AsteroidsScene {
     this.sound.add('audio.crystal-cave')
       .play('', {
         loop: true,
-        volume: (() => { let x = cookies.getNum('config-volumen-music', true) / 100; console.log(x); return x; })()
+        volume: cookies.getNum('config-volumen-music', true) / 100
       })
 
     this.dato('cargado', false)
