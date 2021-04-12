@@ -1,4 +1,4 @@
-function animateCSS<T = string | HTMLElement>(element: T, animation: string, prefix = 'animate__') {
+export default function animateCSS<T = string | HTMLElement>(element: T, animation: string, prefix = 'animate__') {
   // We create a Promise and return it
   return new Promise<T>((resolve, reject) => {
     const animationName = `${prefix}${animation}`;
