@@ -37,7 +37,7 @@ export function actualizarNivel(this: AsteroidsScene) {
   }
 }
 
-export function crearMenu(this: AsteroidsScene) {
+export function crearMenu() {
   let menu = document.createElement("div")
   document.body.appendChild(menu)
   menu.id = "menu"
