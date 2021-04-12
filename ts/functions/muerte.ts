@@ -71,7 +71,7 @@ export function muerte(this: AsteroidsMainScene) {
 
       let audio = this.sound.add('audio.explo')
       audio.play('', {
-        volume: cookies.getNum('config-volumen-fx', true)/100
+        volume: cookies.getNum('config-volumen-fx', true) / 100 * 0.5
       })
 
       this.physics.pause() /* stops everything */
@@ -116,7 +116,7 @@ function perder(this: AsteroidsMainScene) {
 
   let audio = this.sound.add('audio.explo')
   audio.play('', {
-    volume: cookies.getNum('config-volumen-fx', true)/100
+    volume: cookies.getNum('config-volumen-fx', true) / 100 * 0.5
   })
 
   this.physics.pause() /* stops everything */
