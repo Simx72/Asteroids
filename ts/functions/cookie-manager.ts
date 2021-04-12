@@ -40,11 +40,48 @@ export namespace cookies {
     return val;
   } */
 
-  function set(cname, cvalue, exdays) {
+  export function set(key: string, value: string, exdays: number = 30) {
     var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = key + "=" + value + ";" + expires + ";path=/";
+    return cookies;
+  }
+
+  export function get(key: string) {
+    var name = key + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
+  export function getNum(key: string) {
+    return parseFloat(get(key))
+  }
+
+  export function check(key: string) {
+    return new Promise<string>((res, err) => {
+      var cookie = get(key);
+      if (cookie != "") {
+        res(cookie)
+      } else {
+        err()
+      }
+    })
+  }
+  
+  export function remove(key: string) {
+    set(key, '')
+    return cookies
   }
 
 }
