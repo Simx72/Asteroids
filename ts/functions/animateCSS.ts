@@ -1,8 +1,20 @@
-function animateCSS(element: string, animation: string, prefix = 'animate__') {
+function animateCSS(element: string | HTMLElement, animation: string, prefix = 'animate__') {
   // We create a Promise and return it
-  return new Promise((resolve, _reject) => {
+  return new Promise((resolve, reject) => {
     const animationName = `${prefix}${animation}`;
-    const node = document.querySelector(element);
+    let node: HTMLElement | null
+    if (element instanceof HTMLElement) {
+      node = element;
+    } else if (typeof element == 'string') {
+      let select = document.querySelector<HTMLElement>(element);
+      if (select === null) {
+        reject(new Error('The element is null'))
+      }
+      node = select;
+    } else {
+      node = null;
+      reject(new Error("The element must be either a 'HTMLElement' or a string"))
+    }
 
     if (node != null) {
       node.classList.add(`${prefix}animated`, animationName);
@@ -10,9 +22,11 @@ function animateCSS(element: string, animation: string, prefix = 'animate__') {
       // When the animation ends, we clean the classes and resolve the Promise
 
       node.addEventListener('animationend', (event) => {
-        event.stopPropagation();
-        node.classList.remove(`${prefix}animated`, animationName);
-        resolve(void 0);
+        if (node != null) {
+          event.stopPropagation();
+          node.classList.remove(`${prefix}animated`, animationName);
+          resolve(void 0);
+        }
       }, { once: true });
     }
   });
