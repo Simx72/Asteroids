@@ -46,7 +46,7 @@ export function cargarMenu(this: AsteroidsScene) {
   menu.innerHTML = `
   <!-- html -->
     <div>
-      <label for="volumen-efectos">Efectos:</label>
+      <label for="volumen-efectos">Efectos:</label><br>
       <input type="range" max="100" min="0" step="1" name="volumen-efectos" id="volumen-efectos">
     </div>
   <!-- !html -->
