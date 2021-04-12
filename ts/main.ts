@@ -1,4 +1,5 @@
 /// <reference path="../node_modules/phaser/types/phaser.d.ts"/>
+/// <reference path="../node_modules/cookies-ts/lib/main.d.ts"/>
 import Scenes from "./scenes";
 
 export var asteroidsPhaserGameConfig: Phaser.Types.Core.GameConfig = {
