@@ -25,7 +25,6 @@
     "dependencies": {
         "@atao60/fse-cli": "^0.0.55",
         "animate.css": "^4.1.1",
-        "cookies-ts": "^1.0.5",
         "http-server": "^0.12.3",
         "phaser": "^3.54.0",
         "requirejs": "^2.3.6"

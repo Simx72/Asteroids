@@ -1,7 +1,6 @@
 import AsteroidsScene from "../scenes/templates/asteroids-scene";
 import { mostrarTexto } from './animateCSS';
-import cookiesTs from 'cookies-ts';
-let Cookies = new cookiesTs()
+import { cookies } from "./cookie-manager";
 export function actualizarNivel(this: AsteroidsScene) {
   let puntos = this.dato('puntos')
   let canvas = document.querySelector('canvas')
@@ -39,8 +38,8 @@ export function actualizarNivel(this: AsteroidsScene) {
 }
 
 export function cargarMenu(this: AsteroidsScene) {
-  Cookies.set('config-volumen-fx', '80')
-  Cookies.set('config-volumen-music', '100')
+  cookies.set('config-volumen-fx', '80')
+  cookies.set('config-volumen-music', '100')
   let menu = document.createElement("button")
   menu.id = "menu"
 }
