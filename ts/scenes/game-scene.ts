@@ -64,7 +64,8 @@ export default class AsteroidsMainScene extends AsteroidsScene {
       loop: true,
       volume: cookies.getNum('config-volumen-music', true) / 100
     })
-    music.currentMarker
+
+    this.sound.get('musica')
 
 
     this.dato('cargado', false)
