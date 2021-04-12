@@ -115,7 +115,7 @@ function perder(this: AsteroidsMainScene) {
     .anims.play('explotar')
 
   let audio = this.sound.add('audio.explo')
-  audio.play(void 0, {
+  audio.play('', {
     volume: cookies.getNum('config-volume-fx')/100
   })
 
