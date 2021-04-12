@@ -137,5 +137,16 @@ canvas.level-4 {
     margin: 0px;
     padding: 10px 4px;
     color: white;
+}
+
+#menu>h1 {
+    font-size: 24pt;
+}
+
+#menu>h2 {
+    font-size: 18pt;
+}
+
+#menu>label {
     font-size: 14pt;
 }
