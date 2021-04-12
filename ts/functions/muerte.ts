@@ -1,5 +1,4 @@
 import AsteroidsMainScene from '../scenes/game-scene';
-import Cookies from 'ts-cookies';
 export function muerte(this: AsteroidsMainScene) {
   if (this.dato('vivo')) {
     if (this.dato('vidas', this.dato<number>('vidas') - 1) < 0) {
