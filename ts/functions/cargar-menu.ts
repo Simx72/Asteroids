@@ -46,4 +46,6 @@ export function cargarMenu(this: AsteroidsScene) {
   menu.style.position = 'absolute'
   menu.style.width = (this.scale.width * 0.6) + 'px'
   menu.style.height = (this.scale.height * 0.8) + 'px'
+  menu.style.top = (this.scale.height * 0.1) + 'px'
+  menu.style.left = (this.scale.width * 0.2) + 'px'
 }
