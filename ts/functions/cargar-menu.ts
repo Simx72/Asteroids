@@ -47,9 +47,9 @@ export function cargarMenu(this: AsteroidsScene) {
   <!-- html -->
   <h1>Volumen</h1>
   <label for="volumen-efectos">Efectos</label>
-  <input type="range" max="100" min="0" step="1" name="volumen-efectos" id="volumen-efectos">
+  <input type="range" max="100" min="0" value="100" step="1" name="volumen-efectos" id="volumen-efectos">
   <label for="volumen-musica">Música</label>
-  <input type="range" max="100" min="0" step="1" name="volumen-musica" id="volumen-musica">
+  <input type="range" max="100" min="0" value="100" step="1" name="volumen-musica" id="volumen-musica">
   <!-- !html -->
   `
   menu.style.position = 'absolute'
