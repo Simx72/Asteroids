@@ -133,4 +133,5 @@ canvas.level-4 {
     border: 3px solid #00a2ff;
     background: #b9e5ff48;
     backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
 }
