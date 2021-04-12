@@ -1,6 +1,6 @@
 /// <reference path="../node_modules/phaser/types/phaser.d.ts"/>
 import Scenes from "./scenes";
-import { }, crearMenu } from './functions/cargar-menu';
+import { crearMenu } from './functions/cargar-menu';
 
 export var asteroidsPhaserGameConfig: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
