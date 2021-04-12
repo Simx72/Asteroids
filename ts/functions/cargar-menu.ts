@@ -43,6 +43,7 @@ export function cargarMenu(this: AsteroidsScene) {
   let menu = document.createElement("button")
   document.body.appendChild(menu)
   menu.id = "menu"
+  menu.style.position = 'absolute'
   menu.style.width = (this.scale.width * 0.6) + 'px'
   menu.style.height = (this.scale.height * 0.8) + 'px'
 }
