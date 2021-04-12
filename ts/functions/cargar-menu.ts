@@ -41,6 +41,8 @@ export function crearMenu() {
   let menu = document.createElement("div")
   document.body.appendChild(menu)
   menu.id = "menu"
+  menu.style.display = 'none'
+  menu.style.position = 'absolute'
   menu.innerHTML = `
   <!-- html -->
   <h1>Volumen</h1>
@@ -50,7 +52,6 @@ export function crearMenu() {
   <input type="range" max="100" min="0" value="100" step="1" name="volumen-musica" id="volumen-musica">
   <!-- !html -->
   `
-  menu.style.position = 'absolute'
 }
 
 export function cargarMenu(this: AsteroidsScene) {
