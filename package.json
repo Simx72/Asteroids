@@ -27,8 +27,7 @@
         "animate.css": "^4.1.1",
         "http-server": "^0.12.3",
         "phaser": "^3.54.0",
-        "requirejs": "^2.3.6",
-        "ts-cookies": "^1.0.0"
+        "requirejs": "^2.3.6"
     },
     "devDependencies": {
         "ecstatic": ">=4.1.3",

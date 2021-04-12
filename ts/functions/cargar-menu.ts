@@ -1,4 +1,3 @@
-import Cookies from "ts-cookies";
 import AsteroidsScene from "../scenes/templates/asteroids-scene";
 import { mostrarTexto } from './animateCSS';
 export function actualizarNivel(this: AsteroidsScene) {
