@@ -61,5 +61,8 @@ export default class AsteroidsScene extends Phaser.Scene {
     this.load.setCORS('anonymous')
     this.centerX = this.scale.width / 2
     this.centerY = this.scale.height / 2
+    this.load.image('controles', 'images/PNG/Controles.png')
+    this.load.image('github', 'images/PNG/github-64.png')
+    this.load.image('menu', 'images/PNG/configuraciones-64.png')
   }
 }
