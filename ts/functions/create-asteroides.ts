@@ -1,5 +1,6 @@
 import AsteroidsMainScene from '../scenes/game-scene';
 import { actualizarNivel } from './cargar-menu';
+import { cookies } from './cookie-manager';
 export default function createAsteroides(this: AsteroidsMainScene) {
   this.objeto(
     'grupo.ast',
@@ -35,7 +36,7 @@ export default function createAsteroides(this: AsteroidsMainScene) {
 
       let audio = this.sound.add('audio.explo')
       audio.play('', {
-        volume: cookiesTs
+        volume: cookies.getNum('config-volumen-fx', true) / 100
       })
 
       this.dato('puntos', this.dato<number>('puntos') + 1)
