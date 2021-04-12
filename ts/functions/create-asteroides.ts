@@ -36,7 +36,7 @@ export default function createAsteroides(this: AsteroidsMainScene) {
 
       let audio = this.sound.add('audio.explo')
       audio.play('', {
-        volume: cookies.getNum('config-volumen-fx', true) / 100 * 0.4
+        volume: cookies.getNum('config-volumen-fx', true) / 100 * 0.35
       })
 
       this.dato('puntos', this.dato<number>('puntos') + 1)
