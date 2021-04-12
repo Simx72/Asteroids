@@ -66,10 +66,10 @@ export function cargarMenu(this: AsteroidsScene) {
     ?.addEventListener('change', e => {
       let element = e.target as HTMLInputElement;
       cookies.set('config-volumen-musica', element.value.toString())
-      let musica = this.sound.get('audio.crystal-cave')
       try {
-      eval("musica.config.volume = cookies.getNum('config-volumen-musica', true) / 100")
-      } catch (e) {console.error(e)}
+        let musica = this.sound.get('audio.crystal-cave')
+        eval("musica.config.volume = cookies.getNum('config-volumen-musica', true) / 100")
+      } catch (e) { console.error(e) }
 
     })
 }
