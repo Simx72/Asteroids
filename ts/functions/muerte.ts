@@ -116,7 +116,7 @@ function perder(this: AsteroidsMainScene) {
 
   let audio = this.sound.add('audio.explo')
   audio.play('', {
-    volume: cookies.getNum('config-volume-fx')/100
+    volume: cookies.getNum('config-volume-fx', true)/100
   })
 
   this.physics.pause() /* stops everything */
