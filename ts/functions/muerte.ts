@@ -1,5 +1,6 @@
 import AsteroidsMainScene from '../scenes/game-scene';
-import { Cookies } from 'cookies-ts';
+import cookiesTs from 'cookies-ts';
+let Cookies = new cookiesTs()
 export function muerte(this: AsteroidsMainScene) {
   if (this.dato('vivo')) {
     if (this.dato('vidas', this.dato<number>('vidas') - 1) < 0) {
