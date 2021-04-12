@@ -62,7 +62,7 @@ export function crearMenu() {
     } else if (menu.style.display == "none") {
       menu.style.display = "flex"
     }
-    animateCSS(menuButton, 'pulse')
+    animateCSS(menuButton, 'pulse', 300)
   }, false)
 }
 
