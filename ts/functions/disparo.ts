@@ -24,7 +24,7 @@ export default function disparo(this: AsteroidsMainScene) {
 
   let audio = this.sound.add('audio.laser')
   audio.play('', {
-    volume: cookies.getNum('config-volumen-fx', true) / 100 * 0.4
+    volume: cookies.getNum('config-volumen-fx', true) / 100 * 0.3
   })
 
   if (this.physics.config.debug) {
