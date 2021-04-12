@@ -1,5 +1,6 @@
 import { cookies } from '../functions/cookie-manager';
 import AsteroidsScene from './templates/asteroids-scene';
+import { cargarMenu } from '../functions/cargar-menu';
 export default class AsteroidsLooseScene extends AsteroidsScene {
   constructor() {
     super({
@@ -17,7 +18,7 @@ export default class AsteroidsLooseScene extends AsteroidsScene {
   }
 
   create() {
-
+    cargarMenu.bind(this)()
     if (this.physics.config.debug) {
       this.objeto(
         'texto.debug',
