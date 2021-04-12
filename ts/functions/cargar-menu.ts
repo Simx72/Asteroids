@@ -58,13 +58,16 @@ export function cargarMenu(this: AsteroidsScene) {
   menu.style.top = (this.scale.height * 0.1) + 'px'
   menu.style.left = (this.scale.width * 0.2) + 'px'
   document.getElementById('volumen-efectos')
-  ?.addEventListener('change', e => {
-    let element = e.target as HTMLInputElement;
-    cookies.set('config-volumen-fx', element.value.toString())
-  })
+    ?.addEventListener('change', e => {
+      let element = e.target as HTMLInputElement;
+      cookies.set('config-volumen-fx', element.value.toString())
+    })
   document.getElementById('volumen-musica')
-  ?.addEventListener('change', e => {
-    let element = e.target as HTMLInputElement;
-    cookies.set('config-volumen-musica', element.value.toString())
-  })
+    ?.addEventListener('change', e => {
+      let element = e.target as HTMLInputElement;
+      cookies.set('config-volumen-musica', element.value.toString())
+      console.log(
+        this.sound.get('audio.crystal-cave')
+      )
+    })
 }
