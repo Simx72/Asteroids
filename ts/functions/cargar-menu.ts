@@ -55,6 +55,24 @@ export function crearMenu() {
 }
 
 export function cargarMenu(this: AsteroidsScene) {
+
+  let menuButton = this.add.image(
+    this.scale.width - 72,
+    this.scale.height - 72,
+    'menu'
+  ).setInteractive()
+
+  menuButton.on('pointerdown', () => {
+    this.game.canvas.style.cursor = 'default'
+    window.open('https://github.com/Simx72', '_blank')
+  })
+  menuButton.on('pointerover', () => {
+    this.game.canvas.style.cursor = 'pointer'
+  })
+  menuButton.on('pointerout', () => {
+    this.game.canvas.style.cursor = 'default'
+  })
+
   cookies.check('config-volumen-fx')
     .catch(() => cookies.set('config-volumen-fx', '100'))
   cookies.check('config-volumen-musica')
