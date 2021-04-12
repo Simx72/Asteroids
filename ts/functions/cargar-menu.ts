@@ -52,9 +52,19 @@ export function crearMenu() {
   <input type="range" max="100" min="0" value="100" step="1" name="volumen-musica" id="volumen-musica">
   <!-- !html -->
   `
+  let menuButton = document.createElement("button")
+  menuButton.id = 'menu-button'
+  menuButton.addEventListener('click', e => {
+    e.preventDefault()
+    menu.style.display = "flex"
+  })
 }
 
 export function cargarMenu(this: AsteroidsScene) {
+  let menuButton = document.querySelector<HTMLButtonElement>('#menu-button')
+  if (menuButton != null) {
+    menuButton.
+  }
 
   cookies.check('config-volumen-fx')
     .catch(() => cookies.set('config-volumen-fx', '100'))
