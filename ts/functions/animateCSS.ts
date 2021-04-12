@@ -25,7 +25,7 @@ function animateCSS<T = string | HTMLElement>(element: T, animation: string, pre
         if (node != null) {
           event.stopPropagation();
           node.classList.remove(`${prefix}animated`, animationName);
-          resolve(void 0);
+          resolve(element);
         }
       }, { once: true });
     }
