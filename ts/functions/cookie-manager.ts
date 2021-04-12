@@ -64,8 +64,12 @@ export namespace cookies {
     return "";
   }
 
-  export function getNum(key: string) {
-    return parseFloat(get(key))
+  export function getNum(key: string, int: boolean = false) {
+    if (int) {
+      return parseInt(get(key))
+    } else {
+      return parseFloat(get(key))
+    }
   }
 
   export function check(key: string) {
