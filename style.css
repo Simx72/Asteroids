@@ -138,6 +138,7 @@ canvas.level-4 {
     padding: 10px 4px;
     color: white;
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
