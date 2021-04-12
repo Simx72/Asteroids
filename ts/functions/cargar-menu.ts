@@ -41,5 +41,8 @@ export function cargarMenu(this: AsteroidsScene) {
   cookies.set('config-volumen-fx', '100')
   cookies.set('config-volumen-music', '100')
   let menu = document.createElement("button")
+  document.body.appendChild(menu)
   menu.id = "menu"
+  menu.style.width = (this.scale.width * 0.6) + 'px'
+  menu.style.height = (this.scale.height * 0.8) + 'px'
 }
