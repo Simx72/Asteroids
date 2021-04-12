@@ -1,4 +1,5 @@
 import AsteroidsMainScene from '../scenes/game-scene';
+import { cookies } from './cookie-manager';
 export default function disparo(this: AsteroidsMainScene) {
 
   const nave = this.objeto<Phaser.Types.Physics.Arcade.ImageWithDynamicBody>('nave')
@@ -23,7 +24,7 @@ export default function disparo(this: AsteroidsMainScene) {
 
   let audio = this.sound.add('audio.laser')
   audio.play(void 0, {
-    volume: Cookies.get('config-volume-fx')/100
+    volume: cookies.get('config-volume-fx')/100
   })
 
   if (this.physics.config.debug) {
