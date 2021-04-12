@@ -1,3 +1,4 @@
+import { cookies } from '../functions/cookie-manager';
 import AsteroidsScene from './templates/asteroids-scene';
 export default class AsteroidsLooseScene extends AsteroidsScene {
   constructor() {
@@ -11,17 +12,8 @@ export default class AsteroidsLooseScene extends AsteroidsScene {
   preload() {
     this.defaultPreload()
     document.body.className = "loose"
-    let regexres = (/puntos=(\d+)/g).exec(document.cookie)
-    if (regexres != null) {
-      this.dato('puntos', parseInt(regexres[1]))
-    } else {
-      this.dato('puntos', 0)
-    }
-    if (this.physics.config.debug) {
-      console.log(regexres, document.cookie, this.dato('puntos'))
-    }
-    document.cookie = 'puntos=null'
-    
+    this.dato('puntos', cookies.getNum('puntos', true))
+    cookies.remove('puntos')
   }
 
   create() {
