@@ -9,8 +9,7 @@
         "local-install": "npm ci && npm run download-assets",
         "download-assets": "npm install --save decompress-cli && curl -O https://pagina-simx72-aba9b.web.app/zip/asteroids-assets-latest.zip && fse mkdirp asteroids-assets && ./node_modules/.bin/decompress asteroids-assets-latest.zip --out-dir=asteroids-assets && fse remove asteroids-assets-latest.zip && npm uninstall --save decompress-cli",
         "prestart": "npm run build",
-        "start": " echo \"  Aplicación iniciada\n  Para jugar entre a\n  http://127.0.0.1:51234\n  En su navegador\n  Para terminar oprima Ctrl+C [^C en mac]\" && http-server -p 51234 -i true -d false -o \"./\" --silent",
-        "postinstall": "node_modules/.bin/fse copy --all --keepExisting --dereference=no --errorOnExist=no --preserveTimestamps=no node_modules/ts-cookies/src/ node_modules/ts-cookies/"
+        "start": " echo \"  Aplicación iniciada\n  Para jugar entre a\n  http://127.0.0.1:51234\n  En su navegador\n  Para terminar oprima Ctrl+C [^C en mac]\" && http-server -p 51234 -i true -d false -o \"./\" --silent"
     },
     "repository": {
         "type": "git",
