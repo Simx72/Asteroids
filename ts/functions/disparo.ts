@@ -23,7 +23,7 @@ export default function disparo(this: AsteroidsMainScene) {
   disp.setVelocity(rX * vel, rY * vel)
 
   let audio = this.sound.add('audio.laser')
-  audio.play(void 0, {
+  audio.play('', {
     volume: cookies.getNum('config-volume-fx')/100
   })
 
