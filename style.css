@@ -131,5 +131,6 @@ canvas.level-4 {
 
 #menu {
     border: 3px solid #00a2ff;
-    background: #00000050;
+    background: #b9e5ff48;
+    backdrop-filter: blur(4px);
 }
