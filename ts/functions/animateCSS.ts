@@ -1,4 +1,4 @@
-export default function animateCSS<T = string | HTMLElement>(element: T, animation: string, prefix = 'animate__') {
+export default function animateCSS<T = string | HTMLElement>(element: T, animation: string, duration: number = 2000, prefix = 'animate__') {
   // We create a Promise and return it
   return new Promise<T>((resolve, reject) => {
     const animationName = `${prefix}${animation}`;
@@ -17,6 +17,7 @@ export default function animateCSS<T = string | HTMLElement>(element: T, animati
     }
 
     if (node != null) {
+      node.style.animationDuration = duration + 'ms'
       node.classList.add(`${prefix}animated`, animationName);
 
       // When the animation ends, we clean the classes and resolve the Promise
