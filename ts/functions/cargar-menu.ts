@@ -48,8 +48,8 @@ export function cargarMenu(this: AsteroidsScene) {
   <h1>Volumen</h1>
   <label for="volumen-efectos">Efectos</label>
   <input type="range" max="100" min="0" step="1" name="volumen-efectos" id="volumen-efectos">
-  <label for="volumen-efectos">Música</label>
-  <input type="range" max="100" min="0" step="1" name="volumen-efectos" id="volumen-efectos">
+  <label for="volumen-musica">Música</label>
+  <input type="range" max="100" min="0" step="1" name="volumen-musica" id="volumen-musica">
   <!-- !html -->
   `
   menu.style.position = 'absolute'
@@ -57,4 +57,14 @@ export function cargarMenu(this: AsteroidsScene) {
   menu.style.height = (this.scale.height * 0.8) + 'px'
   menu.style.top = (this.scale.height * 0.1) + 'px'
   menu.style.left = (this.scale.width * 0.2) + 'px'
+  document.getElementById('volumen-efectos')
+  ?.addEventListener('change', e => {
+    let element = e.target as HTMLInputElement;
+    cookies.set('config-volumen-fx', element.value.toString())
+  })
+  document.getElementById('volumen-musica')
+  ?.addEventListener('change', e => {
+    let element = e.target as HTMLInputElement;
+    cookies.set('config-volumen-musica', element.value.toString())
+  })
 }
