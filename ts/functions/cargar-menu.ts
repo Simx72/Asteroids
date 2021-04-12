@@ -82,7 +82,3 @@ export function cargarMenu(this: AsteroidsScene) {
 
     })
 }
-
-export function quitarMenu(this: AsteroidsScene) {
-
-}
