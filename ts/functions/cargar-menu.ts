@@ -45,7 +45,10 @@ export function cargarMenu(this: AsteroidsScene) {
   menu.id = "menu"
   menu.innerHTML = `
   <!-- html -->
-
+    <div>
+      Efectos:
+      <input type="range" max="100" min="0" step="1">
+    </div>
   <!-- !html -->
   `
   menu.style.position = 'absolute'
