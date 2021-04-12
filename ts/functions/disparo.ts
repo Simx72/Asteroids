@@ -1,5 +1,6 @@
 import AsteroidsMainScene from '../scenes/game-scene';
-import { Cookies } from 'cookies-ts';
+import cookiesTs from 'cookies-ts';
+let Cookies = new cookiesTs()
 export default function disparo(this: AsteroidsMainScene) {
 
   const nave = this.objeto<Phaser.Types.Physics.Arcade.ImageWithDynamicBody>('nave')
