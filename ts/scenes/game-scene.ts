@@ -59,11 +59,12 @@ export default class AsteroidsMainScene extends AsteroidsScene {
    * CREATE
    **************/
   public create() {
-    this.sound.add('audio.crystal-cave')
-      .play('', {
-        loop: true,
-        volume: cookies.getNum('config-volumen-music', true) / 100
-      })
+    let music = this.sound.add('audio.crystal-cave')
+    music.play('', {
+      loop: true,
+      volume: cookies.getNum('config-volumen-music', true) / 100
+    })
+
 
     this.dato('cargado', false)
 
@@ -74,7 +75,7 @@ export default class AsteroidsMainScene extends AsteroidsScene {
     this.objeto('cargando.rect',
       this.add.rectangle(this.centerX, this.centerY, this.scale.width + 4, this.scale.height + 4).setDepth(99).setFillStyle(0x000000).setStrokeStyle(2, 0xFFFFFF)
     )
-    this.objeto('cargando.controles', 
+    this.objeto('cargando.controles',
       this.add.image(this.centerX, this.centerY, 'controles').setOrigin(0.5, 0.5).setScale(1, 1)
     )
 
