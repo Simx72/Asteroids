@@ -1,6 +1,6 @@
-function animateCSS(element: string | HTMLElement, animation: string, prefix = 'animate__') {
+function animateCSS<T = string | HTMLElement>(element: T, animation: string, prefix = 'animate__') {
   // We create a Promise and return it
-  return new Promise((resolve, reject) => {
+  return new Promise<T>((resolve, reject) => {
     const animationName = `${prefix}${animation}`;
     let node: HTMLElement | null
     if (element instanceof HTMLElement) {
