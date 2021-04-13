@@ -44,15 +44,15 @@ export function crearMenu() {
   menu.id = "menu"
   menu.style.display = 'none'
   menu.style.position = 'absolute'
-  menu.innerHTML = `
-  <!-- html -->
-  <h1>Volumen</h1>
-  <label for="volumen-efectos">Efectos</label>
-  <input type="range" max="100" min="0" value="100" step="1" name="volumen-efectos" id="volumen-efectos">
-  <label for="volumen-musica">Música</label>
-  <input type="range" max="100" min="0" value="100" step="1" name="volumen-musica" id="volumen-musica">
-  <!-- !html -->
-  `
+  let getMenuHTML = new XMLHttpRequest()
+  getMenuHTML.addEventListener('readystatechange', e => {
+    e.preventDefault()
+    if (getMenuHTML.readyState === 4 && getMenuHTML.status === 200) {
+      menu.innerHTML = getMenuHTML.responseText
+    }
+  })
+  getMenuHTML.open('GET', 'menu-pausa.html')
+  getMenuHTML.send()
   let menuButton = document.createElement("button")
   document.body.appendChild(menuButton)
   menuButton.id = 'menu-button'
