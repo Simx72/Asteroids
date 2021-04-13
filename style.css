@@ -166,3 +166,11 @@ canvas.level-4 {
     background-repeat: no-repeat;
     border: 0 solid black;
 }
+
+#menu-button:focus {
+    background-color: #0000;
+    background-image: url(https://pagina-simx72-aba9b.web.app/asteroids-assets/images/PNG/configuraciones-64.png);
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    border: 0 solid black;
+}
