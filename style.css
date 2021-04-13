@@ -141,6 +141,7 @@ canvas.level-4 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: auto;
 }
 
 #menu>* {
