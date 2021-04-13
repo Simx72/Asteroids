@@ -67,6 +67,7 @@ export function crearMenu() {
     }
     animateCSS(menuButton, 'pulse', 300)
   }, false)
+  cookies.set('paused', 'true')
 }
 
 export function cargarMenu(this: AsteroidsScene) {
@@ -79,11 +80,8 @@ export function cargarMenu(this: AsteroidsScene) {
     menuButton.style.left = (this.scale.width - 66) + 'px'
 
     menuButton.addEventListener("click", e => {
-      if (this.physics.config.isPaused) {
-        this.physics.resume()
-      } else {
-        this.physics.pause()
-      }
+      cookies.check('pause')
+      .then(() => this.physics.resume)
     }, false)
   }
 
