@@ -76,8 +76,8 @@ export function cargarMenu(this: AsteroidsScene) {
     menuButton.style.display = 'block'
     menuButton.style.width = '50px'
     menuButton.style.height = '50px'
-    menuButton.style.top = (this.scale.height - 66) + 'px'
-    menuButton.style.left = (this.scale.width - 66) + 'px'
+    menuButton.style.top = (this.scale.height - 65) + 'px'
+    menuButton.style.left = (this.scale.width - 65) + 'px'
 
     menuButton.addEventListener("click", e => {
       e.preventDefault()
