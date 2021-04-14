@@ -171,9 +171,9 @@ canvas.level-4 {
 }
 
 #menu::-webkit-scrollbar-thumb {
-    background-color: blue;
+    background-color: #00a2ff;
     /* color of the scroll thumb */
-    border-radius: 20px;
+    border-radius: 10px;
     /* roundness of the scroll thumb */
     border: 3px solid orange;
     /* creates padding around scroll thumb */
