@@ -175,7 +175,7 @@ canvas.level-4 {
     /* color of the scroll thumb */
     border-radius: 10px;
     /* roundness of the scroll thumb */
-    border: 3px solid rgba(0, 0, 255, 0.233);
+    border: 3px solid #0000;
     /* creates padding around scroll thumb */
 }
 
