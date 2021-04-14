@@ -94,10 +94,16 @@ export function cargarMenu(this: AsteroidsScene) {
   }
 
   cookies.check('config-volumen-fx')
-    .then(val => document.getElementById('volumen-efectos')?.value = val)
+    .then(val => {
+      let vol = <HTMLInputElement> document.getElementById('volumen-efectos')
+      vol.value = val
+    })
     .catch(() => cookies.set('config-volumen-fx', '100'))
   cookies.check('config-volumen-musica')
-    .then(val => document.getElementById('volumen-musica')?.value = val)
+    .then(val => {
+      let vol = <HTMLInputElement> document.getElementById('volumen-musica')
+      vol.value = val
+    })
     .catch(() => cookies.set('config-volumen-musica', '100'))
   let menu = <HTMLInputElement>document.getElementById('menu')
   menu.style.width = (this.scale.width * 0.6) + 'px'
