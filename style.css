@@ -160,6 +160,25 @@ canvas.level-4 {
     font-size: 14pt;
 }
 
+#menu::-webkit-scrollbar {
+    width: 12px;
+    /* width of the entire scrollbar */
+}
+
+#menu::-webkit-scrollbar-track {
+    background: orange;
+    /* color of the tracking area */
+}
+
+#menu::-webkit-scrollbar-thumb {
+    background-color: blue;
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+    border: 3px solid orange;
+    /* creates padding around scroll thumb */
+}
+
 #menu-button {
     background-color: #0000;
     background-image: url(https://pagina-simx72-aba9b.web.app/asteroids-assets/images/PNG/configuraciones-64.png);
