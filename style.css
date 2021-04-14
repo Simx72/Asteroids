@@ -166,7 +166,7 @@ canvas.level-4 {
 }
 
 #menu::-webkit-scrollbar-track {
-    background: orange;
+    background: rgba(0, 0, 255, 0.233);
     /* color of the tracking area */
 }
 
@@ -175,7 +175,7 @@ canvas.level-4 {
     /* color of the scroll thumb */
     border-radius: 10px;
     /* roundness of the scroll thumb */
-    border: 3px solid orange;
+    border: 3px solid rgba(0, 0, 255, 0.233);
     /* creates padding around scroll thumb */
 }
 
