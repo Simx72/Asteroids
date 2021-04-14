@@ -1,5 +1,6 @@
 import AsteroidsMainScene from '../scenes/game-scene';
 import { actualizarNivel } from './cargar-menu';
+import { cookies } from './cookie-manager';
 export default function createNave(this: AsteroidsMainScene) {
   const nave = this.objeto(
     'nave',
