@@ -27,7 +27,7 @@ export default class AsteroidsLooseScene extends AsteroidsScene {
     } else {
       this.objeto(
         'texto.puntos',
-        this.add.text(0, 0, 'Tu puntaje: '+this.dato<number>('puntos'), { fontFamily: this.defaultFont, fontSize: '25pt' }).setOrigin(0, 0).setPosition(10, 10).setDepth(70)
+        this.add.text(0, 0, 'Tu puntaje: ' + this.dato<number>('puntos'), { fontFamily: this.defaultFont, fontSize: '25pt' }).setOrigin(0, 0).setPosition(10, 10).setDepth(70)
       )
     }
 
@@ -61,17 +61,26 @@ export default class AsteroidsLooseScene extends AsteroidsScene {
     buttonTexto.setColor('#000000')
 
     button.on('pointerdown', () => {
-      button.setFillStyle(0xFFFFFF)
-      this.game.scene.switch('loose-scene', 'game-scene')
-      this.game.canvas.style.cursor = 'default'
+      cookies.check('pausa')
+        .catch(() => {
+          button.setFillStyle(0xFFFFFF)
+          this.game.scene.switch('loose-scene', 'game-scene')
+          this.game.canvas.style.cursor = 'default'
+        })
     })
     button.on('pointerover', () => {
-      this.game.canvas.style.cursor = 'pointer'
-      button.setFillStyle(0xDDDD33)
+      cookies.check('pausa')
+        .catch(() => {
+          this.game.canvas.style.cursor = 'pointer'
+          button.setFillStyle(0xDDDD33)
+        })
     })
     button.on('pointerout', () => {
-      this.game.canvas.style.cursor = 'default'
-      button.setFillStyle(0xFFFFFF)
+      cookies.check('pausa')
+        .catch(() => {
+          this.game.canvas.style.cursor = 'default'
+          button.setFillStyle(0xFFFFFF)
+        })
     })
   }
 }
