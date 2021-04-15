@@ -101,22 +101,5 @@ export function cargarMenu(this: AsteroidsScene) {
   menu.style.height = (this.scale.height * 0.8) + 'px'
   menu.style.top = (this.scale.height * 0.1) + 'px'
   menu.style.left = (this.scale.width * 0.2) + 'px'
-  document.getElementById('volumen-efectos')
-    ?.addEventListener('change', e => {
-      let element = e.target as HTMLInputElement;
-      cookies.set('config-volumen-fx', element.value.toString())
-    })
-  document.getElementById('volumen-musica')
-    ?.addEventListener('change', e => {
-      let element = e.target as HTMLInputElement;
-      cookies.set('config-volumen-musica', element.value.toString())
-      try {
-        let musica = this.sound.getAll('audio.crystal-cave')
-        let volumen = cookies.getNum('config-volumen-musica', true) / 100
-        musica.forEach(obj => obj.destroy())
-        this.sound.add('audio.crystal-cave').play('', { volume: volumen })
-      } catch (e) { console.error(e) }
-    })
-
 
 }
