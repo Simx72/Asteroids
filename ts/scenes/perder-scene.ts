@@ -76,7 +76,7 @@ export default class AsteroidsLooseScene extends AsteroidsScene {
       }
     })
     button.on('pointerover', () => {
-      if (cookies.get('jugando')) {
+      if (cookies.get('jugando') == "true") {
         this.game.canvas.style.cursor = 'pointer'
         button.setFillStyle(0xDDDD33)
       }
