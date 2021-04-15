@@ -12,7 +12,7 @@ export default function updateNave(this: AsteroidsMainScene) {
     texto.text += `vidas: \t${this.dato<number>('vidas') + 1} (${this.dato<number>('vidas')}) \n`
     texto.text += `puntos: \t${this.dato<number>('puntos')} \n`
   } else {
-    this.objeto<Phaser.GameObjects.Text>('texto.puntos').text = this.dato('puntos')
+    this.objeto<Phaser.GameObjects.Text>('texto.puntos').text = this.dato<number>('puntos').toString()
   }
 
   const keys = {
