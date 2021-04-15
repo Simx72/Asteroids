@@ -13,7 +13,6 @@ document.getElementById('volumen-efectos')
 musica.addEventListener('change', e => {
   let element = e.target as HTMLInputElement;
   cookies.set('config-volumen-musica', element.value.toString())
-  console.log(musica)
 })
 
 export default musica;
