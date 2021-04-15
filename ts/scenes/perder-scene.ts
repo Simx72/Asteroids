@@ -12,12 +12,12 @@ export default class AsteroidsLooseScene extends AsteroidsScene {
 
   preload() {
     this.defaultPreload()
-    document.body.className = "loose"
-    this.dato('puntos', cookies.getNum('puntos', true))
-    cookies.remove('puntos')
   }
 
   create() {
+    document.body.className = "loose"
+    this.dato('puntos', cookies.getNum('puntos', true))
+    cookies.remove('puntos')
     cargarMenu.bind(this)()
 
     let musica = this.sound.add('audio.crystal-cave')
