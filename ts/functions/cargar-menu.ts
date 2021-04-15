@@ -73,7 +73,7 @@ export function crearMenu() {
 }
 
 export function cargarMenu(this: AsteroidsScene) {
-  let menuButton = document.querySelector<HTMLButtonElement>('#menu-button')
+  let menuButton = document.querySelector<HTMLDivElement>('#menu-button')
   if (menuButton != null) {
     menuButton.style.display = 'block'
     menuButton.style.width = '50px'
