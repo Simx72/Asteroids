@@ -82,7 +82,7 @@ export default class AsteroidsLooseScene extends AsteroidsScene {
       }
     })
     button.on('pointerout', () => {
-      if (cookies.get('jugando')) {
+      if (cookies.get('jugando') == "true") {
         this.game.canvas.style.cursor = 'default'
         button.setFillStyle(0xFFFFFF)
       }
