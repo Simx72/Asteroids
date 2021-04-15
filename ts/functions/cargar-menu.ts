@@ -71,10 +71,6 @@ export function crearMenu() {
 }
 
 export function cargarMenu(this: AsteroidsScene) {
-  let musica = this.sound.getAll('audio.crystal-cave')
-        let volumen = cookies.getNum('config-volumen-musica', true) / 100
-        musica.forEach(obj => obj.destroy())
-        this.sound.add('audio.crystal-cave').play('', { volume: volumen })
   let menuButton = document.querySelector<HTMLButtonElement>('#menu-button')
   if (menuButton != null) {
     menuButton.style.display = 'block'
@@ -99,13 +95,13 @@ export function cargarMenu(this: AsteroidsScene) {
 
   cookies.check('config-volumen-fx')
     .then(val => {
-      let vol = <HTMLInputElement> document.getElementById('volumen-efectos')
+      let vol = <HTMLInputElement>document.getElementById('volumen-efectos')
       vol.value = val
     })
     .catch(() => cookies.set('config-volumen-fx', '100'))
   cookies.check('config-volumen-musica')
     .then(val => {
-      let vol = <HTMLInputElement> document.getElementById('volumen-musica')
+      let vol = <HTMLInputElement>document.getElementById('volumen-musica')
       vol.value = val
     })
     .catch(() => cookies.set('config-volumen-musica', '100'))
@@ -130,4 +126,11 @@ export function cargarMenu(this: AsteroidsScene) {
         this.sound.add('audio.crystal-cave').play('', { volume: volumen })
       } catch (e) { console.error(e) }
     })
+
+
+  let musica = this.sound.getAll('audio.crystal-cave')
+  let volumen = cookies.getNum('config-volumen-musica', true) / 100
+  musica.forEach(obj => obj.destroy())
+  this.sound.add('audio.crystal-cave').play('', { volume: volumen, loop: true })
+
 }
