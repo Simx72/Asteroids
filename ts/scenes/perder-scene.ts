@@ -76,18 +76,16 @@ export default class AsteroidsLooseScene extends AsteroidsScene {
       }
     })
     button.on('pointerover', () => {
-      cookies.check('pausa')
-        .catch(() => {
-          this.game.canvas.style.cursor = 'pointer'
-          button.setFillStyle(0xDDDD33)
-        })
+      if (cookies.get('jugando')) {
+        this.game.canvas.style.cursor = 'pointer'
+        button.setFillStyle(0xDDDD33)
+      }
     })
     button.on('pointerout', () => {
-      cookies.check('pausa')
-        .catch(() => {
-          this.game.canvas.style.cursor = 'default'
-          button.setFillStyle(0xFFFFFF)
-        })
+      if (cookies.get('jugando')) {
+        this.game.canvas.style.cursor = 'default'
+        button.setFillStyle(0xFFFFFF)
+      }
     })
   }
 }
