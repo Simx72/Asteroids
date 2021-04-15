@@ -80,18 +80,6 @@ export function cargarMenu(this: AsteroidsScene) {
     menuButton.style.height = '50px'
     menuButton.style.top = (this.scale.height - 65) + 'px'
     menuButton.style.left = (this.scale.width - 65) + 'px'
-
-    menuButton.onclick = () =>
-      cookies.check('pausa')
-        .then(() => {
-          this.physics.resume()
-          cookies.remove('pausa')
-        })
-        .catch(() => {
-          this.physics.pause()
-          cookies.set('pausa', 'true')
-        })
-
   }
 
   cookies.check('config-volumen-fx')
