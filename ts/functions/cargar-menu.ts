@@ -71,6 +71,10 @@ export function crearMenu() {
 }
 
 export function cargarMenu(this: AsteroidsScene) {
+  let musica = this.sound.getAll('audio.crystal-cave')
+        let volumen = cookies.getNum('config-volumen-musica', true) / 100
+        musica.forEach(obj => obj.destroy())
+        this.sound.add('audio.crystal-cave').play('', { volume: volumen })
   let menuButton = document.querySelector<HTMLButtonElement>('#menu-button')
   if (menuButton != null) {
     menuButton.style.display = 'block'
