@@ -28,7 +28,6 @@ export default class AsteroidsMainScene extends AsteroidsScene {
 
     this.load.audio('audio.laser', 'sounds/laser.wav')
     this.load.audio('audio.explo', 'sounds/explosion.wav')
-    this.load.audio('audio.crystal-cave', 'sounds/Crystal-Cave-Song-18.mp3')
 
     this.load.svg('nave', 'images/SVG/nave-espacial.svg')
     this.load.svg('asteroide.1', 'images/SVG/asteroide-1.svg')
