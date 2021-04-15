@@ -41,7 +41,7 @@ export default function updateNave(this: AsteroidsMainScene) {
     let angle = nave.angle
     let accel = 250
     let aX = accel * Math.sin(Phaser.Math.DegToRad(angle))
-    let aY = accel * -Math.cos(Phaser.Math.DegToRad(angle))
+    let aY = accel * Math.cos(-Phaser.Math.DegToRad(angle))
 
 
     if (pressed.up && !pressed.down) {
