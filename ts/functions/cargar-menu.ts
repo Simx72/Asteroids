@@ -79,8 +79,7 @@ export function cargarMenu(this: AsteroidsScene) {
     menuButton.style.top = (this.scale.height - 65) + 'px'
     menuButton.style.left = (this.scale.width - 65) + 'px'
 
-    menuButton.addEventListener("click", e => {
-      e.preventDefault()
+    menuButton.onclick = () =>
       cookies.check('pausa')
         .then(() => {
           this.physics.resume()
@@ -90,7 +89,7 @@ export function cargarMenu(this: AsteroidsScene) {
           this.physics.pause()
           cookies.set('pausa', 'true')
         })
-    }, false)
+
   }
 
   cookies.check('config-volumen-fx')
@@ -127,5 +126,5 @@ export function cargarMenu(this: AsteroidsScene) {
       } catch (e) { console.error(e) }
     })
 
-    
+
 }
