@@ -72,7 +72,7 @@ export default class AsteroidsLooseScene extends AsteroidsScene {
       cookies.check('pausa')
         .catch(() => {
           button.setFillStyle(0xFFFFFF)
-          this.game.scene.switch('loose-scene', 'game-scene')
+          this.game.scene.start('game-scene')
           this.game.canvas.style.cursor = 'default'
         })
     })
