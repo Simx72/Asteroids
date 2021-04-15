@@ -62,6 +62,7 @@ export function crearMenu() {
     e.preventDefault()
     if (menu.style.display == "flex") {
       animateCSS(menu, 'backInLeft', 200)
+      animateCSS(menu, 'backOutRight', 200)
       menu.style.display = "none"
     } else if (menu.style.display == "none") {
       menu.style.display = "flex"
