@@ -69,7 +69,7 @@ export function crearMenu() {
     }
     animateCSS(menuButton, 'pulse', 300)
   }, false)
-  cookies.set('pausa', '')
+  cookies.set('jugando', 'true')
 }
 
 export function cargarMenu(this: AsteroidsScene) {
