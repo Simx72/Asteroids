@@ -187,6 +187,7 @@ canvas.level-4 {
     background-size: 50px 50px;
     background-repeat: no-repeat;
     border: 0 solid black;
+    cursor: pointer;
 }
 
 #menu-button:focus {
