@@ -15,3 +15,5 @@ musica.addEventListener('change', e => {
   cookies.set('config-volumen-musica', element.value.toString())
   console.log(musica)
 })
+
+export default musica;
