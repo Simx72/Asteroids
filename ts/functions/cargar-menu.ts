@@ -61,11 +61,13 @@ export function crearMenu() {
   menuButton.addEventListener('click', e => {
     e.preventDefault()
     if (menu.style.display == "flex") {
+      cookies.set('jugando', 'true')
       animateCSS(menu, 'fadeOut', 200)
       .then(() => menu.style.display = "none")
     } else if (menu.style.display == "none") {
       menu.style.display = "flex"
       animateCSS(menu, 'fadeIn', 200)
+      cookies.set('jugando', 'false')
     }
     animateCSS(menuButton, 'pulse', 300)
   }, false)
