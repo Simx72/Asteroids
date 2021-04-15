@@ -53,7 +53,7 @@ export function crearMenu() {
   })
   getMenuHTML.open('GET', 'menu-pausa.html')
   getMenuHTML.send()
-  let menuButton = document.createElement("button")
+  let menuButton = document.createElement("div")
   document.body.appendChild(menuButton)
   menuButton.id = 'menu-button'
   menuButton.style.display = 'none'
