@@ -17,7 +17,7 @@ export default function createNave(this: AsteroidsMainScene) {
   )
 
   this.dato('intervalo puntos', window.setInterval(() => {
-    if (cookies.get('jugando'))
+    if (cookies.get('jugando') == 'true')
       this.dato('puntos', this.dato<number>('puntos') + 1)
       actualizarNivel.bind(this)()
     }, 3000))
