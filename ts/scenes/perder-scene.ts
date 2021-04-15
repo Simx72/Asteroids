@@ -15,7 +15,8 @@ export default class AsteroidsLooseScene extends AsteroidsScene {
   }
 
   create() {
-    document.body.className = "loose"
+    document.body.classList.toString().split(' ').forEach(val => document.body.classList.remove(val))
+    document.body.classList.add('loose')
     this.dato('puntos', cookies.getNum('puntos', true))
     cookies.remove('puntos')
     cargarMenu.bind(this)()
