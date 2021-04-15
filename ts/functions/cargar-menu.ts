@@ -60,7 +60,6 @@ export function crearMenu() {
   menuButton.style.position = 'absolute'
   menuButton.addEventListener('click', e => {
     e.preventDefault()
-    animateCSS(menuButton, 'pulse', 300)
     if (menu.style.display == "flex") {
       animateCSS(menu, 'backOutRight', 200)
       menu.style.display = "none"
@@ -68,6 +67,7 @@ export function crearMenu() {
       menu.style.display = "flex"
       animateCSS(menu, 'backInLeft', 200)
     }
+    animateCSS(menuButton, 'pulse', 300)
   }, false)
   cookies.set('pausa', '')
 }
