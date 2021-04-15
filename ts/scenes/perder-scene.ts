@@ -21,12 +21,6 @@ export default class AsteroidsLooseScene extends AsteroidsScene {
     cookies.remove('puntos')
     cargarMenu.bind(this)()
 
-    let musica = this.sound.add('audio.crystal-cave')
-    musica.play('', {
-      loop: true,
-      volume: cookies.getNum('config-volumen-musica', true) / 100
-    })
-
     if (this.physics.config.debug) {
       this.objeto(
         'texto.debug',
