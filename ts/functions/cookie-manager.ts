@@ -84,7 +84,7 @@ export namespace cookies {
   }
   
   export function remove(key: string) {
-    set(key, '')
+    set(key, '', 0.00001)
     return cookies
   }
 
