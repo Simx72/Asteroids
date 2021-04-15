@@ -69,7 +69,7 @@ export default class AsteroidsLooseScene extends AsteroidsScene {
     buttonTexto.setColor('#000000')
 
     button.on('pointerdown', () => {
-      if (cookies.get('jugando')) {
+      if (cookies.get('jugando') == "true") {
         button.setFillStyle(0xFFFFFF)
         this.game.scene.start('game-scene')
         this.game.canvas.style.cursor = 'default'
