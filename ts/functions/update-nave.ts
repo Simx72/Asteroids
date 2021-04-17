@@ -53,9 +53,7 @@ export default function updateNave(this: AsteroidsMainScene) {
   } else {
     try {
       nave.body.setAcceleration(0, 0)
-    } catch (e) {
-      throw e
-    }
+    } catch (e) { }
   }
 
   if (pressed.right || pressed.left) {
