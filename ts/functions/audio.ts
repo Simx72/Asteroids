@@ -7,16 +7,19 @@ musica.src = 'https://pagina-simx72-aba9b.web.app/asteroids-assets/sounds/Crysta
 musica.volume = cookies.getNum('config-volume-musica', true)
 musica.play()
 
+
+
 document.getElementById('volumen-efectos')
   ?.addEventListener('change', e => {
     let element = e.target as HTMLInputElement;
     cookies.set('config-volumen-fx', element.value.toString())
   })
 
-musica.addEventListener('change', e => {
-  let element = e.target as HTMLInputElement;
-  cookies.set('config-volumen-musica', element.value.toString())
-  musica.volume = parseInt(element.value) / 100
-})
+document.getElementById('volumen-musica')
+  ?.addEventListener('change', e => {
+    let element = e.target as HTMLInputElement;
+    cookies.set('config-volumen-musica', element.value.toString())
+    musica.volume = parseInt(element.value) / 100
+  })
 
 export default musica;
