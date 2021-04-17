@@ -5,7 +5,7 @@ document.body.appendChild(musica)
 musica.id = 'elemento-musica'
 musica.src = 'https://pagina-simx72-aba9b.web.app/asteroids-assets/sounds/Crystal-Cave-Song-18.mp3'
 console.log(cookies.getNum('config-volumen-musica', true) / 100)
-musica.volume = cookies.getNum('config-volume-musica', true) / 100
+musica.volume = cookies.getNum('config-volumen-musica', true) / 100
 musica.play()
 
 
