@@ -11,10 +11,15 @@ export default class AsteroidsLooseScene extends AsteroidsScene {
   }
 
   preload() {
+    try {
     this.defaultPreload()
+  } catch (e) {
+    sendError(e, this.physics.config.debug)
+  }
   }
 
   create() {
+    try {
     document.body.classList.toString().split(' ').forEach(val => document.body.classList.remove(val))
     document.body.classList.add('loose')
     this.dato('puntos', cookies.getNum('puntos', true))
