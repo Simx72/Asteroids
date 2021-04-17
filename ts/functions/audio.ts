@@ -7,8 +7,6 @@ musica.src = 'https://pagina-simx72-aba9b.web.app/asteroids-assets/sounds/Crysta
 musica.volume = cookies.getNum('config-volumen-musica', true) / 100
 musica.play()
 
-
-
 document.getElementById('volumen-efectos')
   ?.addEventListener('change', e => {
     let element = e.target as HTMLInputElement;
