@@ -109,28 +109,31 @@ export default class AsteroidsMainScene extends AsteroidsScene {
    * UPDATE
    **************/
   public update() {
+    try {
+      if (this.physics.config.debug) {
+        const texto = <Phaser.GameObjects.Text>this.objeto('texto.debug')
+        texto.text = `[scene]: Main Scene (${this.scene.key}) \n\n`
+      }
 
-    if (this.physics.config.debug) {
-      const texto = <Phaser.GameObjects.Text>this.objeto('texto.debug')
-      texto.text = `[scene]: Main Scene (${this.scene.key}) \n\n`
-    }
+      updateNave.bind(this)()
 
-    updateNave.bind(this)()
+      updateAsteroides.bind(this)()
 
-    updateAsteroides.bind(this)()
+      if (!this.dato<boolean>('cargado')) {
+        this.objeto<Phaser.GameObjects.Sprite>('cargando.sprite').alpha -= 0.03
+        this.objeto<Phaser.GameObjects.Rectangle>('cargando.rect').alpha -= 0.04
+        this.objeto<Phaser.GameObjects.Image>('cargando.controles').alpha -= 0.04
+      }
+      if ((!this.dato<boolean>('cargado')) && (this.objeto<Phaser.GameObjects.Sprite>('cargando.rect').alpha == 0)) {
+        this.objeto<Phaser.GameObjects.Sprite>('cargando.sprite').destroy()
+        this.objeto<Phaser.GameObjects.Rectangle>('cargando.rect').destroy()
+        this.objeto<Phaser.GameObjects.Image>('cargando.controles').destroy()
+        this.dato('cargado', true)
+      }
 
-    if (!this.dato<boolean>('cargado')) {
-      this.objeto<Phaser.GameObjects.Sprite>('cargando.sprite').alpha -= 0.03
-      this.objeto<Phaser.GameObjects.Rectangle>('cargando.rect').alpha -= 0.04
-      this.objeto<Phaser.GameObjects.Image>('cargando.controles').alpha -= 0.04
-    }
-    if ((!this.dato<boolean>('cargado')) && (this.objeto<Phaser.GameObjects.Sprite>('cargando.rect').alpha == 0)) {
-      this.objeto<Phaser.GameObjects.Sprite>('cargando.sprite').destroy()
-      this.objeto<Phaser.GameObjects.Rectangle>('cargando.rect').destroy()
-      this.objeto<Phaser.GameObjects.Image>('cargando.controles').destroy()
-      this.dato('cargado', true)
+    } catch (e) {
+      sendError(e, this.physics.config.debug)
     }
   }
-
 
 }
