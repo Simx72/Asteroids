@@ -2,6 +2,8 @@
 import Scenes from "./scenes";
 import { crearMenu } from './functions/cargar-menu';
 
+let debug = false
+
 export var asteroidsPhaserGameConfig: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
   scale: {
@@ -13,17 +15,19 @@ export var asteroidsPhaserGameConfig: Phaser.Types.Core.GameConfig = {
   transparent: true,
   physics: {
     default: 'arcade',
-    arcade: {
-      debug: false
-    }
+    arcade: { debug }
   },
 };
 
-crearMenu()
+export default function iniciar() {
 
-var asteroidsPhaserGame = new Phaser.Game(asteroidsPhaserGameConfig)
+  crearMenu()
 
-if (location.hostname != '127.0.0.1') console.clear()
+  var asteroidsPhaserGame = new Phaser.Game(asteroidsPhaserGameConfig)
 
-console.log('Asteroids se ha iniciado!')
-export default asteroidsPhaserGame
+  console.log('Asteroids se ha iniciado!')
+  
+  return asteroidsPhaserGame
+
+}
+
