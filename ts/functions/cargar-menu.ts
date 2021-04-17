@@ -82,8 +82,8 @@ window.addEventListener('resize', e => {
     menuButton.style.display = 'block'
     menuButton.style.width = '50px'
     menuButton.style.height = '50px'
-    menuButton.style.top = (parseFloat(canvas.style.height) - 65) + 'px'
-    menuButton.style.left = (parseFloat(canvas.style.width) - 65) + 'px'
+    menuButton.style.top = (window.innerHeight - 65) + 'px'
+    menuButton.style.left = (window.innerWidth - 65) + 'px'
   }
 }, false)
 
