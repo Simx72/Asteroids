@@ -4,7 +4,7 @@ let musica = document.createElement('audio')
 document.body.appendChild(musica)
 musica.id = 'elemento-musica'
 musica.src = 'https://pagina-simx72-aba9b.web.app/asteroids-assets/sounds/Crystal-Cave-Song-18.mp3'
-musica.volume = cookies.getNum('config-volume-musica', true)
+musica.volume = cookies.getNum('config-volume-musica', true)/100
 musica.play()
 
 
