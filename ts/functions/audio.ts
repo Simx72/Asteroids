@@ -9,7 +9,7 @@ musica.play()
 
 let inputEfectos = document.querySelector<HTMLInputElement>('#volumen-efectos')
 
-if (inputEfecto != null) {
+if (inputEfectos != null) {
   inputEfectos.addEventListener('change', e => {
     cookies.set('config-volumen-fx', inputEfectos.value.toString())
   })
