@@ -63,7 +63,7 @@ export function crearMenu() {
     if (menu.style.display == "flex") {
       cookies.set('jugando', 'true')
       animateCSS(menu, 'fadeOut', 200)
-      .then(() => menu.style.display = "none")
+        .then(() => menu.style.display = "none")
     } else if (menu.style.display == "none") {
       menu.style.display = "flex"
       animateCSS(menu, 'fadeIn', 200)
@@ -73,6 +73,18 @@ export function crearMenu() {
   }, false)
   cookies.set('jugando', 'true')
 }
+
+window.addEventListener('resize', e => {
+  let menuButton = document.querySelector<HTMLDivElement>('#menu-button')
+let canvas = document.querySelector('canvas')
+  if (menuButton != null && canvas != null) {
+    menuButton.style.display = 'block'
+    menuButton.style.width = '50px'
+    menuButton.style.height = '50px'
+    menuButton.style.top = (parseFloat(canvas.style.height) - 65) + 'px'
+    menuButton.style.left = (parseFloat(canvas.style.width) - 65) + 'px'
+  }
+}, false)
 
 export function cargarMenu(this: AsteroidsScene) {
   let menuButton = document.querySelector<HTMLDivElement>('#menu-button')
