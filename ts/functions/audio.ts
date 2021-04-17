@@ -11,7 +11,9 @@ let inputEfectos = document.querySelector<HTMLInputElement>('#volumen-efectos')
 
 if (inputEfectos != null) {
   inputEfectos.addEventListener('change', e => {
-    cookies.set('config-volumen-fx', inputEfectos.value.toString())
+    if (inputEfectos != null) {
+      cookies.set('config-volumen-fx', inputEfectos.value.toString())
+    }
   })
 }
 
