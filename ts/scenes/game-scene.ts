@@ -6,6 +6,7 @@ import createAsteroides from '../functions/create-asteroides';
 import updateNave from '../functions/update-nave';
 import { updateAsteroides } from '../functions/update-asteroides';
 import { cargarMenu } from '../functions/cargar-menu';
+import { sendError } from '../functions/error';
 
 export default class AsteroidsMainScene extends AsteroidsScene {
   constructor() {
@@ -55,51 +56,53 @@ export default class AsteroidsMainScene extends AsteroidsScene {
    * CREATE
    **************/
   public create() {
+    try {
+      cargarMenu.bind(this)()
+      this.dato('cargado', false)
 
-    cargarMenu.bind(this)()
-    this.dato('cargado', false)
-
-    let cargando = this.objeto('cargando.sprite',
-      this.add.sprite(this.centerX, 10, 'cargando', 'frame-0.png')
-    )
-    cargando.setOrigin(0.5, 0).setDepth(100)
-    this.objeto('cargando.rect',
-      this.add.rectangle(this.centerX, this.centerY, this.scale.width + 4, this.scale.height + 4).setDepth(99).setFillStyle(0x000000).setStrokeStyle(2, 0xFFFFFF)
-    )
-    this.objeto('cargando.controles',
-      this.add.image(this.centerX, this.centerY, 'controles').setOrigin(0.5, 0.5).setScale(1, 1)
-    )
-
-    let cargandoFrames: Phaser.Types.Animations.AnimationFrame[] = []
-    for (let i = 0; i < 31; i++) {
-      cargandoFrames.push({ frame: `frame-${i}.png`, key: 'cargando', duration: 0 })
-    }
-    cargando.anims.create({
-      key: 'cargar',
-      frames: cargandoFrames,
-      frameRate: 30,
-      repeat: -1
-    })
-    cargando.anims.play('cargar')
-
-    if (this.physics.config.debug) {
-      this.objeto(
-        'texto.debug',
-        this.add.text(0, 0, `[scene]: Main Scene (${this.scene.key}) \n\n`).setOrigin(0, 0).setPosition(10, 10).setDepth(100)
-      );
-    } else {
-      this.objeto(
-        'texto.puntos',
-        this.add.text(0, 0, '0', { fontFamily: this.defaultFont, fontSize: '25pt' }).setOrigin(0, 0).setPosition(10, 10).setDepth(70)
+      let cargando = this.objeto('cargando.sprite',
+        this.add.sprite(this.centerX, 10, 'cargando', 'frame-0.png')
       )
+      cargando.setOrigin(0.5, 0).setDepth(100)
+      this.objeto('cargando.rect',
+        this.add.rectangle(this.centerX, this.centerY, this.scale.width + 4, this.scale.height + 4).setDepth(99).setFillStyle(0x000000).setStrokeStyle(2, 0xFFFFFF)
+      )
+      this.objeto('cargando.controles',
+        this.add.image(this.centerX, this.centerY, 'controles').setOrigin(0.5, 0.5).setScale(1, 1)
+      )
+
+      let cargandoFrames: Phaser.Types.Animations.AnimationFrame[] = []
+      for (let i = 0; i < 31; i++) {
+        cargandoFrames.push({ frame: `frame-${i}.png`, key: 'cargando', duration: 0 })
+      }
+      cargando.anims.create({
+        key: 'cargar',
+        frames: cargandoFrames,
+        frameRate: 30,
+        repeat: -1
+      })
+      cargando.anims.play('cargar')
+
+      if (this.physics.config.debug) {
+        this.objeto(
+          'texto.debug',
+          this.add.text(0, 0, `[scene]: Main Scene (${this.scene.key}) \n\n`).setOrigin(0, 0).setPosition(10, 10).setDepth(100)
+        );
+      } else {
+        this.objeto(
+          'texto.puntos',
+          this.add.text(0, 0, '0', { fontFamily: this.defaultFont, fontSize: '25pt' }).setOrigin(0, 0).setPosition(10, 10).setDepth(70)
+        )
+      }
+
+      createNave.bind(this)()
+
+      createAsteroides.bind(this)()
+
+      detectarMuerte.bind(this)()
+    } catch (e) {
+      sendError(e)
     }
-
-    createNave.bind(this)()
-
-    createAsteroides.bind(this)()
-
-    detectarMuerte.bind(this)()
-
   }
 
   /***************
