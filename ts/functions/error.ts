@@ -1,6 +1,6 @@
 export function sendError(e: any, debug?: boolean) {
   if (debug) {
-    throw e
+    throw e;
   } else {
     console.error(e)
   }
