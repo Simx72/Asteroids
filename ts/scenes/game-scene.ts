@@ -24,31 +24,36 @@ export default class AsteroidsMainScene extends AsteroidsScene {
    * PRELOAD
    **************/
   public preload() {
-    this.defaultPreload()
-    document.body.className = "loose"
+    try {
+      this.defaultPreload()
+      document.body.className = "loose"
 
-    this.load.audio('audio.laser', 'sounds/laser.wav')
-    this.load.audio('audio.explo', 'sounds/explosion.wav')
+      this.load.audio('audio.laser', 'sounds/laser.wav')
+      this.load.audio('audio.explo', 'sounds/explosion.wav')
 
-    this.load.svg('nave', 'images/SVG/nave-espacial.svg')
-    this.load.svg('asteroide.1', 'images/SVG/asteroide-1.svg')
-    this.load.svg('asteroide.2', 'images/SVG/asteroide-2.svg')
-    this.load.svg('asteroide.3', 'images/SVG/asteroide-3.svg')
+      this.load.svg('nave', 'images/SVG/nave-espacial.svg')
+      this.load.svg('asteroide.1', 'images/SVG/asteroide-1.svg')
+      this.load.svg('asteroide.2', 'images/SVG/asteroide-2.svg')
+      this.load.svg('asteroide.3', 'images/SVG/asteroide-3.svg')
 
-    this.load.image('fueguito.22', 'images/PNG/fueguito/efecto_fuego_00022.png')
+      this.load.image('fueguito.22', 'images/PNG/fueguito/efecto_fuego_00022.png')
 
-    this.load.atlas('cargando', 'images/PNG/loading/atlas/spritesheet.png', 'images/PNG/loading/atlas/spritesheet.json')
+      this.load.atlas('cargando', 'images/PNG/loading/atlas/spritesheet.png', 'images/PNG/loading/atlas/spritesheet.json')
 
-    this.load.spritesheet({
-      key: 'explosion',
-      url: 'images/PNG/exp2_0.png',
-      frameConfig: {
-        frameWidth: 64,
-        startFrame: 0,
-        endFrame: 15,
-        frameHeight: 64
-      }
-    })
+      this.load.spritesheet({
+        key: 'explosion',
+        url: 'images/PNG/exp2_0.png',
+        frameConfig: {
+          frameWidth: 64,
+          startFrame: 0,
+          endFrame: 15,
+          frameHeight: 64
+        }
+      })
+
+    } catch (e) {
+      sendError(e, this.physics.config.debug)
+    }
 
   }
 
