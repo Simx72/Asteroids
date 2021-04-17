@@ -25,7 +25,11 @@
         // var asteroidsPhaserGame;
         require(['main'], function(main) {
             /* asteroidsPhaserGame = */
-            main.iniciar();
+            try {
+                main.iniciar();
+            } catch (e) {
+                console.error(e)
+            }
         });
     </script>
 </body>
