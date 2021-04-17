@@ -17,11 +17,12 @@ if (inputEfectos != null) {
   })
 }
 
-document.getElementById('volumen-musica')
-  ?.addEventListener('change', e => {
-    let element = e.target as HTMLInputElement;
-    cookies.set('config-volumen-musica', element.value.toString())
-    musica.volume = parseInt(element.value) / 100
-  })
+let inputMusica = document.getElementById('volumen-musica')
+
+inputMusica.addEventListener('change', e => {
+  let element = e.target as HTMLInputElement;
+  cookies.set('config-volumen-musica', element.value.toString())
+  musica.volume = parseInt(element.value) / 100
+})
 
 export default musica;
