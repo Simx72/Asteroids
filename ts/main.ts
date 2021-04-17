@@ -19,14 +19,14 @@ export var asteroidsPhaserGameConfig: Phaser.Types.Core.GameConfig = {
   },
 };
 
-export default function iniciar() {
+export function iniciar() {
 
   crearMenu()
 
-  var asteroidsPhaserGame = new Phaser.Game(asteroidsPhaserGameConfig)
+  let asteroidsPhaserGame = new Phaser.Game(asteroidsPhaserGameConfig)
 
   console.log('Asteroids se ha iniciado!')
-  
+
   return asteroidsPhaserGame
 
 }
