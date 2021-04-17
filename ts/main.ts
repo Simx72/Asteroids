@@ -1,6 +1,7 @@
 /// <reference path="../node_modules/phaser/types/phaser.d.ts"/>
 import Scenes from "./scenes";
 import { crearMenu } from './functions/cargar-menu';
+import './functions/audio'
 
 let debug = false
 
