@@ -101,7 +101,7 @@ export default class AsteroidsMainScene extends AsteroidsScene {
 
       detectarMuerte.bind(this)()
     } catch (e) {
-      sendError(e)
+      sendError(this.physics.config.debug, e)
     }
   }
 
