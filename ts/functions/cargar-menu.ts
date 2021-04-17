@@ -75,8 +75,9 @@ export function crearMenu() {
 }
 
 window.addEventListener('resize', e => {
+  e.preventDefault()
   let menuButton = document.querySelector<HTMLDivElement>('#menu-button')
-let canvas = document.querySelector('canvas')
+  let canvas = document.querySelector('canvas')
   if (menuButton != null && canvas != null) {
     menuButton.style.display = 'block'
     menuButton.style.width = '50px'
