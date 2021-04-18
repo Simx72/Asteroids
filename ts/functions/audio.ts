@@ -8,7 +8,7 @@ musica.volume = cookies.getNum('config-volumen-musica', true) / 100
 musica.loop = true
 musica.play()
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('onload', () => {
 
   let inputEfectos = document.querySelector<HTMLInputElement>('#volumen-efectos')
   if (inputEfectos != null) {
