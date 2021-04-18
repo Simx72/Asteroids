@@ -172,6 +172,11 @@ canvas.level-4 {
     text-decoration: underline;
 }
 
+#menu>ul>li>a {
+    color: #33ff00;
+    text-decoration: underline;
+}
+
 #menu>*:any-link {
     color: #33ff00;
     text-decoration: underline;
