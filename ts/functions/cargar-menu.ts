@@ -85,6 +85,11 @@ window.addEventListener('resize', e => {
     menuButton.style.top = (window.innerHeight - 65) + 'px'
     menuButton.style.left = (window.innerWidth - 65) + 'px'
   }
+  let menu = <HTMLInputElement>document.getElementById('menu')
+  menu.style.width = (window.innerWidth * 0.6) + 'px'
+  menu.style.height = (window.innerHeight * 0.8) + 'px'
+  menu.style.top = (window.innerHeight * 0.1) + 'px'
+  menu.style.left = (window.innerWidth * 0.2) + 'px'
 }, false)
 
 export function cargarMenu(this: AsteroidsScene) {
