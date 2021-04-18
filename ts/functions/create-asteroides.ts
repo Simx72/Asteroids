@@ -1,6 +1,7 @@
 import AsteroidsMainScene from '../scenes/game-scene';
 import { actualizarNivel } from './cargar-menu';
 import { cookies } from './cookie-manager';
+import { explosion } from './explosion';
 export default function createAsteroides(this: AsteroidsMainScene) {
   this.objeto(
     'grupo.ast',
@@ -20,24 +21,13 @@ export default function createAsteroides(this: AsteroidsMainScene) {
       let asteroide = obj1 as Phaser.Physics.Arcade.Sprite
       let disparo = obj2 as Phaser.Physics.Arcade.Sprite
 
-      let exp = this.objeto<Phaser.GameObjects.Sprite>('explosion')
       let astc = asteroide.getCenter()
-      exp.setPosition(astc.x, astc.y)
-
       asteroide.destroy()
       disparo.destroy()
 
       actualizarNivel.bind(this)()
 
-      exp
-        .setVisible(true)
-        .once('animationcomplete', () => exp.setVisible(false))
-        .anims.play('explotar')
-
-      let audio = this.sound.add('audio.explo')
-      audio.play('', {
-        volume: cookies.getNum('config-volumen-fx', true) / 100 * 0.35
-      })
+      explosion.bind(this)(astc.x, astc.y)
 
       this.dato('puntos', this.dato<number>('puntos') + 1)
 
