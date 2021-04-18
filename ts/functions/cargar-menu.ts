@@ -29,6 +29,8 @@ export function actualizarNivel(this: AsteroidsScene) {
     } else if (puntos < 1000) {
       if (this.dato('nivel') != 3) {
         mostrarTexto(`Nivel ${this.dato('nivel', 3)}`)
+        musica.src = 'https://pagina-simx72-aba9b.web.app/asteroids-assets/sounds/Of%20Far%20Different%20Nature%20-%20LOOP%20BOX%20%234%20(CC-BY%204.0)/Of%20Far%20Different%20Nature%20-%20Bouncer%20%5Bv2%5D%20(CC-BY%204.0).ogg'
+        musica.play()
       }
       document.body.className = "level-3"
       canvas.classList.remove('level-1', 'level-2', 'level-4')
@@ -36,6 +38,8 @@ export function actualizarNivel(this: AsteroidsScene) {
     } else {
       if (this.dato('nivel') != 4) {
         mostrarTexto(`Nivel ${this.dato('nivel', 4)}`)
+        musica.src = 'https://pagina-simx72-aba9b.web.app/asteroids-assets/sounds/Of%20Far%20Different%20Nature%20-%20LOOP%20BOX%20%234%20(CC-BY%204.0)/Of%20Far%20Different%20Nature%20-%20Pulse%20(CC-BY%204.0).ogg'
+        musica.play()
       }
       document.body.className = "level-4"
       canvas.classList.remove('level-1', 'level-2', 'level-3')
