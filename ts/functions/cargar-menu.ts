@@ -2,7 +2,7 @@ import AsteroidsScene from "../scenes/templates/asteroids-scene";
 import { mostrarTexto } from './animateCSS';
 import { cookies } from "./cookie-manager";
 import animateCSS from './animateCSS';
-import EventEmitter = require("eventemitter3");
+import { EventEmitter } from 'eventemitter3';
 export function actualizarNivel(this: AsteroidsScene) {
   let puntos = this.dato('puntos')
   let canvas = document.querySelector('canvas')
