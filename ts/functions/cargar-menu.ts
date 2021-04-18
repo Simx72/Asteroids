@@ -2,6 +2,7 @@ import AsteroidsScene from "../scenes/templates/asteroids-scene";
 import { mostrarTexto } from './animateCSS';
 import { cookies } from "./cookie-manager";
 import animateCSS from './animateCSS';
+import { EventEmitter } from 'events';
 export function actualizarNivel(this: AsteroidsScene) {
   let puntos = this.dato('puntos')
   let canvas = document.querySelector('canvas')
@@ -38,6 +39,8 @@ export function actualizarNivel(this: AsteroidsScene) {
   }
 }
 
+let menuclick = new EventEmitter()
+
 export function crearMenu() {
   let menu = document.createElement("div")
   document.body.appendChild(menu)
@@ -70,6 +73,7 @@ export function crearMenu() {
       cookies.set('jugando', 'false')
     }
     animateCSS(menuButton, 'pulse', 300)
+    menuclick.emit("click")
   }, false)
   cookies.set('jugando', 'true')
 }
@@ -104,22 +108,13 @@ export function cargarMenu(this: AsteroidsScene) {
     
     let jugando = cookies.get('jugando')
     if (jugando == "true") {
-      menuButton.onclick = () => {
+      menuclick.once("click", () => {
         this.physics.pause()
-        if (menuButton != null)
-        menuButton.onclick = () => {
-          this.physics.resume()
-        }
-      }
+      })
     } else if (jugando == "false") {
-      menuButton.onclick = () => {
+      menuclick.once("click", () => {
         this.physics.resume()
-        if (menuButton != null)
-        menuButton.onclick = () => {
-          this.physics.pause()
-        }
-      }
-  
+      })
     }
   }
 
