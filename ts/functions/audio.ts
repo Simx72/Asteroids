@@ -16,7 +16,7 @@ if (inputEfectos != null) {
   inputEfectos.addEventListener('change', e => {
     e.preventDefault()
     if (inputEfectos != null) {
-      cookies.set('config-volumen-fx', inputEfectos.value.toString())
+      cookies.set('config-volumen-fx', inputEfectos.value)
     }
   })
 }
