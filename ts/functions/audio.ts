@@ -21,7 +21,6 @@ if (inputEfectos != null) {
   })
 }
 
-
 let inputMusica = document.querySelector<HTMLInputElement>('#volumen-musica')
 if (inputMusica != null) {
   
@@ -35,5 +34,7 @@ inputMusica.value = cookies.get('config-volumen-musica')
     }
   })
 }
+
+console.log(inputEfectos, inputMusica)
 
 export default musica;
