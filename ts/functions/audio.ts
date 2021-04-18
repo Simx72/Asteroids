@@ -1,4 +1,4 @@
-import { cookies } from "./cookie-manager";
+import { cookies, getNum } from './cookie-manager';
 
 let musica = document.createElement('audio')
 document.body.appendChild(musica)
@@ -8,8 +8,10 @@ musica.volume = cookies.getNum('config-volumen-musica', true) / 100
 musica.play()
 
 let inputEfectos = document.querySelector<HTMLInputElement>('#volumen-efectos')
-
 if (inputEfectos != null) {
+
+  inputEfectos.value = cookies.get('config-volumen-fx')
+  
   inputEfectos.addEventListener('change', e => {
     e.preventDefault()
     if (inputEfectos != null) {
@@ -18,9 +20,12 @@ if (inputEfectos != null) {
   })
 }
 
-let inputMusica = document.querySelector<HTMLInputElement>('#volumen-musica')
 
+let inputMusica = document.querySelector<HTMLInputElement>('#volumen-musica')
 if (inputMusica != null) {
+  
+inputMusica.value = cookies.get('config-volumen-fx')
+  
   inputMusica.addEventListener('change', e => {
     e.preventDefault()
     if (inputMusica != null) {
