@@ -73,7 +73,9 @@ export default class AsteroidsMainScene extends AsteroidsScene {
         this.add.rectangle(this.centerX, this.centerY, this.scale.width + 4, this.scale.height + 4).setDepth(99).setFillStyle(0x000000).setStrokeStyle(2, 0xFFFFFF)
       )
       this.objeto('cargando.controles',
-        this.add.image(this.centerX, this.centerY, 'controles').setOrigin(0.5, 0.5).setScale(1, 1)
+        this.add.image(this.centerX, this.centerY, 'controles').setOrigin(0.5, 0.5)
+          .setPosition(this.centerX, this.centerY)
+          .setDisplaySize(this.scale.width, this.scale.height)
       )
 
       let cargandoFrames: Phaser.Types.Animations.AnimationFrame[] = []
