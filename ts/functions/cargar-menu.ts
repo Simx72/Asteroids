@@ -115,10 +115,10 @@ export function cargarMenu(this: AsteroidsScene) {
       vol.value = val
     })
     .catch(() => cookies.set('config-volumen-musica', '100'))
-    let menu = <HTMLInputElement>document.getElementById('menu')
-    menu.style.width = (window.innerWidth * 0.6) + 'px'
-    menu.style.height = (window.innerHeight * 0.8) + 'px'
-    menu.style.top = (window.innerHeight * 0.1) + 'px'
-    menu.style.left = (window.innerWidth * 0.2) + 'px'
+  let menu = <HTMLInputElement>document.getElementById('menu')
+  menu.style.width = (window.innerWidth * 0.6) + 'px'
+  menu.style.height = (window.innerHeight * 0.8) + 'px'
+  menu.style.top = (window.innerHeight * 0.1) + 'px'
+  menu.style.left = (window.innerWidth * 0.2) + 'px'
 
 }
