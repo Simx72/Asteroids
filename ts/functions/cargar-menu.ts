@@ -111,11 +111,11 @@ export function cargarMenu(this: AsteroidsScene) {
 
   let jugando = cookies.get('jugando')
   if (jugando == "true") {
-    menu.onclick = () => {
+    menuButton.onclick = () => {
       this.physics.pause()
     }
   } else if (jugando == "false") {
-    menu.onclick = () => {
+    menuButton.onclick = () => {
       this.physics.resume()
     }
 
