@@ -108,15 +108,11 @@ export function cargarMenu(this: AsteroidsScene) {
     
     let pauseAndThenResume = () => {
       this.physics.pause()
-      menuclick.once("click", () => {
-        this.physics.resume()
-      })
+      menuclick.once("click", resumeAndThenPause)
     }
     let resumeAndThenPause = () => {
       this.physics.resume()
-      menuclick.once("click", () => {
-        this.physics.pause()
-      })
+      menuclick.once("click", pauseAndThenResume)
     }
 
     let jugando = cookies.get('jugando')
