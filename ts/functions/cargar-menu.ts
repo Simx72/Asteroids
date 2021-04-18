@@ -103,12 +103,6 @@ export function cargarMenu(this: AsteroidsScene) {
     menuButton.style.left = (window.innerWidth - 65) + 'px'
   }
   
-    let menu = <HTMLInputElement>document.getElementById('menu')
-    menu.style.width = (window.innerWidth * 0.6) + 'px'
-    menu.style.height = (window.innerHeight * 0.8) + 'px'
-    menu.style.top = (window.innerHeight * 0.1) + 'px'
-    menu.style.left = (window.innerWidth * 0.2) + 'px'
-
   let jugando = cookies.get('jugando')
   if (jugando == "true") {
     menuButton.onclick = () => {
@@ -120,5 +114,12 @@ export function cargarMenu(this: AsteroidsScene) {
     }
 
   }
+
+
+  let menu = <HTMLInputElement>document.getElementById('menu')
+  menu.style.width = (window.innerWidth * 0.6) + 'px'
+  menu.style.height = (window.innerHeight * 0.8) + 'px'
+  menu.style.top = (window.innerHeight * 0.1) + 'px'
+  menu.style.left = (window.innerWidth * 0.2) + 'px'
 
 }
