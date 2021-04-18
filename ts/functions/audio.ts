@@ -35,6 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
     })
   }
 
+  console.log(inputEfectos, inputMusica)
+
 }, false)
 
 export default musica;
