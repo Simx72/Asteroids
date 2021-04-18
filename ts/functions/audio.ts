@@ -35,8 +35,6 @@ window.onload = () => {
     })
   }
 
-  console.log(inputEfectos, inputMusica)
-
 }
 
 export default musica;
