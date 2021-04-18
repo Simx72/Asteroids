@@ -106,15 +106,24 @@ export function cargarMenu(this: AsteroidsScene) {
     menuButton.style.top = (window.innerHeight - 65) + 'px'
     menuButton.style.left = (window.innerWidth - 65) + 'px'
     
-    let jugando = cookies.get('jugando')
-    if (jugando == "true") {
-      menuclick.once("click", () => {
-        this.physics.pause()
-      })
-    } else if (jugando == "false") {
+    let pauseAndThenResume = () => {
+      this.physics.pause()
       menuclick.once("click", () => {
         this.physics.resume()
       })
+    }
+    let resumeAndThenPause = () => {
+      this.physics.resume()
+      menuclick.once("click", () => {
+        this.physics.pause()
+      })
+    }
+
+    let jugando = cookies.get('jugando')
+    if (jugando == "true") {
+      menuclick.once("click", pauseAndThenResume)
+    } else if (jugando == "false") {
+      menuclick.once("click", resumeAndThenPause)
     }
   }
 
