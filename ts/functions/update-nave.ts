@@ -76,7 +76,7 @@ export default function updateNave(this: AsteroidsMainScene) {
     if (obj.body.position.x < (0 - obj.displayWidth) || obj.body.position.x > (this.scale.width + obj.displayWidth) || obj.body.position.y < (0 - obj.displayHeight) || obj.body.position.y > (this.scale.height + obj.displayHeight)) {
       obj.destroy()
       if (this.physics.config.debug) {
-        console.log(obj, 'fue destruido!')
+        console.log(obj, 'salio del mapa')
       }
     }
   })
