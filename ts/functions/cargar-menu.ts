@@ -20,6 +20,8 @@ export function actualizarNivel(this: AsteroidsScene) {
     } else if (puntos < 400) {
       if (this.dato('nivel') != 2) {
         mostrarTexto(`Nivel ${this.dato('nivel', 2)}`)
+        musica.src = 'https://pagina-simx72-aba9b.web.app/asteroids-assets/sounds/Of%20Far%20Different%20Nature%20-%20LOOP%20BOX%20%234%20(CC-BY%204.0)/Of%20Far%20Different%20Nature%20-%20Oldskool%20%5Bv2%5D%20(CC-BY%204.0).ogg'
+        musica.play()
       }
       document.body.className = "level-2"
       canvas.classList.remove('level-1', 'level-3', 'level-4')
