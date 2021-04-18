@@ -42,4 +42,4 @@ window.onload = () => {
 
 }
 
-export default musica;
+export { musica };
