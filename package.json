@@ -2,7 +2,7 @@
     "name": "asteroids-game",
     "version": "1.0.3",
     "description": "Un juego web basado en el antiguo juego de maquinitas 'asteroids'",
-    "main": "",
+    "main": "./ts/main.ts",
     "scripts": {
         "build": "tsc -p \"./tsconfig.json\"",
         "vercel-install": "npm ci",
