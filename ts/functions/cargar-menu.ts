@@ -106,10 +106,18 @@ export function cargarMenu(this: AsteroidsScene) {
     if (jugando == "true") {
       menuButton.onclick = () => {
         this.physics.pause()
+        if (menuButton != null)
+        menuButton.onclick = () => {
+          this.physics.resume()
+        }
       }
     } else if (jugando == "false") {
       menuButton.onclick = () => {
         this.physics.resume()
+        if (menuButton != null)
+        menuButton.onclick = () => {
+          this.physics.pause()
+        }
       }
   
     }
