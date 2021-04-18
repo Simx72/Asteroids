@@ -167,6 +167,10 @@ canvas.level-4 {
     font-size: 14pt;
 }
 
+#menu>a {
+    color: #33ff00;
+}
+
 #menu::-webkit-scrollbar {
     width: 12px;
     /* width of the entire scrollbar */
