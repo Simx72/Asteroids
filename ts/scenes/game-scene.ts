@@ -74,7 +74,7 @@ export default class AsteroidsMainScene extends AsteroidsScene {
       )
       this.objeto('cargando.controles',
         this.add.image(this.centerX, this.centerY, 'controles').setOrigin(0.5, 0.5)
-          .setPosition(this.centerX, this.centerY)
+          .setPosition(this.centerX, this.centerY).setDepth(98)
           .setDisplaySize(this.scale.width, this.scale.height)
       )
 
