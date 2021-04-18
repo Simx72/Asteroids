@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     inputMusica.addEventListener('change', e => {
       e.preventDefault()
       if (inputMusica != null) {
-        cookies.set('config-volumen-musica', inputMusica.value.toString())
+        cookies.set('config-volumen-musica', inputMusica.value)
         musica.volume = parseInt(inputMusica.value) / 100
       }
     })
