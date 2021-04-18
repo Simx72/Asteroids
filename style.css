@@ -171,6 +171,10 @@ canvas.level-4 {
     color: #33ff00;
 }
 
+#menu>a:hover {
+    text-decoration: underline;
+}
+
 #menu::-webkit-scrollbar {
     width: 12px;
     /* width of the entire scrollbar */
