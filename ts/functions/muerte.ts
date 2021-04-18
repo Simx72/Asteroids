@@ -13,6 +13,10 @@ export function muerte(this: AsteroidsMainScene) {
         this.physics.resume()
 
         if (this.dato<number>('vidas') >= 0) {
+
+          this.objeto<Phaser.Physics.Arcade.Group>('grupo.ast').clear(true, true)
+          this.objeto<Phaser.Physics.Arcade.Group>('grupo.disparos').clear(true, true)
+
           nave.setPosition(this.scale.width / 2, this.scale.height / 2)
             .setRotation(0)
             .setVisible(true)
@@ -43,8 +47,6 @@ export function muerte(this: AsteroidsMainScene) {
       }
 
       this.dato('vivo', false)
-
-      this.objeto<Phaser.Physics.Arcade.Group>('grupo.ast').clear(true, true)
 
       const nave = this.objeto<Phaser.Types.Physics.Arcade.ImageWithDynamicBody>('nave')
 
