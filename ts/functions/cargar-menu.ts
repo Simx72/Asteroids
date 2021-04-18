@@ -12,6 +12,7 @@ export function actualizarNivel(this: AsteroidsScene) {
       if (this.dato('nivel') != 1) {
         mostrarTexto(`Nivel ${this.dato('nivel', 1)}`)
         musica.src = 'https://pagina-simx72-aba9b.web.app/asteroids-assets/sounds/Crystal-Cave-Song-18.mp3'
+        musica.play()
       }
       document.body.className = "level-1"
       canvas.classList.remove('level-2', 'level-3', 'level-4')
