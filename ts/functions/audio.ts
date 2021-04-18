@@ -11,18 +11,23 @@ let inputEfectos = document.querySelector<HTMLInputElement>('#volumen-efectos')
 
 if (inputEfectos != null) {
   inputEfectos.addEventListener('change', e => {
+    e.preventDefault()
     if (inputEfectos != null) {
       cookies.set('config-volumen-fx', inputEfectos.value.toString())
     }
   })
 }
 
-let inputMusica = document.getElementById('volumen-musica')
+let inputMusica = document.querySelector<HTMLInputElement>('#volumen-musica')
 
-inputMusica.addEventListener('change', e => {
-  let element = e.target as HTMLInputElement;
-  cookies.set('config-volumen-musica', element.value.toString())
-  musica.volume = parseInt(element.value) / 100
-})
+if (inputMusica != null) {
+  inputMusica.addEventListener('change', e => {
+    e.preventDefault()
+    if (inputMusica != null) {
+      cookies.set('config-volumen-musica', inputMusica.value.toString())
+      musica.volume = parseInt(inputMusica.value) / 100
+    }
+  })
+}
 
 export default musica;
