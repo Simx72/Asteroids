@@ -12,9 +12,6 @@ export function muerte(this: AsteroidsMainScene) {
       let restart = () => {
         this.physics.resume()
 
-        exp.setVisible(false)
-          .on('animationcomplete', () => { })
-
         if (this.dato<number>('vidas') >= 0) {
           nave.setPosition(this.scale.width / 2, this.scale.height / 2)
             .setRotation(0)
