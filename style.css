@@ -8,6 +8,10 @@
     font-family: ChakraPetch, Verdana, Geneva, Tahoma, sans-serif
 }
 
+body {
+    overflow: hidden
+}
+
 body.loose {
     background: #000;
 }
