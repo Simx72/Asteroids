@@ -102,19 +102,7 @@ export function cargarMenu(this: AsteroidsScene) {
     menuButton.style.top = (window.innerHeight - 65) + 'px'
     menuButton.style.left = (window.innerWidth - 65) + 'px'
   }
-
-  cookies.check('config-volumen-fx')
-    .then(val => {
-      let vol = <HTMLInputElement>document.getElementById('volumen-efectos')
-      vol.value = val
-    })
-    .catch(() => cookies.set('config-volumen-fx', '100'))
-  cookies.check('config-volumen-musica')
-    .then(val => {
-      let vol = <HTMLInputElement>document.getElementById('volumen-musica')
-      vol.value = val
-    })
-    .catch(() => cookies.set('config-volumen-musica', '100'))
+  
   let menu = <HTMLInputElement>document.getElementById('menu')
   menu.style.width = (window.innerWidth * 0.6) + 'px'
   menu.style.height = (window.innerHeight * 0.8) + 'px'
