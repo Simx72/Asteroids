@@ -1,5 +1,10 @@
 import { cookies } from './cookie-manager';
 
+cookies.check('config-volumen-musica')
+  .catch(() => cookies.set('config-volumen-musica', '100'))
+cookies.check('config-volumen-fx')
+  .catch(() => cookies.set('config-volumen-fx', '100'))
+
 let musica = document.createElement('audio')
 document.body.appendChild(musica)
 musica.id = 'elemento-musica'
