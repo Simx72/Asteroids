@@ -1,4 +1,4 @@
-import { cookies, getNum } from './cookie-manager';
+import { cookies } from './cookie-manager';
 
 let musica = document.createElement('audio')
 document.body.appendChild(musica)
