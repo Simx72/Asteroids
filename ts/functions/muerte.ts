@@ -63,17 +63,7 @@ export function muerte(this: AsteroidsMainScene) {
 
       nave.setVisible(false)
 
-      let exp = this.objeto<Phaser.GameObjects.Sprite>('explosion')
-      exp
-        .setPosition(nave.x, nave.y)
-        .setVisible(true)
-        .once('animationcomplete', restart)
-        .anims.play('explotar')
-
-      let audio = this.sound.add('audio.explo')
-      audio.play('', {
-        volume: cookies.getNum('config-volumen-fx', true) / 100 * 0.4
-      })
+      explosion.bind(this)(nave.x, nave.y).then(restart)
 
       this.physics.pause() /* stops everything */
 
