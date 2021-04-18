@@ -101,18 +101,18 @@ export function cargarMenu(this: AsteroidsScene) {
     menuButton.style.height = '50px'
     menuButton.style.top = (window.innerHeight - 65) + 'px'
     menuButton.style.left = (window.innerWidth - 65) + 'px'
-  }
+    
+    let jugando = cookies.get('jugando')
+    if (jugando == "true") {
+      menuButton.onclick = () => {
+        this.physics.pause()
+      }
+    } else if (jugando == "false") {
+      menuButton.onclick = () => {
+        this.physics.resume()
+      }
   
-  let jugando = cookies.get('jugando')
-  if (jugando == "true") {
-    menuButton.onclick = () => {
-      this.physics.pause()
     }
-  } else if (jugando == "false") {
-    menuButton.onclick = () => {
-      this.physics.resume()
-    }
-
   }
 
 
