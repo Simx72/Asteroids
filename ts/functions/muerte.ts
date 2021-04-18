@@ -1,5 +1,6 @@
 import AsteroidsMainScene from '../scenes/game-scene';
 import { cookies } from './cookie-manager';
+import { explosion } from './explosion';
 export function muerte(this: AsteroidsMainScene) {
   if (this.dato('vivo')) {
     if (this.dato('vidas', this.dato<number>('vidas') - 1) < 0) {
@@ -98,26 +99,14 @@ function perder(this: AsteroidsMainScene) {
   window.clearInterval(this.dato('intervalo puntos'))
   cookies.set('puntos', this.dato<number>('puntos').toString())
 
-  let exp = this.objeto<Phaser.GameObjects.Sprite>('explosion')
-
-  let end = () => {
-    this.game.scene.stop(this).run('loose-scene')
-  }
-
   const nave = this.objeto<Phaser.Types.Physics.Arcade.ImageWithDynamicBody>('nave')
 
   nave.setVisible(false)
 
-  exp
-    .setPosition(nave.x, nave.y)
-    .setVisible(true)
-    .once('animationcomplete', end)
-    .anims.play('explotar')
-
-  let audio = this.sound.add('audio.explo')
-  audio.play('', {
-    volume: cookies.getNum('config-volumen-fx', true) / 100 * 0.4
-  })
+  explosion.bind(this)(nave.x, nave.y)
+    .then(() => {
+      this.game.scene.stop(this).run('loose-scene')
+    })
 
   this.physics.pause() /* stops everything */
 
