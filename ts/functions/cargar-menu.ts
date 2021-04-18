@@ -3,6 +3,7 @@ import AsteroidsScene from "../scenes/templates/asteroids-scene";
 import { mostrarTexto } from './animateCSS';
 import { cookies } from "./cookie-manager";
 import animateCSS from './animateCSS';
+import { musica } from "./audio";
 export function actualizarNivel(this: AsteroidsScene) {
   let puntos = this.dato('puntos')
   let canvas = document.querySelector('canvas')
@@ -10,6 +11,7 @@ export function actualizarNivel(this: AsteroidsScene) {
     if (puntos < 100) {
       if (this.dato('nivel') != 1) {
         mostrarTexto(`Nivel ${this.dato('nivel', 1)}`)
+        musica.src = 'https://pagina-simx72-aba9b.web.app/asteroids-assets/sounds/Crystal-Cave-Song-18.mp3'
       }
       document.body.className = "level-1"
       canvas.classList.remove('level-2', 'level-3', 'level-4')
