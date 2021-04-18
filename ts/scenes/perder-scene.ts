@@ -23,9 +23,6 @@ export default class AsteroidsLooseScene extends AsteroidsScene {
   create() {
     try {
 
-      musica.src = 'https://pagina-simx72-aba9b.web.app/asteroids-assets/sounds/Of%20Far%20Different%20Nature%20-%20LOOP%20BOX%20%234%20(CC-BY%204.0)/Of%20Far%20Different%20Nature%20-%20Eternal%20Explorer%20(CC-BY%204.0).ogg'
-      musica.play()
-
       document.body.classList.toString().split(' ').forEach(val => document.body.classList.remove(val))
       document.body.classList.add('loose')
       this.dato('puntos', cookies.getNum('puntos', true))
