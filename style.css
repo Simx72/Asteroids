@@ -143,7 +143,6 @@ canvas.level-4 {
     color: white;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
     overflow: auto;
     -webkit-box-shadow: -2px 7px 18px 0px rgba(50, 50, 50, 0.45);
