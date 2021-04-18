@@ -169,9 +169,21 @@ canvas.level-4 {
 
 #menu>a {
     color: #33ff00;
+    text-decoration: underline;
 }
 
-#menu>a:hover {
+#menu:any-link {
+    color: #33ff00;
+    text-decoration: underline;
+}
+
+#menu:-webkit-any-link {
+    color: #33ff00;
+    text-decoration: underline;
+}
+
+#menu:-moz-any-link {
+    color: #33ff00;
     text-decoration: underline;
 }
 
