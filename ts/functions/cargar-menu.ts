@@ -39,7 +39,7 @@ export function actualizarNivel(this: AsteroidsScene) {
   }
 }
 
-let menuclick = new EventEmitter()
+let menuclick = new Phaser.Events.EventEmitter()
 
 export function crearMenu() {
   let menu = document.createElement("div")
