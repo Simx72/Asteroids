@@ -73,7 +73,7 @@ export default class AsteroidsLooseScene extends AsteroidsScene {
       button.on('pointerdown', () => {
         if (cookies.get('jugando') == "true") {
           button.setFillStyle(0xFFFFFF)
-          console.log('canvas width: ', this.game.canvas.style.width, 'scale width: ', this.scale.width, 'inner width: ', window.innerWidth)
+          console.log('canvas width: ', this.game.canvas.getAttribute('width'), 'scale width: ', this.scale.width, 'inner width: ', window.innerWidth)
           this.game.scene.stop(this).run('game-scene')
           this.game.canvas.style.cursor = 'default'
         }
