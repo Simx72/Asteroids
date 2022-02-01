@@ -38,7 +38,7 @@ module.exports = (env) => ({
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'MetaWorld' + ((env.production) ? '' : ' - development mode'),
+            title: 'Asteroids' + ((env.production) ? '' : ' - development mode'),
             filename: 'index.html',
             favicon: "./assets/images/SVG/nave-espacial.svg"
         }),
