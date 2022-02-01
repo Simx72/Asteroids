@@ -40,7 +40,7 @@ module.exports = (env) => ({
         new HtmlWebpackPlugin({
             title: 'MetaWorld' + ((env.production) ? '' : ' - development mode'),
             filename: 'index.html',
-            favicon: "./assets/favicon.ico"
+            favicon: "./assets/images/SVG/nave-espacial.svg"
         }),
     ].concat(env.production ? [new MiniCssExtractPlugin()] : []),
     output: {
