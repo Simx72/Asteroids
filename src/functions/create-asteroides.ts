@@ -3,20 +3,17 @@ import { actualizarNivel } from './cargar-menu';
 import { cookies } from './cookie-manager';
 import { explosion } from './explosion';
 export default function createAsteroides(this: AsteroidsMainScene) {
-  this.objeto(
-    'grupo.ast',
-    this.physics.add.group([], {
-      classType: Phaser.GameObjects.Image,
-      defaultKey: 'asteroide.1',
-      setScale: { x: 0.12, y: 0.12 },
-      randomKey: true,
-      setOrigin: { x: 0.5, y: 0.5 }
-    })
-  )
+  this.physics.add.group([], {
+    classType: Phaser.GameObjects.Image,
+    defaultKey: 'asteroide.1',
+    setScale: { x: 0.12, y: 0.12 },
+    randomKey: true,
+    setOrigin: { x: 0.5, y: 0.5 }
+  }).setName('grupo.ast')
 
   this.physics.add.overlap(
-    this.objeto<Phaser.Physics.Arcade.Group>('grupo.ast'),
-    this.objeto<Phaser.Physics.Arcade.Group>('grupo.disparos'),
+    this.getElement<Phaser.Physics.Arcade.Group>('grupo.ast'),
+    this.getElement<Phaser.Physics.Arcade.Group>('grupo.disparos'),
     (obj1, obj2) => {
       let asteroide = obj1 as Phaser.Physics.Arcade.Sprite
       let disparo = obj2 as Phaser.Physics.Arcade.Sprite
@@ -25,11 +22,11 @@ export default function createAsteroides(this: AsteroidsMainScene) {
       asteroide.destroy()
       disparo.destroy()
 
-      actualizarNivel.bind(this)()
+      actualizarNivel.call(this)
 
-      explosion.bind(this)(astc.x, astc.y)
+      explosion.call(this, astc.x, astc.y)
 
-      this.dato('puntos', this.dato<number>('puntos') + 1)
+      this.data.set('puntos', this.dato<number>('puntos') + 1)
 
       if (this.physics.config.debug) {
         console.log(disparo, 'destruyo a', asteroide)
@@ -49,8 +46,6 @@ export default function createAsteroides(this: AsteroidsMainScene) {
       nuevoAsteroide.bind(this)(side)
     });
   }
-
-  this.objeto('')
 
 }
 
@@ -78,7 +73,7 @@ export function nuevoAsteroide(this: AsteroidsMainScene, pos?: 1 | 2 | 3 | 4) {
 
   if (typeof pos != 'undefined') console.log({ x, y, angulo, vel, sin: (vel * Math.sin(angulo)), cos: -(vel * Math.cos(angulo)) })
 
-  let asteroides = <Phaser.Physics.Arcade.Group>this.objeto('grupo.ast')
+  let asteroides = this.getElement<Phaser.Physics.Arcade.Group>('grupo.ast')
   let asteroide = asteroides.create(x, y) as Phaser.Physics.Arcade.Image
 
   let texture = ''

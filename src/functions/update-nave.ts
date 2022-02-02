@@ -2,17 +2,17 @@ import AsteroidsMainScene from '../scenes/game-scene';
 export default function updateNave(this: AsteroidsMainScene) {
 
 
-  const nave = this.objeto<Phaser.Types.Physics.Arcade.ImageWithDynamicBody>('nave')
+  const nave = this.getElement<Phaser.Types.Physics.Arcade.ImageWithDynamicBody>('nave')
 
   if (this.physics.config.debug) {
-    const texto = <Phaser.GameObjects.Text>this.objeto('texto.debug')
+    const texto = <Phaser.GameObjects.Text>this.getElement('texto.debug')
     texto.text += `posición: \tx ${Math.floor(nave.x)} \t| y ${Math.floor(nave.y)} \n`
     texto.text += `velocidad:\tx ${Math.floor(nave.body.velocity.x)} \t| y ${Math.floor(nave.body.velocity.y)} \n`
     texto.text += `ángulo: \t${Math.floor(nave.angle)} \n`
     texto.text += `vidas: \t${this.dato<number>('vidas') + 1} (${this.dato<number>('vidas')}) \n`
     texto.text += `puntos: \t${this.dato<number>('puntos')} \n`
   } else {
-    this.objeto<Phaser.GameObjects.Text>('texto.puntos').text = this.dato<number>('puntos').toString()
+    this.getElement<Phaser.GameObjects.Text>('texto.puntos').text = this.dato<number>('puntos').toString()
   }
 
   const keys = {
@@ -70,7 +70,7 @@ export default function updateNave(this: AsteroidsMainScene) {
   if (this.input.keyboard.checkDown(keys['space'], 250) && this.dato('vivo') == true) {
     this.disparo()
   }
-  let disparos = this.objeto<Phaser.Physics.Arcade.Group>('grupo.disparos')
+  let disparos = this.getElement<Phaser.Physics.Arcade.Group>('grupo.disparos')
   disparos.children.each(object => {
     let obj = object as Phaser.Physics.Arcade.Sprite
     if (obj.body.position.x < (0 - obj.displayWidth) || obj.body.position.x > (this.scale.width + obj.displayWidth) || obj.body.position.y < (0 - obj.displayHeight) || obj.body.position.y > (this.scale.height + obj.displayHeight)) {

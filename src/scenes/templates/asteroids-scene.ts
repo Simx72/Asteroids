@@ -6,7 +6,7 @@ export default class AsteroidsScene extends Phaser.Scene {
   dato = <T>(key: string | string[]): T =>
     this.data.get(key) as T;
   
-  getElement = <T extends Phaser.GameObjects.GameObject>(key: string): T =>
+  getElement = <T extends Phaser.GameObjects.GameObject | Phaser.GameObjects.Group>(key: string): T =>
     this.children.getByName(key) as T;
 
   get center(): XY {

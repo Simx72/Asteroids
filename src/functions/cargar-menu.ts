@@ -4,46 +4,61 @@ import { mostrarTexto } from './animateCSS';
 import { cookies } from "./cookie-manager";
 import animateCSS from './animateCSS';
 import { musica } from "./audio";
+
+interface Nivel {
+  points: number;
+  name?: string;
+  music?: string;
+  className?: string;
+}
+
 export function actualizarNivel(this: AsteroidsScene) {
-  let puntos = this.dato('puntos')
+  let puntos = this.dato<number>('puntos')
   let canvas = document.querySelector('canvas')
+
+  let niveles: Nivel[] = [{
+    points: 0,
+    music: 'https://pagina-simx72-aba9b.web.app/asteroids-assets/sounds/Crystal-Cave-Song-18.mp3'
+  }, {
+    points: 100,
+    music: 'https://pagina-simx72-aba9b.web.app/asteroids-assets/sounds/Of%20Far%20Different%20Nature%20-%20LOOP%20BOX%20%234%20(CC-BY%204.0)/Of%20Far%20Different%20Nature%20-%20Oldskool%20%5Bv2%5D%20(CC-BY%204.0).ogg'
+  }, {
+    points: 400,
+    music: 'https://pagina-simx72-aba9b.web.app/asteroids-assets/sounds/Of%20Far%20Different%20Nature%20-%20LOOP%20BOX%20%234%20(CC-BY%204.0)/Of%20Far%20Different%20Nature%20-%20Bouncer%20%5Bv2%5D%20(CC-BY%204.0).ogg'
+  }, {
+    points: 1000,
+    music: 'https://pagina-simx72-aba9b.web.app/asteroids-assets/sounds/Of%20Far%20Different%20Nature%20-%20LOOP%20BOX%20%234%20(CC-BY%204.0)/Of%20Far%20Different%20Nature%20-%20Pulse%20(CC-BY%204.0).ogg'
+  }].sort((a, b) => a.points - b.points);
+
+
   if (canvas != null) {
-    if (puntos < 100) {
-      if (this.dato('nivel') != 1) {
-        mostrarTexto(`Nivel ${this.dato('nivel', 1)}`)
-        musica.src = 'https://pagina-simx72-aba9b.web.app/asteroids-assets/sounds/Crystal-Cave-Song-18.mp3'
-        musica.play()
-      }
-      document.body.className = "level-1"
-      canvas.classList.remove('level-2', 'level-3', 'level-4')
-      canvas.classList.add('level-1')
-    } else if (puntos < 400) {
-      if (this.dato('nivel') != 2) {
-        mostrarTexto(`Nivel ${this.dato('nivel', 2)}`)
-        musica.src = 'https://pagina-simx72-aba9b.web.app/asteroids-assets/sounds/Of%20Far%20Different%20Nature%20-%20LOOP%20BOX%20%234%20(CC-BY%204.0)/Of%20Far%20Different%20Nature%20-%20Oldskool%20%5Bv2%5D%20(CC-BY%204.0).ogg'
-        musica.play()
-      }
-      document.body.className = "level-2"
-      canvas.classList.remove('level-1', 'level-3', 'level-4')
-      canvas.classList.add('level-2')
-    } else if (puntos < 1000) {
-      if (this.dato('nivel') != 3) {
-        mostrarTexto(`Nivel ${this.dato('nivel', 3)}`)
-        musica.src = 'https://pagina-simx72-aba9b.web.app/asteroids-assets/sounds/Of%20Far%20Different%20Nature%20-%20LOOP%20BOX%20%234%20(CC-BY%204.0)/Of%20Far%20Different%20Nature%20-%20Bouncer%20%5Bv2%5D%20(CC-BY%204.0).ogg'
-        musica.play()
-      }
-      document.body.className = "level-3"
-      canvas.classList.remove('level-1', 'level-2', 'level-4')
-      canvas.classList.add('level-3')
-    } else {
-      if (this.dato('nivel') != 4) {
-        mostrarTexto(`Nivel ${this.dato('nivel', 4)}`)
-        musica.src = 'https://pagina-simx72-aba9b.web.app/asteroids-assets/sounds/Of%20Far%20Different%20Nature%20-%20LOOP%20BOX%20%234%20(CC-BY%204.0)/Of%20Far%20Different%20Nature%20-%20Pulse%20(CC-BY%204.0).ogg'
-        musica.play()
-      }
-      document.body.className = "level-4"
-      canvas.classList.remove('level-1', 'level-2', 'level-3')
-      canvas.classList.add('level-4')
+
+    checkloop: for (let i = niveles.length - 1; i >= 0; i--) {
+
+      const oNivel = niveles[i]
+
+      if (this.dato<number>('nivel') < oNivel.points)
+        continue checkloop;
+
+      const nivel = Object.assign<Concrete<Nivel>, Nivel>(
+        {
+          points: 0,
+          className: '',
+          music: '',
+          name: 'Nivel ' + i
+        },
+        oNivel
+      );
+
+      (canvas.parentElement || document.body).className = nivel.className;
+      canvas.className = nivel.className;
+
+      musica.src = nivel.music;
+      musica.play()
+
+      mostrarTexto(nivel.name)
+
+
     }
   }
 }

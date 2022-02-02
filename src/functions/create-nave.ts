@@ -2,25 +2,25 @@ import AsteroidsMainScene from '../scenes/game-scene';
 import { actualizarNivel } from './cargar-menu';
 import { cookies } from './cookie-manager';
 export default function createNave(this: AsteroidsMainScene) {
-  const nave = this.objeto(
-    'nave',
-    this.physics.add.image(this.centerX, this.centerY, 'nave')
-  ).setScale(0.06).setOrigin(0.5, 0.5).setDepth(10)
+  const nave = this.physics.add.image(this.center.x, this.center.y, 'nave')
+    .setName('nave')
+    .setScale(0.06)
+    .setOrigin(0.5, 0.5)
+    .setDepth(10)
 
-  this.dato('vivo', true)
-  this.dato('vidas', 2)
-  this.dato('puntos', 0)
+  this.data.set('vivo', true)
+  this.data.set('vidas', 2)
+  this.data.set('puntos', 0)
 
-  let vidas = this.objeto(
-    'grupo.vidas',
-    this.add.group()
-  )
+  let vidas = this.add.group()
+    .setName('grupo.vidas')
 
-  this.dato('intervalo puntos', window.setInterval(() => {
+  
+  this.data.set('intervalo puntos', window.setInterval(() => {
     if (cookies.get('jugando') == 'true')
-      this.dato('puntos', this.dato<number>('puntos') + 1)
-      actualizarNivel.bind(this)()
-    }, 3000))
+      this.data.set('puntos', this.dato<number>('puntos') + 1)
+    actualizarNivel.call(this)
+  }, 3000))
 
   vidas.createMultiple({
     quantity: this.dato('vidas'),
@@ -48,9 +48,8 @@ export default function createNave(this: AsteroidsMainScene) {
   });
 
 
-  let exp = this.objeto('explosion',
-    this.add.sprite(nave.x, nave.y, 'explosion')
-  )
+  let exp = this.add.sprite(nave.x, nave.y, 'explosion')
+    .setName('explosion')
 
   exp.anims.create({
     key: 'explotar',
@@ -62,12 +61,9 @@ export default function createNave(this: AsteroidsMainScene) {
   exp.setVisible(false)
 
 
-  this.objeto(
-    'grupo.disparos',
-    this.physics.add.group([], {
-      defaultKey: 'fueguito.22',
-      key: 'fueguito.22'
-    })
-  )
+  this.physics.add.group([], {
+    defaultKey: 'fueguito.22',
+    key: 'fueguito.22'
+  }).setName('grupo.disparos')
 
 }
