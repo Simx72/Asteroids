@@ -1,66 +1,27 @@
 export default class AsteroidsScene extends Phaser.Scene {
-  constructor(config: Phaser.Types.Scenes.SettingsConfig) {
-    super(config);
-    this.centerX = 0;
-    this.centerY = 0;
-    this._ = { objeto: {}, dato: {} };
-    this.defaultFont = 'ChakraPetch, Verdana, Geneva, Tahoma, sans-serif';
-    if (location.hostname != '127.0.0.1') location.hash = "online"
-    this.dato('assets url', ((location.hash != '#online') ? '/asteroids-assets' : 'https://pagina-simx72-aba9b.web.app/asteroids-assets/'));
+  constructor(sceneName: string) {
+    super({ key: sceneName });
   }
 
-  defaultFont: string;
-  centerX: number;
-  centerY: number;
+  dato = <T>(key: string | string[]): T =>
+    this.data.get(key) as T;
+  
+  getElement = <T extends Phaser.GameObjects.GameObject>(key: string): T =>
+    this.children.getByName(key) as T;
 
-  /**
-   * No usar
-   * @deprecated
-   */
-  _: {
-    objeto: { [c: string]: any },
-    dato: { [c: string]: any }
-  };
-
-  /**
-   * puede pasarse `key` y `object` para guardar un 
-   * objeto phaser(@type { Phaser.GameObjects.GameObject }) 
-   * o una clase child de este, luego solo pasas `key` para
-   * volver a traer el objeto
-   * @param key - valor unico del objeto
-   * @param gameObject - objeto
-   */
-  objeto<T extends (Phaser.GameObjects.GameObject | Phaser.GameObjects.Group)>(key: string, gameObject?: T): T {
-    if (typeof gameObject != 'undefined') {
-      this._.objeto[key] = gameObject
-      return gameObject
-    } else {
-      return <T>this._.objeto[key];
-    }
+  get center(): XY {
+    const { width: x, height: y } = this.scale;
+    return { x, y };
   }
 
   /**
-   * puede pasarse `key` y `val` para guardar un 
-   * dato (@type { string | number | boolean })
-   * luego solo pasas `key` para volver a traer 
-   * el objeto
-   * @param key - valor unico del dato
-   * @param val - dato
+   * @method preload is called once the scene has been loaded
    */
-  dato<T = string | number | boolean>(key: string, val?: T) {
-    if (typeof val != 'undefined') {
-      this._.dato[key] = val
-      return val
-    } else {
-      return <T>this._.dato[key];
-    }
-  }
+  preload(): void {};
+  
+  /**
+   * @method create is called on every scene start
+   */
+  create(): void {};
 
-  defaultPreload() {
-    this.load.setBaseURL(this.dato<string>('assets url'))
-    this.load.setCORS('anonymous')
-    this.centerX = this.scale.width / 2
-    this.centerY = this.scale.height / 2
-    this.load.image('controles', 'images/PNG/Controles.png')
-  }
 }

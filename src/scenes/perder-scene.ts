@@ -5,53 +5,42 @@ import { sendError } from '../functions/error';
 import { musica } from '../functions/audio';
 export default class AsteroidsLooseScene extends AsteroidsScene {
   constructor() {
-    super({
-      active: false,
-      visible: false,
-      key: 'loose-scene',
-    });
-  }
-
-  preload() {
-    try {
-      this.defaultPreload()
-    } catch (e) {
-      sendError(e, this.physics.config.debug)
-    }
+    super('loose-scene');
   }
 
   create() {
+    super.create()
     try {
 
-      document.body.classList.toString().split(' ').forEach(val => document.body.classList.remove(val))
+      document.body.classList.forEach(val => document.body.classList.remove(val))
       document.body.classList.add('loose')
-      this.dato('puntos', cookies.getNum('puntos', true))
+      this.data.set('puntos', cookies.getNum('puntos', true))
       cookies.remove('puntos')
       cargarMenu.bind(this)()
 
-      if (this.physics.config.debug) {
-        this.objeto(
-          'texto.debug',
-          this.add.text(0, 0, `[scene]: Perder Scene (${this.scene.key}) \n\nPuntos: ${this.dato<number>('puntos')}\n`).setOrigin(0, 0).setPosition(10, 10).setDepth(100)
-        );
-      } else {
-        this.objeto(
-          'texto.puntos',
-          this.add.text(0, 0, 'Tu puntaje: ' + this.dato<number>('puntos'), { fontFamily: this.defaultFont, fontSize: '25pt' }).setOrigin(0, 0).setPosition(10, 10).setDepth(70)
-        )
-      }
+      if (this.physics.config.debug)
+        this.add.text(0, 0, `[scene]: Perder Scene (${this.scene.key}) \n\nPuntos: ${this.dato<number>('puntos')}\n`)
+          .setName('texto.debug')
+          .setOrigin(0, 0)
+          .setPosition(10, 10)
+          .setDepth(100)
+      else
+        this.add.text(0, 0, 'Tu puntaje: ' + this.dato<number>('puntos'), { fontSize: '25pt' })
+          .setName('texto.puntos')
+          .setOrigin(0, 0)
+          .setPosition(10, 10)
+          .setDepth(70)
 
       let texto = this.add.text(
-        this.centerX,
-        this.centerY,
-        'Perdiste!',
-        { fontFamily: this.defaultFont }
+        this.center.x,
+        this.center.y,
+        'Perdiste!'
       ).setOrigin(0.5, 0.5)
         .setFontSize(this.scale.width * 0.08)
         .setColor('#e40F0F')
 
       let button = this.add.rectangle(
-        this.centerX,
+        this.center.x,
         texto.y + texto.displayHeight / 2 + 10,
         this.scale.width * 0.3,
         this.scale.height * 0.13,
@@ -63,8 +52,7 @@ export default class AsteroidsLooseScene extends AsteroidsScene {
       let buttonTexto = this.add.text(
         buttonCenter.x,
         buttonCenter.y,
-        'Reiniciar',
-        { fontFamily: this.defaultFont }
+        'Reiniciar'
       ).setOrigin(0.5, 0.5)
 
       buttonTexto.setFontSize(this.scale.width * 0.04)
