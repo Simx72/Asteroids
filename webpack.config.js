@@ -40,7 +40,7 @@ module.exports = (env) => ({
         new HtmlWebpackPlugin({
             title: 'Asteroids' + ((env.production) ? '' : ' - development mode'),
             filename: 'index.html',
-            favicon: "./assets/favicon.ico"
+            favicon: "./src/assets/favicon.ico"
         }),
     ].concat(env.production ? [new MiniCssExtractPlugin()] : []),
     output: {
