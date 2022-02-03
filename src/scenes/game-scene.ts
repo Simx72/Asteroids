@@ -7,6 +7,15 @@ import updateNave from '../functions/update-nave';
 import { updateAsteroides } from '../functions/update-asteroides';
 import { cargarMenu } from '../functions/cargar-menu';
 import { sendError } from '../functions/error';
+import asset_audiolaser from '../assets/sounds/laser.wav';
+import asset_naveespacial from '../assets/images/SVG/nave-espacial.svg';
+import asset_asteroide1 from '../assets/images/SVG/asteroide-1.svg';
+import asset_asteroide2 from '../assets/images/SVG/nave-espacial.svg';
+import asset_asteroide3 from '../assets/images/SVG/nave-espacial.svg';
+import asset_fueguito22 from '../assets/images/PNG/fueguito/efecto_fuego_00022.png';
+import asset_cargando from '../assets/images/PNG/loading/atlas/spritesheet.png';
+import asset_cargandoinfo from '../assets/images/PNG/loading/atlas/spritesheet.json';
+import asset_explosion from '../assets/images/PNG/exp2_0.png';
 
 export default class AsteroidsMainScene extends AsteroidsScene {
   constructor() {
@@ -21,23 +30,22 @@ export default class AsteroidsMainScene extends AsteroidsScene {
    **************/
   public preload() {
     try {
-      document.body.className = "loose"
 
-      this.load.audio('audio.laser', 'sounds/laser.wav')
-      this.load.audio('audio.explo', 'sounds/explosion.wav')
+      this.load.audio('audio.laser', )
+      this.load.audio('audio.explo', asset_audiolaser)
 
-      this.load.svg('nave', 'images/SVG/nave-espacial.svg')
-      this.load.svg('asteroide.1', 'images/SVG/asteroide-1.svg')
-      this.load.svg('asteroide.2', 'images/SVG/asteroide-2.svg')
-      this.load.svg('asteroide.3', 'images/SVG/asteroide-3.svg')
+      this.load.svg('nave', asset_naveespacial)
+      this.load.svg('asteroide.1', asset_asteroide1)
+      this.load.svg('asteroide.2', asset_asteroide2)
+      this.load.svg('asteroide.3', asset_asteroide3)
 
-      this.load.image('fueguito.22', 'images/PNG/fueguito/efecto_fuego_00022.png')
+      this.load.image('fueguito.22', asset_fueguito22)
 
-      this.load.atlas('cargando', 'images/PNG/loading/atlas/spritesheet.png', 'images/PNG/loading/atlas/spritesheet.json')
+      this.load.atlas('cargando', asset_cargando, asset_cargandoinfo)
 
       this.load.spritesheet({
         key: 'explosion',
-        url: 'images/PNG/exp2_0.png',
+        url: asset_explosion,
         frameConfig: {
           frameWidth: 64,
           startFrame: 0,
