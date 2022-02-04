@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 module.exports = (env) => ({
-    entry: './src/main.ts',
+    entry: './src/core.ts',
     devtool: (env.production) ? 'inline-source-map' : undefined,
     resolve: {
         extensions: ['.ts', '.js', '.tsx'],
