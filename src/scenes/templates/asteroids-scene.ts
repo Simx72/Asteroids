@@ -1,3 +1,4 @@
+import { Pausa } from "../../components/Pausa";
 
 
 export default class AsteroidsScene extends Phaser.Scene {
@@ -19,13 +20,15 @@ export default class AsteroidsScene extends Phaser.Scene {
   /**
    * @method preload is called once the scene has been loaded
    */
-  preload(): void {
-    
-  };
+  preload(): void {};
   
   /**
    * @method create is called on every scene start
    */
-  create(): void {};
+  create(): void {
+    this.add.existing(this.pausa)
+  };
+  
+  pausa = new Pausa(this);
 
 }

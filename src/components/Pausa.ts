@@ -1,5 +1,5 @@
 import Scene from '../scenes/templates/asteroids-scene';
-import asset_htmlpausa from "../../html/menu-pausa.html";
+import asset_htmlpausa from "../html/menu-pausa.html";
 
 export class Pausa extends Phaser.GameObjects.DOMElement {
   static preload(scene: Scene, key = "html_pausa") {
