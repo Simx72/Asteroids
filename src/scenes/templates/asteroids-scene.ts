@@ -20,15 +20,20 @@ export default class AsteroidsScene extends Phaser.Scene {
   /**
    * @method preload is called once the scene has been loaded
    */
-  preload(): void {};
+  preload(): void {
+    Pausa.preload(this);
+  };
   
   /**
    * @method create is called on every scene start
    */
   create(): void {
-    this.add.existing(this.pausa)
+
+    this.pausa = new Pausa(this);
+
+    this.add.existing(this.pausa);
   };
   
-  pausa = new Pausa(this);
+  pausa!: Pausa;
 
 }
