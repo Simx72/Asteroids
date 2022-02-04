@@ -1,9 +1,6 @@
 import * as Phaser from 'phaser';
 import FirstScene from "./scenes/game-scene";
-import { crearMenu } from './functions/cargar-menu';
 import './functions/audio'
-
-let debug = false
 
 export var asteroidsGameConfig: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
@@ -16,11 +13,11 @@ export var asteroidsGameConfig: Phaser.Types.Core.GameConfig = {
   transparent: true,
   physics: {
     default: 'arcade',
-    arcade: { debug }
+    arcade: {
+      debug: false
+    }
   },
 };
-
-crearMenu()
 
 const ASTEROIDSGAME = new Phaser.Game(asteroidsGameConfig)
 
