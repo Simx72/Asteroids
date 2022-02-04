@@ -29,6 +29,7 @@ export default class AsteroidsMainScene extends AsteroidsScene {
    * PRELOAD
    **************/
   public preload() {
+    super.preload();
     try {
 
       this.load.audio('audio.laser', )
@@ -64,6 +65,7 @@ export default class AsteroidsMainScene extends AsteroidsScene {
    * CREATE
    **************/
   public create() {
+    super.create();
     try {
       cargarMenu.bind(this)()
       this.data.set('cargado', false);
@@ -125,7 +127,8 @@ export default class AsteroidsMainScene extends AsteroidsScene {
   /***************
    * UPDATE
    **************/
-  public update() {
+  public update(time: number, delta: number) {
+    super.update(time, delta);
     try {
       if (this.physics.config.debug) {
         const texto = this.getElement<Phaser.GameObjects.Text>('texto.debug')

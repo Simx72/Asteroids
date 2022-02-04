@@ -1,3 +1,5 @@
+
+
 export default class AsteroidsScene extends Phaser.Scene {
   constructor(sceneName: string) {
     super({ key: sceneName });
@@ -17,7 +19,9 @@ export default class AsteroidsScene extends Phaser.Scene {
   /**
    * @method preload is called once the scene has been loaded
    */
-  preload(): void {};
+  preload(): void {
+    
+  };
   
   /**
    * @method create is called on every scene start

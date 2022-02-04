@@ -34,6 +34,10 @@ module.exports = (env) => ({
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
                 type: 'asset/resource',
             },
+            {
+                test: /\.html$/i,
+                type: 'asset/resource',
+            },
         ],
     },
     plugins: [
