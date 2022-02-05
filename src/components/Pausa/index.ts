@@ -12,6 +12,8 @@ export class Pausa extends Phaser.GameObjects.DOMElement {
 
     this.createFromCache(asset_htmlpausa)
 
+    this.setClassName(styles["menu-pausa"])
+
   }
 
 }
