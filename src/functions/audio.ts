@@ -6,7 +6,7 @@ cookies.check('config-volumen-fx')
   .catch(() => cookies.set('config-volumen-fx', '100'))
 
 let musica = document.createElement('audio')
-document.body.appendChild(musica)
+// document.body.appendChild(musica)
 musica.id = 'elemento-musica'
 musica.src = 'https://pagina-simx72-aba9b.web.app/asteroids-assets/sounds/Crystal-Cave-Song-18.mp3'
 musica.volume = Math.floor(cookies.getNum('config-volumen-musica', true)) / 100

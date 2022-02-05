@@ -53,8 +53,7 @@ export function actualizarNivel(this: AsteroidsScene) {
       (canvas.parentElement || document.body).className = nivel.className;
       canvas.className = nivel.className;
 
-      musica.src = nivel.music;
-      musica.play()
+      // musica.src = nivel.music;
 
       mostrarTexto(nivel.name)
 
