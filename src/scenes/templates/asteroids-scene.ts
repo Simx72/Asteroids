@@ -1,5 +1,5 @@
 import NivelManager from "../../components/NivelManager";
-import { Pausa } from "../../components/Pausa";
+import Pausa from "../../components/Pausa";
 
 
 export default class AsteroidsScene extends Phaser.Scene {
