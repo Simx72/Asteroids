@@ -2,6 +2,9 @@ import * as Phaser from 'phaser';
 import FirstScene from "./scenes/game-scene";
 import './functions/audio'
 
+const parent = document.createElement("main");
+document.body.appendChild(parent);
+
 export var asteroidsGameConfig: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
   scale: {
@@ -11,6 +14,10 @@ export var asteroidsGameConfig: Phaser.Types.Core.GameConfig = {
   scene: FirstScene,
   backgroundColor: '#00000000',
   transparent: true,
+  dom: {
+    createContainer: true
+  },
+  parent,
   physics: {
     default: 'arcade',
     arcade: {
