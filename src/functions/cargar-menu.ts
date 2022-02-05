@@ -3,7 +3,6 @@ import AsteroidsScene from "../scenes/templates/asteroids-scene";
 import { mostrarTexto } from './animateCSS';
 import { cookies } from "./cookie-manager";
 import animateCSS from './animateCSS';
-import { musica } from "./audio";
 
 interface Nivel {
   points: number;

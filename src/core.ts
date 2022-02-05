@@ -1,6 +1,5 @@
 import * as Phaser from 'phaser';
 import FirstScene from "./scenes/game-scene";
-import './functions/audio'
 import './styles.css';
 
 const parent = document.createElement("main");

@@ -2,7 +2,6 @@ import { cookies } from '../functions/cookie-manager';
 import AsteroidsScene from './templates/asteroids-scene';
 import { cargarMenu } from '../functions/cargar-menu';
 import { sendError } from '../functions/error';
-import { musica } from '../functions/audio';
 export default class AsteroidsLooseScene extends AsteroidsScene {
   constructor() {
     super('loose-scene');
