@@ -16,8 +16,18 @@ export class Pausa extends Phaser.GameObjects.DOMElement {
 
     this.setClassName(styles["menu-pausa"])
 
+    Object.assign<CSSStyleDeclaration, CSSStyles>(
+      this.node.style,
+      {
+        width: '100%',
+        height: '100%'
+      }
+    );
+
     // console.log(pausaCacheKey)
 
   }
+
+  node!: HTMLDivElement;
 
 }

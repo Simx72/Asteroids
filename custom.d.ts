@@ -21,3 +21,15 @@ interface XY {
 type Concrete<T> = {
   [Property in keyof T]-?: T[Property];
 }
+
+type Optional<T> = {
+  [Property in keyof T]?: T[Property];
+}
+
+type ExcludePropsWithValueType<Type, ValueType> = {
+  [Property in keyof Type as (Type[Property] extends ValueType ? never : Property)]: Type[Property]
+}
+
+type NoMethods<Type> = ExcludePropsWithValueType<Type, Function>
+
+interface CSSStyles extends Optional<NoMethods<CSSStyleDeclaration>> {}
