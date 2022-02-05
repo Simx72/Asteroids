@@ -10,7 +10,7 @@ export class Pausa extends Phaser.GameObjects.DOMElement {
   }
 
   constructor (scene: Scene) {
-    super(scene);
+    super(scene, 0, 0, "div");
 
     this.createFromCache(pausaCacheKey)
 
