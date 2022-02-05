@@ -6,25 +6,17 @@ const pausaCacheKey = crypto.getRandomValues(new Uint32Array(10)).join("")
 
 export class Pausa extends Phaser.GameObjects.DOMElement {
   static preload(scene: Scene) {
-    scene.load.html(pausaCacheKey, asset_htmlpausa);
+    // scene.load.html(pausaCacheKey, asset_htmlpausa);
+    // console.log(pausaCacheKey, asset_htmlpausa)
   }
 
   constructor (scene: Scene) {
     super(scene, 0, 0, "div");
 
-    this.createFromCache(pausaCacheKey)
+    this.createFromHTML(asset_htmlpausa)
 
     this.setClassName(styles["menu-pausa"])
 
-    Object.assign<CSSStyleDeclaration, CSSStyles>(
-      this.node.style,
-      {
-        width: '100%',
-        height: '100%'
-      }
-    );
-
-    // console.log(pausaCacheKey)
 
   }
 

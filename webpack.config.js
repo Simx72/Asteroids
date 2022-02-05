@@ -23,6 +23,10 @@ module.exports = (env) => ({
                 ],
             },
             {
+                test: /\.html$/i,
+                use: 'html-loader',
+            },
+            {
                 test: /\.(png|svg|jpe?g|gif)$/i,
                 type: 'asset/resource',
             },
@@ -32,10 +36,6 @@ module.exports = (env) => ({
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
-                type: 'asset/resource',
-            },
-            {
-                test: /\.html$/i,
                 type: 'asset/resource',
             },
         ],
