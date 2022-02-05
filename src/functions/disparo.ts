@@ -1,5 +1,5 @@
 import AsteroidsMainScene from '../scenes/game-scene';
-import { cookies } from './cookie-manager';
+import cookies from '../cookies';
 export default function disparo(this: AsteroidsMainScene) {
   if (cookies.get('jugando') == 'true') {
 

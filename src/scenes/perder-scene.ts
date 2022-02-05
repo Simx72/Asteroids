@@ -1,4 +1,4 @@
-import { cookies } from '../functions/cookie-manager';
+import cookies from '../cookies';
 import AsteroidsScene from './templates/asteroids-scene';
 import { cargarMenu } from '../functions/cargar-menu';
 import { sendError } from '../functions/error';

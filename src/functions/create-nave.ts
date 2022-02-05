@@ -1,6 +1,6 @@
 import AsteroidsMainScene from '../scenes/game-scene';
 import { actualizarNivel } from './cargar-menu';
-import { cookies } from './cookie-manager';
+import cookies from '../cookies';
 export default function createNave(this: AsteroidsMainScene) {
   const nave = this.physics.add.image(this.center.x, this.center.y, 'nave')
     .setName('nave')

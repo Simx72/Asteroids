@@ -1,5 +1,5 @@
 import AsteroidsMainScene from '../scenes/game-scene';
-import { cookies } from './cookie-manager';
+import cookies from '../cookies';
 export function explosion(this: AsteroidsMainScene, x: number, y: number) {
   let exp = this.add.sprite(x, y, 'explosion').setVisible(false)
 

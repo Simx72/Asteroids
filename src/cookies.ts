@@ -1,5 +1,5 @@
 /* Based in w3 schoools */
-export namespace cookies {
+namespace cookies {
   /* function set(key: string, value: string, exdays: number = 30) {
     let d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
@@ -72,20 +72,21 @@ export namespace cookies {
     }
   }
 
-  export function check(key: string) {
-    return new Promise<string>((res, err) => {
-      var cookie = get(key);
-      if (cookie != "") {
-        res(cookie)
-      } else {
-        err()
-      }
-    })
+  export async function check(key: string) {
+    var cookie = get(key);
+    if (cookie != "") {
+      return cookie;
+    } else {
+      throw new Error("Cookie is not defined")
+    }
   }
-  
+
+
   export function remove(key: string) {
     set(key, '', 0.00001)
     return cookies
   }
 
 }
+
+export default cookies;

@@ -1,6 +1,6 @@
 import AsteroidsMainScene from '../scenes/game-scene';
 import { actualizarNivel } from './cargar-menu';
-import { cookies } from './cookie-manager';
+import cookies from '../cookies';
 import { explosion } from './explosion';
 export default function createAsteroides(this: AsteroidsMainScene) {
   this.physics.add.group([], {

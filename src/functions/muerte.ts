@@ -1,5 +1,5 @@
 import AsteroidsMainScene from '../scenes/game-scene';
-import { cookies } from './cookie-manager';
+import cookies from '../cookies';
 import { explosion } from './explosion';
 export function muerte(this: AsteroidsMainScene) {
   if (this.dato('vivo')) {

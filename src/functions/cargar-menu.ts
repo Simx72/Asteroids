@@ -1,7 +1,7 @@
 /// <reference path="../../node_modules/eventemitter3/index.d.ts"/>
 import AsteroidsScene from "../scenes/templates/asteroids-scene";
 import { mostrarTexto } from './animateCSS';
-import { cookies } from "./cookie-manager";
+import cookies from "../cookies";
 import animateCSS from './animateCSS';
 
 interface Nivel {
@@ -12,7 +12,6 @@ interface Nivel {
 }
 
 export function actualizarNivel(this: AsteroidsScene) {
-  let puntos = this.dato<number>('puntos')
   let canvas = document.querySelector('canvas')
 
   let niveles: Nivel[] = [{
@@ -36,7 +35,7 @@ export function actualizarNivel(this: AsteroidsScene) {
 
       const oNivel = niveles[i]
 
-      if (this.dato<number>('nivel') < oNivel.points)
+      if (this.dato<number>('puntos') < oNivel.points)
         continue checkloop;
 
       const nivel = Object.assign<Concrete<Nivel>, Nivel>(
