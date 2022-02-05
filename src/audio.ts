@@ -1,4 +1,4 @@
-import { cookies } from './cookie-manager';
+import { cookies } from './functions/cookie-manager';
 
 cookies.check('config-volumen-musica')
   .catch(() => cookies.set('config-volumen-musica', '100'))
