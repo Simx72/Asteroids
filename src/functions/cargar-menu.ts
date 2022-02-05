@@ -4,55 +4,6 @@ import { mostrarTexto } from './animateCSS';
 import cookies from "../cookies";
 import animateCSS from './animateCSS';
 
-export function actualizarNivel(this: AsteroidsScene) {
-  let canvas = document.querySelector('canvas')
-
-  let niveles: Nivel[] = [{
-    points: 0,
-    music: 'https://pagina-simx72-aba9b.web.app/asteroids-assets/sounds/Crystal-Cave-Song-18.mp3'
-  }, {
-    points: 100,
-    music: 'https://pagina-simx72-aba9b.web.app/asteroids-assets/sounds/Of%20Far%20Different%20Nature%20-%20LOOP%20BOX%20%234%20(CC-BY%204.0)/Of%20Far%20Different%20Nature%20-%20Oldskool%20%5Bv2%5D%20(CC-BY%204.0).ogg'
-  }, {
-    points: 400,
-    music: 'https://pagina-simx72-aba9b.web.app/asteroids-assets/sounds/Of%20Far%20Different%20Nature%20-%20LOOP%20BOX%20%234%20(CC-BY%204.0)/Of%20Far%20Different%20Nature%20-%20Bouncer%20%5Bv2%5D%20(CC-BY%204.0).ogg'
-  }, {
-    points: 1000,
-    music: 'https://pagina-simx72-aba9b.web.app/asteroids-assets/sounds/Of%20Far%20Different%20Nature%20-%20LOOP%20BOX%20%234%20(CC-BY%204.0)/Of%20Far%20Different%20Nature%20-%20Pulse%20(CC-BY%204.0).ogg'
-  }].sort((a, b) => a.points - b.points);
-
-
-  if (canvas != null) {
-
-    checkloop: for (let i = niveles.length - 1; i >= 0; i--) {
-
-      const oNivel = niveles[i]
-
-      if (this.dato<number>('puntos') < oNivel.points)
-        continue checkloop;
-
-      const nivel = Object.assign<Concrete<Nivel>, Nivel>(
-        {
-          points: 0,
-          className: '',
-          music: '',
-          name: 'Nivel ' + i
-        },
-        oNivel
-      );
-
-      (canvas.parentElement || document.body).className = nivel.className;
-      canvas.className = nivel.className;
-
-      // musica.src = nivel.music;
-
-      mostrarTexto(nivel.name)
-
-
-    }
-  }
-}
-
 let menuclick = new Phaser.Events.EventEmitter()
 
 export function crearMenu() {

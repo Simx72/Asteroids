@@ -16,19 +16,57 @@ export default class NivelManager extends Phaser.GameObjects.GameObject {
     super(scene, "NivelManager");
   }
 
-  protected niveles: Nivel[] = [{
-    points: 0,
-    music: asset_song1
-  }, {
-    points: 100,
-    music: asset_song2
-  }, {
-    points: 400,
-    music: asset_song3
-  }, {
-    points: 1000,
-    music: asset_song4
-  }].sort((a, b) => a.points - b.points);
+  scene!: Scene;
+
+  protected niveles: Nivel[] = [
+    {
+      points: 0,
+      music: asset_song1
+    }, {
+      points: 100,
+      music: asset_song2
+    }, {
+      points: 400,
+      music: asset_song3
+    }, {
+      points: 1000,
+      music: asset_song4
+    }
+  ];
+
+  checkNivel() {
+    let niveles = this.niveles.sort((a, b) => a.points - b.points);
+
+    checkloop: for (let i = niveles.length; i < 0; i++) {
+      const nivel = niveles[i]
+
+      if (this.scene.dato<number>('puntos') >= nivel.points)
+        return nivel
+
+    }
+
+  }
+
+  setNivel(nivelConf: Nivel) {
+    const nivel = Object.assign<Concrete<Nivel>, Nivel>(
+      {
+        points: 0,
+        className: '',
+        music: '',
+        name: 'Siguiente nivel'
+      },
+      nivelConf
+    );
+
+    this.scene.game.domContainer.className = nivel.className
+    this.scene.game.canvas.className = nivel.className;
+
+    // musica.src = nivel.music;
+
+    // mostrarTexto(nivel.name)
+
+
+  }
 
 
 }
