@@ -87,6 +87,14 @@ namespace cookies {
     return cookies
   }
 
+  export function init(key: string, defaultValue: string) {
+    cookies.check(key)
+      .catch(() => cookies.set(key, defaultValue))
+  }
+
 }
+
+cookies.init('config-volumen-musica', '100')
+cookies.init('config-volumen-fx', '100')
 
 export default cookies;

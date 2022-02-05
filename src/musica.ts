@@ -1,10 +1,5 @@
 import cookies from './cookies';
 
-cookies.check('config-volumen-musica')
-  .catch(() => cookies.set('config-volumen-musica', '100'))
-cookies.check('config-volumen-fx')
-  .catch(() => cookies.set('config-volumen-fx', '100'))
-
 let musica = document.createElement('audio')
 document.body.appendChild(musica)
 musica.volume = Math.floor(cookies.getNum('config-volumen-musica', true)) / 100
