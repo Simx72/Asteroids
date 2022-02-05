@@ -29,8 +29,8 @@ export default class GameScene extends Scene {
   public preload() {
     super.preload();
 
-    this.load.audio('audio.laser',)
-    this.load.audio('audio.explo', asset_audiolaser)
+    this.load.audio('audio.laser', asset_audiolaser)
+    this.load.audio('audio.explo', asset_explosion)
 
     this.load.svg('nave', asset_naveespacial)
     this.load.svg('asteroide.1', asset_asteroide1)
