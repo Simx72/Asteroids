@@ -1,11 +1,12 @@
 import * as Phaser from 'phaser';
 import FirstScene from "./scenes/game-scene";
 import './functions/audio'
+import './styles.css';
 
 const parent = document.createElement("main");
 document.body.appendChild(parent);
 
-export var asteroidsGameConfig: Phaser.Types.Core.GameConfig = {
+export const gameConfig: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
   scale: {
     width: innerWidth || document.documentElement.clientWidth || document.body.clientWidth,
@@ -26,5 +27,7 @@ export var asteroidsGameConfig: Phaser.Types.Core.GameConfig = {
   },
 };
 
-const ASTEROIDSGAME = new Phaser.Game(asteroidsGameConfig)
+const ASTEROIDSGAME = new Phaser.Game(gameConfig)
+
+export default ASTEROIDSGAME;
 
