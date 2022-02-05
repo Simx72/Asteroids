@@ -1,13 +1,16 @@
 declare module Asset {
-  const content: any
-  export default content
+  const url: string
+  export default url
 }
 
 declare module "*.wav" { export default Asset.default }
+declare module "*.mp3" { export default Asset.default }
+declare module "*.ogg" { export default Asset.default }
 declare module "*.png" { export default Asset.default }
 declare module "*.svg" { export default Asset.default }
 declare module "*.json" { export default Asset.default }
-declare module "*.html" { export default Asset.default }
+
+declare module "*.html" { export default content as string }
 
 declare module "*.css" {
   const styles: { [c: string]: string };

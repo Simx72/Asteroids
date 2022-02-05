@@ -4,13 +4,6 @@ import { mostrarTexto } from './animateCSS';
 import cookies from "../cookies";
 import animateCSS from './animateCSS';
 
-interface Nivel {
-  points: number;
-  name?: string;
-  music?: string;
-  className?: string;
-}
-
 export function actualizarNivel(this: AsteroidsScene) {
   let canvas = document.querySelector('canvas')
 

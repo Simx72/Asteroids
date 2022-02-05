@@ -1,3 +1,4 @@
+import NivelManager from "../../components/NivelManager";
 import { Pausa } from "../../components/Pausa";
 
 
@@ -28,10 +29,14 @@ export default class AsteroidsScene extends Phaser.Scene {
   create(): void {
 
     this.pausa = new Pausa(this);
-
     this.add.existing(this.pausa);
+    
+    this.nivel = new NivelManager(this);
+    this.add.existing(this.pausa);
+
   };
   
   pausa!: Pausa;
+  nivel!: NivelManager;
 
 }
