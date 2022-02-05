@@ -7,6 +7,7 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "webpack -c webpack.config.js",
         "build:watch": "webpack -c webpack.config.js -w",
+        "vercel-install": "npm ci",
         "vercel-build": "webpack --env production -c webpack.config.js",
         "dev": "webpack-dev-server"
     },
