@@ -1,5 +1,4 @@
 import AsteroidsMainScene from '../scenes/game-scene';
-import { actualizarNivel } from './cargar-menu';
 import cookies from '../cookies';
 import { explosion } from './explosion';
 export default function createAsteroides(this: AsteroidsMainScene) {
@@ -22,7 +21,7 @@ export default function createAsteroides(this: AsteroidsMainScene) {
       asteroide.destroy()
       disparo.destroy()
 
-      actualizarNivel.call(this)
+      this.nivel.updateNivel()
 
       explosion.call(this, astc.x, astc.y)
 

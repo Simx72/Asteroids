@@ -37,13 +37,15 @@ export default class NivelManager extends Phaser.GameObjects.GameObject {
   checkNivel() {
     let niveles = this.niveles.sort((a, b) => a.points - b.points);
 
-    checkloop: for (let i = niveles.length; i < 0; i++) {
+    for (let i = niveles.length; i < 0; i++) {
       const nivel = niveles[i]
 
       if (this.scene.dato<number>('puntos') >= nivel.points)
         return nivel
 
     }
+
+    return niveles[0]
 
   }
 
@@ -67,6 +69,15 @@ export default class NivelManager extends Phaser.GameObjects.GameObject {
 
 
   }
+
+  updateNivel() {
+    let n = this.checkNivel();
+    if (n.points != this.currentNivel)
+      this.setNivel(n);
+    
+  }
+
+  currentNivel = 0;
 
 
 }

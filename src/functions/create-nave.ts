@@ -1,5 +1,4 @@
 import AsteroidsMainScene from '../scenes/game-scene';
-import { actualizarNivel } from './cargar-menu';
 import cookies from '../cookies';
 export default function createNave(this: AsteroidsMainScene) {
   const nave = this.physics.add.image(this.center.x, this.center.y, 'nave')
@@ -19,7 +18,7 @@ export default function createNave(this: AsteroidsMainScene) {
   this.data.set('intervalo puntos', window.setInterval(() => {
     if (cookies.get('jugando') == 'true')
       this.data.set('puntos', this.dato<number>('puntos') + 1)
-    actualizarNivel.call(this)
+    this.nivel.updateNivel()
   }, 3000))
 
   vidas.createMultiple({
