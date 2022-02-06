@@ -9,7 +9,7 @@ export default class AudioManager extends Phaser.GameObjects.GameObject {
     this.musica.loop = true
 
     this.musicVolume = Math.floor(cookies.getNum('config-volumen-musica', true)) / 100
-    this.musicVolume = Math.floor(cookies.getNum('config-volumen-fx', true)) / 100
+    this.fxVolume = Math.floor(cookies.getNum('config-volumen-fx', true)) / 100
 
   }
 
