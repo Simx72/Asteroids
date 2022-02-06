@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 module.exports = (env) => ({
     entry: './src/core.ts',
-    devtool: (env.production) ? 'inline-source-map' : undefined,
+    devtool: (env.production) ? undefined : 'inline-source-map',
     resolve: {
         extensions: ['.ts', '.js', '.tsx'],
     },
