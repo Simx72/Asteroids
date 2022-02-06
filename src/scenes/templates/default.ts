@@ -30,13 +30,16 @@ export default class DefaultAsteroidsScene extends Phaser.Scene {
   create(): void {
 
     this.audio = new AudioManager(this);
-    this.add.existing(this.audio);
-
     this.pausa = new Pausa(this);
-    this.add.existing(this.pausa);
-    
     this.nivel = new NivelManager(this);
-    this.add.existing(this.pausa);
+
+    for (const elt of [
+      this.audio,
+      this.nivel,
+      this.pausa
+    ]) {
+      this.add.existing(elt)
+    }
 
 
   };
