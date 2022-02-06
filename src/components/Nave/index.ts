@@ -1,4 +1,4 @@
-import Scene from '../../scenes/templates/asteroids-scene';
+import Scene from '../../scenes/templates/default';
 import Disparos from './disparos';
 
 export default class Nave extends Phaser.Physics.Arcade.Sprite {

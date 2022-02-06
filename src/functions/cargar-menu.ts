@@ -1,5 +1,4 @@
-/// <reference path="../../node_modules/eventemitter3/index.d.ts"/>
-import AsteroidsScene from "../scenes/templates/asteroids-scene";
+import AsteroidsScene from "../scenes/templates/default";
 import { mostrarTexto } from './animateCSS';
 import cookies from "../cookies";
 import animateCSS from './animateCSS';

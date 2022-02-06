@@ -1,4 +1,4 @@
-import Scene from './templates/asteroids-scene';
+import Scene from './templates/default';
 import { muerte, detectarMuerte } from '../functions/muerte';
 import createNave from '../functions/create-nave';
 import createAsteroides from '../functions/create-asteroides';

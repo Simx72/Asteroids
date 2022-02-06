@@ -1,8 +1,8 @@
 import cookies from '../cookies';
-import AsteroidsScene from './templates/asteroids-scene';
+import Scene from './templates/default';
 import { cargarMenu } from '../functions/cargar-menu';
 import { sendError } from '../functions/error';
-export default class AsteroidsLooseScene extends AsteroidsScene {
+export default class AsteroidsLooseScene extends Scene {
   constructor() {
     super('loose-scene');
   }

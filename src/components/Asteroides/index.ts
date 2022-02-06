@@ -1,4 +1,4 @@
-import Scene from '../../scenes/templates/asteroids-scene';
+import Scene from '../../scenes/templates/default';
 
 type Child = Phaser.Types.Physics.Arcade.ImageWithDynamicBody;
 
@@ -98,7 +98,7 @@ class Asteroides extends Phaser.GameObjects.Group {
     function d2r(x: number) {
       return Phaser.Math.DegToRad(x);
     }
-    asteroide.setVelocity(
+    asteroide.body.setVelocity(
       vel * Math.sin(d2r(angulo)),
       vel * Math.cos(d2r(angulo)) * -1
     )

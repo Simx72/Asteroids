@@ -1,4 +1,4 @@
-import Scene from '../../scenes/templates/asteroids-scene';
+import Scene from '../../scenes/templates/default';
 import asset_htmlpausa from "./menu-pausa.html";
 import styles from "./styles.module.css";
 

@@ -1,4 +1,4 @@
-import Scene from "../../scenes/templates/asteroids-scene";
+import Scene from "../../scenes/templates/default";
 import asset_song1 from '../../assets/sounds/Crystal-Cave-Song-18.mp3';
 import asset_song2 from '../../assets/sounds/Of Far Different Nature - LOOP BOX #4 (CC-BY 4.0)/Of Far Different Nature - Oldskool [v2] (CC-BY 4.0).ogg';
 import asset_song3 from '../../assets/sounds/Of Far Different Nature - LOOP BOX #4 (CC-BY 4.0)/Of Far Different Nature - Bouncer [v2] (CC-BY 4.0).ogg';

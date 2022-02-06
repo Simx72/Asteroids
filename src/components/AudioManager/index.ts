@@ -1,4 +1,4 @@
-import Scene from '../../scenes/templates/asteroids-scene';
+import Scene from '../../scenes/templates/default';
 import cookies from '../../cookies';
 
 export default class AudioManager extends Phaser.GameObjects.GameObject {
