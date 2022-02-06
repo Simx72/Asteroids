@@ -15,9 +15,9 @@ export function muerte(this: AsteroidsMainScene) {
         if (this.dato<number>('vidas') >= 0) {
 
           this.getElement<Phaser.Physics.Arcade.Group>('grupo.ast').clear(true, true)
-          this.getElement<Phaser.Physics.Arcade.Group>('grupo.disparos').clear(true, true)
+          this.nave.disparos.clear(true, true)
 
-          nave.setPosition(this.scale.width / 2, this.scale.height / 2)
+          nave.setPosition(this.center.x, this.center.y)
             .setRotation(0)
             .setVisible(true)
             .body.setVelocity(0, 0)

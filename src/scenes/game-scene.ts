@@ -1,5 +1,4 @@
 import Scene from './templates/asteroids-scene';
-import disparo from '../functions/disparo';
 import { muerte, detectarMuerte } from '../functions/muerte';
 import createNave from '../functions/create-nave';
 import createAsteroides from '../functions/create-asteroides';
@@ -14,13 +13,13 @@ import asset_fueguito22 from '../assets/images/PNG/fueguito/efecto_fuego_00022.p
 import asset_cargando from '../assets/images/PNG/loading/atlas/spritesheet.png';
 import asset_cargandoinfo from '../assets/images/PNG/loading/atlas/spritesheet.json';
 import asset_explosion from '../assets/images/PNG/exp2_0.png';
+import Nave from '../components/Nave';
 
 export default class GameScene extends Scene {
   constructor() {
     super('game-scene');
   }
-
-  disparo = disparo.bind(this)
+  
   muerte = muerte.bind(this)
 
   /***************
@@ -53,6 +52,8 @@ export default class GameScene extends Scene {
     })
 
   }
+
+  nave!: Nave;
 
   /***************
    * CREATE

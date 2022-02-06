@@ -1,11 +1,10 @@
 import AsteroidsMainScene from '../scenes/game-scene';
 import cookies from '../cookies';
+import Nave from '../components/Nave/index';
+
 export default function createNave(this: AsteroidsMainScene) {
-  const nave = this.physics.add.image(this.center.x, this.center.y, 'nave')
-    .setName('nave')
-    .setScale(0.06)
-    .setOrigin(0.5, 0.5)
-    .setDepth(10)
+  const nave = new Nave(this)
+  this.nave = nave;
 
   this.data.set('vivo', true)
   this.data.set('vidas', 2)
@@ -42,7 +41,7 @@ export default function createNave(this: AsteroidsMainScene) {
 
   this.input.keyboard.on('keydown-SPACE', () => {
     if (this.dato('vivo') == true) {
-      this.disparo()
+      nave.disparo()
     }
   });
 
@@ -58,11 +57,5 @@ export default function createNave(this: AsteroidsMainScene) {
   })
 
   exp.setVisible(false)
-
-
-  this.physics.add.group([], {
-    defaultKey: 'fueguito.22',
-    key: 'fueguito.22'
-  }).setName('grupo.disparos')
 
 }
