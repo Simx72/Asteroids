@@ -45,5 +45,9 @@ export default class AudioManager extends Phaser.GameObjects.GameObject {
     }
   }
 
+  stop() {
+    this.musica.pause()
+  }
+
 
 }
