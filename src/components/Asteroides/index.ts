@@ -1,6 +1,6 @@
 import Scene from '../../scenes/templates/asteroids-scene';
 
-type Child = Phaser.Physics.Arcade.Image;
+type Child = Phaser.Types.Physics.Arcade.ImageWithDynamicBody;
 
 class Asteroides extends Phaser.GameObjects.Group {
   constructor(scene: Scene) {
@@ -30,6 +30,8 @@ class Asteroides extends Phaser.GameObjects.Group {
     }
 
     newChild.setTexture(texture).setScale(0.12, 0.12)
+
+    newChild.body = new Phaser.Physics.Arcade.Body(this.scene.physics.world, newChild)
 
     Asteroides.setCollider(newChild)
 
