@@ -5,7 +5,7 @@ export default class AudioManager extends Phaser.GameObjects.GameObject {
   constructor(scene: Scene) {
     super(scene, "manager")
 
-    document.body.appendChild(this.musica)
+    scene.game.domContainer.appendChild(this.musica)
     this.musica.loop = true
 
     this.musicVolume = Math.floor(cookies.getNum('config-volumen-musica', true)) / 100
