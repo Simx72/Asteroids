@@ -16,10 +16,10 @@ export default class Nave extends Phaser.Physics.Arcade.Sprite {
 
   type = 'Nave';
   disparos = new Disparos(this, 'fueguito.22');
+  body : Phaser.Physics.Arcade.Body = new Phaser.Physics.Arcade.Body(this.scene.physics.world, this);
 
   disparo = () => this.disparos.disparo()
 
   scene!: Scene;
-  body!: Phaser.Physics.Arcade.Body;
 
 }
