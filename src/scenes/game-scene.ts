@@ -106,11 +106,11 @@ export default class GameScene extends Scene {
         .setDepth(70)
     }
 
-    createNave.bind(this)()
+    createNave.call(this)
 
-    createAsteroides.bind(this)()
+    createAsteroides.call(this)
 
-    detectarMuerte.bind(this)()
+    detectarMuerte.call(this)
 
   }
 
@@ -125,9 +125,9 @@ export default class GameScene extends Scene {
       texto.text = `[scene]: Main Scene (${this.scene.key}) \n\n`
     }
 
-    updateNave.bind(this)()
+    updateNave.call(this)
 
-    updateAsteroides.bind(this)()
+    updateAsteroides.call(this)
 
     if (!this.dato<boolean>('cargado')) {
       this.getElement<Phaser.GameObjects.Sprite>('cargando.sprite').alpha -= 0.03
