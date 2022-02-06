@@ -1,5 +1,6 @@
 import NivelManager from "../../components/NivelManager";
 import Pausa from "../../components/Pausa";
+import AudioManager from '../../components/AudioManager/index';
 
 
 export default class AsteroidsScene extends Phaser.Scene {
@@ -28,14 +29,19 @@ export default class AsteroidsScene extends Phaser.Scene {
    */
   create(): void {
 
+    this.audio = new AudioManager(this);
+    this.add.existing(this.audio);
+
     this.pausa = new Pausa(this);
     this.add.existing(this.pausa);
     
     this.nivel = new NivelManager(this);
     this.add.existing(this.pausa);
 
+
   };
   
+  audio!: AudioManager;
   pausa!: Pausa;
   nivel!: NivelManager;
 
