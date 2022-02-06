@@ -63,7 +63,7 @@ export default class NivelManager extends Phaser.GameObjects.GameObject {
     this.scene.game.domContainer.className = nivel.className
     this.scene.game.canvas.className = nivel.className;
 
-    // musica.src = nivel.music;
+    this.scene.audio.setSong(nivel.music);
 
     // mostrarTexto(nivel.name)
 
