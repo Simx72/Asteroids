@@ -66,38 +66,14 @@ export function nuevoAsteroide(this: AsteroidsMainScene, pos?: 1 | 2 | 3 | 4) {
 
   if (typeof pos != 'undefined') console.log({ x, y, angulo, vel, sin: (vel * Math.sin(angulo)), cos: -(vel * Math.cos(angulo)) })
 
-  let asteroides = this.getElement<Phaser.Physics.Arcade.Group>('grupo.ast')
-  let asteroide = asteroides.create(x, y) as Phaser.Physics.Arcade.Image
+  const asteroides = this.asteroides
 
-  let texture = ''
-
-  switch (Phaser.Math.Between(1, 2)) {
-    case 1: texture = 'asteroide.1'; break;
-    case 2: texture = 'asteroide.2'; break;
-    case 3: texture = 'asteroide.3'; break;
-  }
-
-  asteroide.setTexture(texture).setScale(0.12, 0.12)
-
-  if (asteroide.texture.key == 'asteroide.1')
-    asteroide.body.setCircle(
-      asteroide.height * 0.45,
-      asteroide.height * 0.05,
-      asteroide.height * 0.05
-    )
-  if (asteroide.texture.key == 'asteroide.2')
-    asteroide.body.setCircle(
-      asteroide.height * 0.32,
-      asteroide.height * 0.18,
-      asteroide.height * 0.18
-    )
+  let asteroide = asteroides.create(x, y)
 
   let d2r = (x: number) => Phaser.Math.DegToRad(x);
   asteroide.setVelocity(
     vel * Math.sin(d2r(angulo)),
     vel * Math.cos(d2r(angulo)) * -1
   )
-
-  asteroide.body.pushable = false
 
 }
