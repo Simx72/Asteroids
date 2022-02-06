@@ -1,8 +1,6 @@
 import AsteroidsMainScene from '../scenes/game-scene';
 export default function updateNave(this: AsteroidsMainScene) {
-
-
-  const nave = this.getElement<Phaser.Types.Physics.Arcade.ImageWithDynamicBody>('nave')
+  const nave = this.nave
 
   if (this.physics.config.debug) {
     const texto = <Phaser.GameObjects.Text>this.getElement('texto.debug')
