@@ -14,12 +14,13 @@ import asset_cargando from '../assets/images/PNG/loading/atlas/spritesheet.png';
 import asset_cargandoinfo from '../assets/images/PNG/loading/atlas/spritesheet.json';
 import asset_explosion from '../assets/images/PNG/exp2_0.png';
 import Nave from '../components/Nave';
+import Asteroides from '../components/Asteroides';
 
 export default class GameScene extends Scene {
   constructor() {
     super('game-scene');
   }
-  
+
   muerte = muerte.bind(this)
 
   /***************
@@ -54,6 +55,7 @@ export default class GameScene extends Scene {
   }
 
   nave!: Nave;
+  asteroides!: Asteroides;
 
   /***************
    * CREATE

@@ -1,31 +1,25 @@
+import Asteroides from '../components/Asteroides';
 import AsteroidsMainScene from '../scenes/game-scene';
-import cookies from '../cookies';
 import { explosion } from './explosion';
 export default function createAsteroides(this: AsteroidsMainScene) {
-  this.physics.add.group([], {
-    classType: Phaser.GameObjects.Image,
-    defaultKey: 'asteroide.1',
-    setScale: { x: 0.12, y: 0.12 },
-    randomKey: true,
-    setOrigin: { x: 0.5, y: 0.5 }
-  }).setName('grupo.ast')
+
+  this.asteroides = new Asteroides(this);
 
   this.physics.add.overlap(
-    this.getElement<Phaser.Physics.Arcade.Group>('grupo.ast'),
+    this.asteroides,
     this.nave.disparos,
-    (obj1, obj2) => {
-      let asteroide = obj1 as Phaser.Physics.Arcade.Sprite
-      let disparo = obj2 as Phaser.Physics.Arcade.Sprite
+    (...params: any[]) => {
+      const [asteroide, disparo] = params as Phaser.Types.Physics.Arcade.ImageWithDynamicBody[]
 
       let astc = asteroide.getCenter()
       asteroide.destroy()
       disparo.destroy()
 
-      this.nivel.updateNivel()
-
+      this.data.values.puntos++;
+      
       explosion.call(this, astc.x, astc.y)
-
-      this.data.set('puntos', this.dato<number>('puntos') + 1)
+      
+      this.nivel.updateNivel()
 
       if (this.physics.config.debug) {
         console.log(disparo, 'destruyo a', asteroide)

@@ -2,7 +2,7 @@ import AsteroidsMainScene from '../scenes/game-scene';
 import cookies from '../cookies';
 import { nuevoAsteroide } from './create-asteroides';
 export function updateAsteroides(this: AsteroidsMainScene) {
-  let asteroides = this.getElement<Phaser.Physics.Arcade.Group>('grupo.ast')
+  let asteroides = this.asteroides
 
   asteroides.rotate(Phaser.Math.DegToRad(3))
   asteroides.children.each(go => {
