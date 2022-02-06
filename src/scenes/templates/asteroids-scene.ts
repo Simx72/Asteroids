@@ -38,9 +38,6 @@ export default class AsteroidsScene extends Phaser.Scene {
     this.nivel = new NivelManager(this);
     this.add.existing(this.pausa);
 
-    
-    this.audio.musica.play()
-
 
   };
   
