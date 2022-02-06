@@ -3,7 +3,7 @@ import Pausa from "../../components/Pausa";
 import AudioManager from '../../components/AudioManager/index';
 
 
-export default class AsteroidsScene extends Phaser.Scene {
+export default class DefaultAsteroidsScene extends Phaser.Scene {
   constructor(sceneName: string) {
     super({ key: sceneName });
   }
