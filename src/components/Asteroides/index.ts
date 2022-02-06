@@ -2,7 +2,7 @@ import Scene from '../../scenes/templates/asteroids-scene';
 
 type Child = Phaser.Physics.Arcade.Image;
 
-export default class Asteroides extends Phaser.GameObjects.Group {
+class Asteroides extends Phaser.GameObjects.Group {
   constructor(scene: Scene) {
     super(scene, [], {
       classType: Phaser.GameObjects.Image,
@@ -53,4 +53,65 @@ export default class Asteroides extends Phaser.GameObjects.Group {
         asteroide.height * 0.18
       )
   }
+
+  /**
+   * Genera un nuevo asteroide en el borde especificado,
+   * si no se proporciona una posicion se generara en un borde
+   * al azar
+   * @param pos - posicion en la que se genera el asteroide, 0=top, 1=right, 2=down y 3=left
+   */
+  nuevoAsteroide(pos?: Asteroides.Borde) {
+    let side = <Asteroides.Borde>((typeof pos != 'undefined') ? pos : Phaser.Math.Between(0, 3));
+    let x = 0, y = 0, angulo = 0, vel = 50;
+  
+    switch (side) {
+      case 0:
+        x = Phaser.Math.Between(0, this.scene.scale.width)
+        y = -10
+        angulo = (Phaser.Math.Between(0, 100) < 50) ? Phaser.Math.Between(135, 180) : Phaser.Math.Between(-179, -135);
+        break;
+      case 1:
+        x = this.scene.scale.width + 10
+        y = Phaser.Math.Between(0, this.scene.scale.height)
+        angulo = Phaser.Math.Between(-135, -45)
+        break;
+      case 2:
+        x = Phaser.Math.Between(0, this.scene.scale.width)
+        y = this.scene.scale.height + 10
+        angulo = Phaser.Math.Between(-45, 45)
+        break;
+      case 3:
+        x = -10
+        y = Phaser.Math.Between(0, this.scene.scale.height)
+        angulo = Phaser.Math.Between(45, 135)
+        break;
+    }
+  
+    if (this.scene.physics.config.debug)
+      if (typeof pos != 'undefined') console.log({ x, y, angulo, vel, sin: (vel * Math.sin(angulo)), cos: -(vel * Math.cos(angulo)) })
+    
+  
+    let asteroide = this.create(x, y)
+  
+    function d2r(x: number) {
+      return Phaser.Math.DegToRad(x);
+    }
+    asteroide.setVelocity(
+      vel * Math.sin(d2r(angulo)),
+      vel * Math.cos(d2r(angulo)) * -1
+    )
+  
+  }
+
 }
+
+namespace Asteroides {
+  export enum Borde {
+    SUPERIOR,
+    DERECHO,
+    INFERIOR,
+    IZQUIERDO
+  }
+}
+
+export default Asteroides;

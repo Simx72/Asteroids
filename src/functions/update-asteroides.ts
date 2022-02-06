@@ -1,6 +1,6 @@
 import AsteroidsMainScene from '../scenes/game-scene';
 import cookies from '../cookies';
-import { nuevoAsteroide } from './create-asteroides';
+
 export function updateAsteroides(this: AsteroidsMainScene) {
   let asteroides = this.asteroides
 
@@ -28,7 +28,7 @@ export function updateAsteroides(this: AsteroidsMainScene) {
     }
 
     if (this.game.getFrame() % densidad == 0 && this.dato('cargado') && !this.physics.config.debug) {
-      nuevoAsteroide.bind(this)()
+      this.asteroides.nuevoAsteroide()
     }
   }
 
