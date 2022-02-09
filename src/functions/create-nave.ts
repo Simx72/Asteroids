@@ -1,6 +1,7 @@
 import AsteroidsMainScene from '../scenes/game-scene';
 import cookies from '../cookies';
 import Nave from '../components/Nave/index';
+import { running } from '../components/Pausa/index';
 
 export default function createNave(this: AsteroidsMainScene) {
   const nave = new Nave(this)
@@ -15,8 +16,8 @@ export default function createNave(this: AsteroidsMainScene) {
 
   
   this.data.set('intervalo puntos', window.setInterval(() => {
-    if (cookies.get('jugando') == 'true')
-      this.data.set('puntos', this.dato<number>('puntos') + 1)
+    if (running)
+      this.data.values.puntos++;
     this.nivel.updateNivel()
   }, 3000))
 

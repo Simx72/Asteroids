@@ -2,6 +2,8 @@ import Scene from '../../scenes/templates/default';
 import asset_htmlpausa from "./menu-pausa.html";
 import styles from "./styles.module.css";
 
+export let running: boolean = false;
+
 class Pausa extends Phaser.GameObjects.DOMElement {
   constructor(scene: Scene) {
     super(scene, 0, 0, "div");
@@ -10,7 +12,7 @@ class Pausa extends Phaser.GameObjects.DOMElement {
 
     this.setClassName(styles["menu-pausa"])
 
-
+    running = true;
 
 
   }
