@@ -81,7 +81,7 @@ export default function updateNave(this: AsteroidsMainScene) {
 
   if (nave.x < (0 - (nave.displayWidth / 2)) || nave.x > (this.scale.width + nave.displayWidth / 2) || nave.y < (0 - (nave.displayHeight / 2)) || nave.y > (this.scale.height + nave.displayHeight / 2)) {
     /* al morir en algun borde */
-    this.muerte()
+    nave.perderVida()
   }
 
 }

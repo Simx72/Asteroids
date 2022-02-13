@@ -1,6 +1,7 @@
-import AsteroidsMainScene from '../scenes/game-scene';
+import Scene from '../scenes/templates/default';
 import cookies from '../cookies';
-export function explosion(this: AsteroidsMainScene, x: number, y: number) {
+
+export function explosion(this: Scene, x: number, y: number) {
   let exp = this.add.sprite(x, y, 'explosion').setVisible(false)
 
   exp.anims.create({

@@ -1,5 +1,4 @@
 import Scene from './templates/default';
-import { muerte, detectarMuerte } from '../functions/muerte';
 import createNave from '../functions/create-nave';
 import createAsteroides from '../functions/create-asteroides';
 import updateNave from '../functions/update-nave';
@@ -15,13 +14,12 @@ import asset_cargandoinfo from '../assets/images/PNG/loading/atlas/spritesheet.j
 import asset_explosion from '../assets/images/PNG/exp2_0.png';
 import Nave from '../components/Nave';
 import Asteroides from '../components/Asteroides';
+import { explosion } from '../functions/explosion';
 
 export default class GameScene extends Scene {
   constructor() {
     super('game-scene');
   }
-
-  muerte = muerte.bind(this)
 
   /***************
    * PRELOAD
@@ -113,8 +111,6 @@ export default class GameScene extends Scene {
 
     createAsteroides.call(this)
 
-    detectarMuerte.call(this)
-
   }
 
   /***************
@@ -145,6 +141,28 @@ export default class GameScene extends Scene {
     }
 
 
+  }
+
+  finalizar() {
+    if (this.physics.config.debug) {
+      const texto = this.getElement<Phaser.GameObjects.Text>('texto.debug')
+      texto.text += `Sin vidas! \n`
+    }
+    this.data.set('vivo', false)
+  
+    window.clearInterval(this.dato('intervalo puntos'))
+    // cookies.set('puntos', this.dato<number>('puntos').toString())
+  
+    const nave = this.getElement<Phaser.Types.Physics.Arcade.ImageWithDynamicBody>('nave')
+  
+    nave.setVisible(false)
+  
+    explosion.call(this, nave.x, nave.y)
+      .then(() => {
+        this.game.scene.stop(this).run('loose-scene')
+      })
+  
+    this.physics.pause() /* stops everything */
   }
 
 }
