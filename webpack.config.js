@@ -55,7 +55,8 @@ module.exports = function(paramEnv) {
                 filename: 'index.html',
                 favicon: "./src/assets/favicon.ico",
                 minify: "auto",
-                hash: env.production == true
+                hash: env.production == true,
+                template: 'src/template.html'
             }),
             new webpack.DefinePlugin({
                 process: {
