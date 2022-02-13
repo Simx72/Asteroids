@@ -9,7 +9,8 @@
         "build:watch": "webpack -c webpack.config.js -w",
         "vercel-install": "npm ci",
         "vercel-build": "webpack --env production -c webpack.config.js",
-        "dev": "webpack-dev-server"
+        "dev": "webpack-dev-server",
+        "test:typecheck": "tsc --project tsconfig.test.json"
     },
     "author": "",
     "license": "MIT",
