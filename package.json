@@ -10,7 +10,7 @@
         "vercel-install": "npm ci",
         "vercel-build": "webpack --env production -c webpack.config.js",
         "dev": "webpack-dev-server",
-        "test:typecheck": "tsc --project tsconfig.test.json"
+        "test:typecheck": "tsc --project tsconfig.test.json -w"
     },
     "author": "",
     "license": "MIT",
