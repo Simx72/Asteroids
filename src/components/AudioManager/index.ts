@@ -1,17 +1,19 @@
 import Scene from '../../scenes/templates/default';
 import cookies from '../../cookies';
 
-export default class AudioManager extends Phaser.GameObjects.GameObject {
+export default class AudioManager {
   constructor(scene: Scene) {
-    super(scene, "manager")
+    this.scene = scene;
 
-    scene.game.domContainer.appendChild(this.musica)
+    this.scene.game.domContainer.appendChild(this.musica)
     this.musica.loop = true
 
     this.musicVolume = Math.floor(cookies.getNum('config-volumen-musica', true)) / 100
     this.fxVolume = Math.floor(cookies.getNum('config-volumen-fx', true)) / 100
 
   }
+
+  scene: Scene;
 
   musica = document.createElement('audio')
 

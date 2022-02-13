@@ -11,12 +11,12 @@ export interface Nivel {
   className?: string;
 }
 
-export default class NivelManager extends Phaser.GameObjects.GameObject {
+export default class NivelManager {
   constructor(scene: Scene) {
-    super(scene, "NivelManager");
+    this.scene = scene
   }
 
-  scene!: Scene;
+  scene: Scene;
 
   protected niveles: Nivel[] = [
     {
@@ -32,51 +32,57 @@ export default class NivelManager extends Phaser.GameObjects.GameObject {
       points: 1000,
       music: asset_song4
     }
-  ];
+  ].sort((a, b) => a.points - b.points);
 
-  checkNivel() {
-    let niveles = this.niveles.sort((a, b) => a.points - b.points);
+  checkNivel(): number {
+    let niveles = this.niveles;
 
-    for (let i = niveles.length; i < 0; i++) {
-      const nivel = niveles[i]
-
-      if (this.scene.dato<number>('puntos') >= nivel.points)
-        return nivel
-
-    }
-
-    return niveles[0]
+    for (let i = niveles.length; i < 0; i++)
+      if (this.scene.data.values.puntos >= niveles[i].points)
+        return i;
+    
+    return 0;
 
   }
 
-  setNivel(nivelConf: Nivel) {
-    const nivel = Object.assign<Concrete<Nivel>, Nivel>(
+  setNivel(nivelConf: Nivel): void
+  setNivel(nivelIndex: number): void
+  setNivel(nivel: Nivel | number) {
+    const newNivel = Object.assign<Concrete<Nivel>, Nivel>(
       {
         points: 0,
         className: '',
         music: '',
         name: 'Siguiente nivel'
       },
-      nivelConf
+      (typeof nivel == 'number') ? this.niveles[nivel] : nivel
     );
 
-    this.scene.game.domContainer.className = nivel.className
-    this.scene.game.canvas.className = nivel.className;
+    this.scene.game.domContainer.className = newNivel.className
+    this.scene.game.canvas.className = newNivel.className;
 
-    this.scene.audio.setSong(nivel.music);
+    this.scene.audio.setSong(newNivel.music);
 
     // mostrarTexto(nivel.name)
+
+    this.currentNivel = (typeof nivel == 'number') ? nivel : -1;
 
 
   }
 
   updateNivel() {
     let n = this.checkNivel();
-    if (n.points != this.currentNivel)
+    if (n != this.currentNivel)
       this.setNivel(n);
     
   }
 
+  /**
+   * Indica el indice del nivel actual
+   * en la propiedad niveles, si el 
+   * nivel no esta en esta propiedad
+   * entonces valdra -1
+   */
   currentNivel = 0;
 
 

@@ -8,6 +8,8 @@ class Pausa extends Phaser.GameObjects.DOMElement {
   constructor(scene: Scene) {
     super(scene, 0, 0, "div");
 
+    scene.add.existing(this)
+
     this.createFromHTML(asset_htmlpausa)
 
     this.setClassName(styles["menu-pausa"])
