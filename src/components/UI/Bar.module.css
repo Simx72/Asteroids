@@ -1,0 +1,12 @@
+.Item {
+    display: block;
+    --size: 100px;
+    width: var(--size);
+    height: var(--size);
+}
+
+.Bar {
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+}
