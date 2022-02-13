@@ -1,5 +1,5 @@
 import AsteroidsMainScene from '../scenes/game-scene';
-import cookies from '../cookies';
+import { running } from '../components/Pausa';
 
 export function updateAsteroides(this: AsteroidsMainScene) {
   let asteroides = this.asteroides
@@ -10,7 +10,7 @@ export function updateAsteroides(this: AsteroidsMainScene) {
     if ((-ast.displayWidth / 2) > ast.x && (ast.displayWidth / 2 + this.scale.width) < ast.x && (-ast.displayHeight / 2) > ast.y && (ast.displayHeight / 2 + this.scale.height) < ast.y) ast.destroy()
   })
 
-  if (cookies.get('jugando') == 'true') {
+  if (running) {
     let densidad = 1;
     switch (this.dato('nivel')) {
       case 1:

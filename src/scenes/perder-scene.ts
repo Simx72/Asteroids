@@ -2,6 +2,7 @@ import cookies from '../cookies';
 import Scene from './templates/default';
 import { cargarMenu } from '../functions/cargar-menu';
 import { sendError } from '../functions/error';
+import { running } from '../components/Pausa/index';
 export default class AsteroidsLooseScene extends Scene {
   constructor() {
     super('loose-scene');
@@ -9,7 +10,6 @@ export default class AsteroidsLooseScene extends Scene {
 
   create() {
     super.create()
-    try {
 
       document.body.classList.forEach(val => document.body.classList.remove(val))
       document.body.classList.add('loose')
@@ -30,6 +30,7 @@ export default class AsteroidsLooseScene extends Scene {
           .setPosition(10, 10)
           .setDepth(70)
 
+      /* 
       let texto = this.add.text(
         this.center.x,
         this.center.y,
@@ -58,7 +59,7 @@ export default class AsteroidsLooseScene extends Scene {
       buttonTexto.setColor('#000000')
 
       button.on('pointerdown', () => {
-        if (cookies.get('jugando') == "true") {
+        if (running) {
           button.setFillStyle(0xFFFFFF)
           if (this.scale.width == window.innerWidth) {
             this.game.scene.stop(this).run('game-scene')
@@ -69,19 +70,16 @@ export default class AsteroidsLooseScene extends Scene {
         }
       })
       button.on('pointerover', () => {
-        if (cookies.get('jugando') == "true") {
+        if (running) {
           this.game.canvas.style.cursor = 'pointer'
           button.setFillStyle(0xDDDD33)
         }
       })
       button.on('pointerout', () => {
-        if (cookies.get('jugando') == "true") {
+        if (running) {
           this.game.canvas.style.cursor = 'default'
           button.setFillStyle(0xFFFFFF)
         }
-      })
-    } catch (e) {
-      sendError(e, this.physics.config.debug)
-    }
+      }) */
   }
 }
