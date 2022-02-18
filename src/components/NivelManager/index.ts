@@ -1,14 +1,13 @@
 import Scene from "../../scenes/templates/default";
-import asset_song1 from '../../assets/sounds/Crystal-Cave-Song-18.mp3';
-import asset_song2 from '../../assets/sounds/Of Far Different Nature - LOOP BOX #4 (CC-BY 4.0)/Of Far Different Nature - Oldskool [v2] (CC-BY 4.0).ogg';
-import asset_song3 from '../../assets/sounds/Of Far Different Nature - LOOP BOX #4 (CC-BY 4.0)/Of Far Different Nature - Bouncer [v2] (CC-BY 4.0).ogg';
-import asset_song4 from '../../assets/sounds/Of Far Different Nature - LOOP BOX #4 (CC-BY 4.0)/Of Far Different Nature - Pulse (CC-BY 4.0).ogg';
+import niveles from "./niveles.array.json";
 
 export interface Nivel {
   points: number;
   name?: string;
   music?: string;
   className?: string;
+  cantidad?: number;
+  frecuencia?: number;
 }
 
 export default class NivelManager {
@@ -18,21 +17,21 @@ export default class NivelManager {
 
   scene: Scene;
 
-  protected niveles: Nivel[] = [
-    {
-      points: 0,
-      music: asset_song1
-    }, {
-      points: 100,
-      music: asset_song2
-    }, {
-      points: 400,
-      music: asset_song3
-    }, {
-      points: 1000,
-      music: asset_song4
-    }
-  ].sort((a, b) => a.points - b.points);
+  protected niveles = <Nivel[]>niveles.sort((a, b) => a.points - b.points);
+
+  private defaultNivel(nivel: Nivel): Concrete<Nivel> {
+    return Object.assign<Concrete<Nivel>, Nivel>(
+      {
+        points: 0,
+        className: '',
+        music: '',
+        name: 'Siguiente nivel',
+        cantidad: 1,
+        frecuencia: 10
+      },
+      nivel
+    )
+  }
 
   checkNivel(): number {
     let niveles = this.niveles;
@@ -40,7 +39,7 @@ export default class NivelManager {
     for (let i = niveles.length; i < 0; i++)
       if (this.scene.data.values.puntos >= niveles[i].points)
         return i;
-    
+
     return 0;
 
   }
@@ -48,33 +47,28 @@ export default class NivelManager {
   setNivel(nivelConf: Nivel): void
   setNivel(nivelIndex: number): void
   setNivel(nivel: Nivel | number) {
-    const newNivel = Object.assign<Concrete<Nivel>, Nivel>(
-      {
-        points: 0,
-        className: '',
-        music: '',
-        name: 'Siguiente nivel'
-      },
-      (typeof nivel == 'number') ? this.niveles[nivel] : nivel
-    );
+    this._currentNivelIndex = (typeof nivel == 'number') ? nivel : -1;
+    ((n: Nivel) => {
 
-    this.scene.game.domContainer.className = newNivel.className
-    this.scene.game.canvas.className = newNivel.className;
+      const newNivel = this.defaultNivel(n);
 
-    this.scene.audio.setSong(newNivel.music);
+      this._currentNivelIndex = -1;
+      this.scene.game.domContainer.className = newNivel.className
+      this.scene.game.canvas.className = newNivel.className;
 
-    // mostrarTexto(nivel.name)
+      this.scene.audio.setSong(newNivel.music);
 
-    this.currentNivel = (typeof nivel == 'number') ? nivel : -1;
+      // mostrarTexto(nivel.name)
 
+    })(typeof nivel == 'number' ? this.niveles[nivel] : nivel)
 
   }
 
   updateNivel() {
     let n = this.checkNivel();
-    if (n != this.currentNivel)
+    if (n != this.currentNivelIndex)
       this.setNivel(n);
-    
+
   }
 
   /**
@@ -83,7 +77,21 @@ export default class NivelManager {
    * nivel no esta en esta propiedad
    * entonces valdra -1
    */
-  currentNivel = 0;
+  private _currentNivelIndex = 0;
+  public get currentNivelIndex() {
+    return this._currentNivelIndex
+  };
+
+  /**
+   * the info of the current level
+   */
+  get currentNivel(): Concrete<Nivel> {
+    if (this._currentNivelIndex < 0)
+      return this._current
+    return this.defaultNivel(this.niveles[this.currentNivelIndex])
+  }
+
+  private _current: Concrete<Nivel> = this.defaultNivel({ points: 0 })
 
 
 }

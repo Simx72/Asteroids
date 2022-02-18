@@ -47,6 +47,18 @@ module.exports = function(paramEnv) {
                     test: /\.(woff|woff2|eot|ttf|otf)$/i,
                     type: 'asset/resource',
                 },
+                {
+                    test: /\.json$/,
+                    type: 'javascript/dynamic', // only for webpack 4+
+                    use: [{
+                            loader: 'json-import-loader',
+                            options: {
+                                processPath: path => path,
+                            }
+                        },
+                        { loader: 'json-loader' }
+                    ],
+                },
             ],
         },
         plugins: [

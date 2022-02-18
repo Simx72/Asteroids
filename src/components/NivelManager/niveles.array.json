@@ -1,0 +1,17 @@
+[{
+        "points": 0,
+        "music": "import!../../assets/sounds/Crystal-Cave-Song-18.mp3"
+    },
+    {
+        "points": 100,
+        "music": "import!../../assets/sounds/Of Far Different Nature - LOOP BOX #4 (CC-BY 4.0)/Of Far Different Nature - Oldskool [v2] (CC-BY 4.0).ogg"
+    },
+    {
+        "points": 400,
+        "music": "import!../../assets/sounds/Of Far Different Nature - LOOP BOX #4 (CC-BY 4.0)/Of Far Different Nature - Bouncer [v2] (CC-BY 4.0).ogg"
+    },
+    {
+        "points": 1000,
+        "music": "import!../../assets/sounds/Of Far Different Nature - LOOP BOX #4 (CC-BY 4.0)/Of Far Different Nature - Pulse (CC-BY 4.0).ogg"
+    }
+]

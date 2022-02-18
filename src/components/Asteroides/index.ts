@@ -1,4 +1,5 @@
-import Scene from '../../scenes/templates/default';
+import Scene from '../../scenes/game-scene';
+import { running } from '../Pausa/index';
 
 type Child = Phaser.Types.Physics.Arcade.ImageWithDynamicBody;
 
@@ -17,6 +18,7 @@ class Asteroides extends Phaser.GameObjects.Group {
   }
 
   children!: Phaser.Structs.Set<Child>;
+  scene!: Scene;
 
   create(x: number, y: number) {
     const newChild = <Child>super.create(x, y)
@@ -65,7 +67,7 @@ class Asteroides extends Phaser.GameObjects.Group {
   nuevoAsteroide(pos?: Asteroides.Borde) {
     let side = <Asteroides.Borde>((typeof pos != 'undefined') ? pos : Phaser.Math.Between(0, 3));
     let x = 0, y = 0, angulo = 0, vel = 50;
-  
+
     switch (side) {
       case 0:
         x = Phaser.Math.Between(0, this.scene.scale.width)
@@ -88,13 +90,13 @@ class Asteroides extends Phaser.GameObjects.Group {
         angulo = Phaser.Math.Between(45, 135)
         break;
     }
-  
+
     if (this.scene.physics.config.debug)
       if (typeof pos != 'undefined') console.log({ x, y, angulo, vel, sin: (vel * Math.sin(angulo)), cos: -(vel * Math.cos(angulo)) })
-    
-  
+
+
     let asteroide = this.create(x, y)
-  
+
     function d2r(x: number) {
       return Phaser.Math.DegToRad(x);
     }
@@ -102,7 +104,28 @@ class Asteroides extends Phaser.GameObjects.Group {
       vel * Math.sin(d2r(angulo)),
       vel * Math.cos(d2r(angulo)) * -1
     )
-  
+
+  }
+
+  preUpdate(time: number, delta: number): void {
+    this.rotate(Phaser.Math.DegToRad(3))
+    this.children.each(ast => {
+      if ((-ast.displayWidth / 2) > ast.x && (ast.displayWidth / 2 + this.scene.scale.width) < ast.x && (-ast.displayHeight / 2) > ast.y && (ast.displayHeight / 2 + this.scene.scale.height) < ast.y) ast.destroy()
+    })
+
+    let nivel = this.scene.nivel.currentNivel
+
+    if (running) {
+      if (
+        this.scene.game.getFrame() % nivel.frecuencia == 0 &&
+        this.scene.data.values.cargado &&
+        !this.scene.physics.config.debug) {
+        
+        for (let i = 0; i < nivel.cantidad; i++)
+          this.nuevoAsteroide()
+
+      }
+    }
   }
 
 }

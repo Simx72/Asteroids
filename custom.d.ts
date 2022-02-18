@@ -8,8 +8,9 @@ declare module "*.mp3" { export default Asset.default }
 declare module "*.ogg" { export default Asset.default }
 declare module "*.png" { export default Asset.default }
 declare module "*.svg" { export default Asset.default }
-declare module "*.json" { export default Asset.default }
 
+declare module "*.array.json" { export default content as any[] }
+declare module "*.json" { export default content as any }
 declare module "*.html" { export default content as string }
 
 declare module "*.css" {
