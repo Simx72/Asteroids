@@ -7,7 +7,7 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "webpack -c webpack.config.js",
         "build:watch": "webpack -c webpack.config.js -w",
-        "vercel-install": "npm ci",
+        "vercel-install": "yarn install --frozen-lockfile --immutable --immutable-cache --check-cache",
         "vercel-build": "webpack --env production -c webpack.config.js",
         "dev": "webpack-dev-server",
         "test:typecheck": "tsc --project tsconfig.test.json -w"
