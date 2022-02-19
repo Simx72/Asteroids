@@ -96,5 +96,6 @@ namespace cookies {
 
 cookies.init('config-volumen-musica', '100')
 cookies.init('config-volumen-fx', '100')
+cookies.init('test', "Un valor de prueba 🧐")
 
 export default cookies;
