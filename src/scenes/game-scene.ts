@@ -16,8 +16,10 @@ import Asteroides from '../components/Asteroides';
 import { explosion } from '../functions/explosion';
 
 export default class GameScene extends Scene {
+  static key = 'game-scene';
+
   constructor() {
-    super('game-scene');
+    super(GameScene.key);
   }
 
   /***************
@@ -59,6 +61,8 @@ export default class GameScene extends Scene {
    **************/
   public create() {
     super.create();
+
+    this.nave = new Nave(this);
     
     this.data.set('cargado', false);
 
@@ -105,6 +109,8 @@ export default class GameScene extends Scene {
         .setPosition(10, 10)
         .setDepth(70)
     }
+
+    this.pausa.resume();
 
     createNave.call(this)
 

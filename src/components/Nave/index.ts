@@ -17,7 +17,7 @@ export default class Nave extends Phaser.Physics.Arcade.Sprite {
       .setOrigin(0.5, 0.5)
       .setDepth(10)
 
-
+    scene.add.existing(this)
 
     this.data.set('vivo', true)
     this.data.set('vidas', 2)

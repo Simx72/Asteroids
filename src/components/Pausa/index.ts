@@ -19,16 +19,18 @@ class Pausa extends Phaser.GameObjects.DOMElement {
 
   get running() { return running; };
 
-  pause() {
+  pause(): this {
     this.node.style.display = "flex!important";
     running = false;
     this.emit(Pausa.Events.PAUSE)
+    return this;
   }
   
-  resume() {
+  resume(): this {
     this.node.style.display = "none";
     running = true;
     this.emit(Pausa.Events.RESUME)
+    return this;
   }
 
   node!: HTMLDivElement;
