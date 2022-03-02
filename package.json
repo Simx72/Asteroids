@@ -8,12 +8,12 @@
         "test:watch": "jest --watch",
         "build": "webpack -c webpack.config.js",
         "build:watch": "webpack -c webpack.config.js -w",
-        "vercel-install": "yarn install --frozen-lockfile --immutable --immutable-cache --check-cache",
+        "vercel-install": "npm ci",
         "vercel-build": "webpack --env production -c webpack.config.js",
-        "dev": "webpack-dev-server",
+        "serve": "webpack serve",
         "test:types": "tsc --project tsconfig.test.json -w"
     },
-    "author": "",
+    "author": "Simx72 <53983258+Simx72@users.noreply.github.com>",
     "license": "MIT",
     "dependencies": {
         "phaser": "^3.55.2"
@@ -38,5 +38,6 @@
     "bugs": {
         "url": "https://github.com/Simx72/Asteroids/issues"
     },
-    "homepage": "https://github.com/Simx72/Asteroids#readme"
+    "homepage": "https://github.com/Simx72/Asteroids#readme",
+    "repository": "https://github.com/Simx72/Asteroids.git"
 }
