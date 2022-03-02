@@ -1,5 +1,4 @@
 import Scene from './templates/default';
-import createNave from '../functions/create-nave';
 import createAsteroides from '../functions/create-asteroides';
 import updateNave from '../functions/update-nave';
 import asset_audiolaser from '../assets/sounds/laser.wav';
@@ -111,8 +110,6 @@ export default class GameScene extends Scene {
     }
 
     this.pausa.resume();
-
-    createNave.call(this)
 
     createAsteroides.call(this)
 
