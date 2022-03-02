@@ -1,11 +1,14 @@
 import Scene from '../../scenes/templates/default';
 import cookies from '../../cookies';
 
-export default class AudioManager {
-  constructor(scene: Scene) {
-    this.scene = scene;
+const musicaNode = document.createElement('audio')
+document.getElementById('app')?.appendChild(musicaNode);
 
-    this.scene.game.domContainer.appendChild(this.musica)
+class AudioManager extends Phaser.Events.EventEmitter {
+  constructor(scene: Scene) {
+    super();
+
+    this.scene = scene;
     this.musica.loop = true
 
     this.musicVolume = Math.floor(cookies.getNum('config-volumen-musica', true)) / 100
@@ -15,7 +18,7 @@ export default class AudioManager {
 
   scene: Scene;
 
-  musica = document.createElement('audio')
+  musica = musicaNode;
 
   protected currentSong = ""
   private _volume = {
@@ -47,9 +50,32 @@ export default class AudioManager {
     }
   }
 
-  stop() {
-    this.musica.pause()
+  pause(): this {
+    this.musica.pause();
+    return this;
+  }
+
+  syncResume(): this {
+    this.musica.play();
+    this.emit(AudioManager.Events.Music.RESUME);
+    return this;
+  }
+  
+  async resume() {
+    await this.musica.play();
+    this.emit(AudioManager.Events.Music.RESUME);
   }
 
 
 }
+
+namespace AudioManager {
+  export namespace Events {
+    export namespace Music {
+      export const PAUSE = 'musicpause';
+      export const RESUME = 'musicresume';
+    }
+  }
+}
+
+export default AudioManager;

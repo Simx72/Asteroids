@@ -22,12 +22,14 @@ class Pausa extends Phaser.GameObjects.DOMElement {
 
   pause() {
     this.node.style.display = "flex!important";
-    this.emit(Pausa.Events.Music.Pause)
+    running = false;
+    this.emit(Pausa.Events.PAUSE)
   }
   
-  play() {
+  resume() {
     this.node.style.display = "none";
-    this.emit(Pausa.Events.Music.Play)
+    running = true;
+    this.emit(Pausa.Events.RESUME)
   }
 
   node!: HTMLDivElement;
@@ -36,10 +38,8 @@ class Pausa extends Phaser.GameObjects.DOMElement {
 
 namespace Pausa {
   export namespace Events {
-    export namespace Music {
-      export var Pause = 'musicpause';
-      export var Play = 'musicplay';
-    }
+    export const RESUME = "resumegame";
+    export const PAUSE = "pausegame";
   }
 }
 
