@@ -2,9 +2,6 @@ import * as Phaser from 'phaser';
 import FirstScene from "./scenes/game-scene";
 import './styles.css';
 
-const parent = document.createElement("main");
-document.body.appendChild(parent);
-
 export const gameConfig: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
   scale: {
@@ -12,13 +9,12 @@ export const gameConfig: Phaser.Types.Core.GameConfig = {
     height: innerHeight ? innerHeight - 1 : undefined || document.documentElement.clientHeight || document.body.clientHeight
   },
   scene: FirstScene,
-  backgroundColor: '#00000000',
   transparent: true,
   dom: {
     createContainer: true,
     behindCanvas: false
   },
-  parent,
+  parent: "app",
   physics: {
     default: 'arcade',
     arcade: {
@@ -28,6 +24,8 @@ export const gameConfig: Phaser.Types.Core.GameConfig = {
 };
 
 const ASTEROIDSGAME = new Phaser.Game(gameConfig)
+
+document.getElementById('loading')?.remove();
 
 export default ASTEROIDSGAME;
 
