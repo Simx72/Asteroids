@@ -1,9 +1,9 @@
 /*
- * For a detailed explanation regarding each configuration property, visit:
+ * For a detailed explanation regarding each configuration property and type check, visit:
  * https://jestjs.io/docs/configuration
  */
 
-module.exports = {
+export default {
     // All imported modules in your tests should be mocked automatically
     // automock: false,
 
@@ -93,7 +93,7 @@ module.exports = {
     // notifyMode: "failure-change",
 
     // A preset that is used as a base for Jest's configuration
-    preset: "ts-jest",
+    preset: 'ts-jest',
 
     // Run tests from one or more projects
     // projects: undefined,
@@ -147,8 +147,8 @@ module.exports = {
 
     // The glob patterns Jest uses to detect test files
     // testMatch: [
-    //     "src/**/__tests__/**/*.[jt]s?(x)",
-    //     "src/**/?(*.)+(spec|test).[tj]s?(x)"
+    //   "**/__tests__/**/*.[jt]s?(x)",
+    //   "**/?(*.)+(spec|test).[tj]s?(x)"
     // ],
 
     // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
