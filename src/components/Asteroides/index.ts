@@ -1,5 +1,5 @@
 import Scene from '../../scenes/game-scene';
-import { running } from '../Pausa/index';
+import { running } from '../Pausa';
 
 type Child = Phaser.Types.Physics.Arcade.ImageWithDynamicBody;
 
