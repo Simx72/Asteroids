@@ -5,6 +5,9 @@ import { explosion } from '../../functions/explosion';
 export let puntos: number = 0;
 
 export default class Nave extends Phaser.Physics.Arcade.Sprite {
+
+  get puntos() { return puntos; }
+
   constructor(scene: Scene) {
     super(scene, 0, 0, 'nave');
 
@@ -143,6 +146,90 @@ export default class Nave extends Phaser.Physics.Arcade.Sprite {
 
     this.calcVidas()
 
+  }
+
+  update(): void {
+    if (this.scene.physics.config.debug) {
+      const texto = <Phaser.GameObjects.Text>this.scene.getElement('texto.debug')
+      texto.text += `posición: \tx ${Math.floor(this.x)} \t| y ${Math.floor(this.y)} \n`
+      texto.text += `velocidad:\tx ${Math.floor(this.body.velocity.x)} \t| y ${Math.floor(this.body.velocity.y)} \n`
+      texto.text += `ángulo: \t${Math.floor(this.angle)} \n`
+      texto.text += `vidas: \t${this.data.get('vidas') + 1} (${this.data.get('vidas')}) \n`
+      texto.text += `puntos: \t${this.puntos} \n`
+    } else {
+      this.scene.getElement<Phaser.GameObjects.Text>('texto.puntos').text = this.puntos.toString()
+    }
+
+    const keys = {
+      'up-arrow': this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP),
+      'down-arrow': this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN),
+      'right-arrow': this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT),
+      'left-arrow': this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT),
+      'W': this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W),
+      'S': this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S),
+      'D': this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D),
+      'A': this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A),
+      'space': this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE),
+      'c': this.scene.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.C),
+    }
+
+    let pressed = {
+      up: (keys['up-arrow'].isDown || keys['W'].isDown),
+      down: (keys['down-arrow'].isDown || keys['S'].isDown),
+      right: (keys['right-arrow'].isDown || keys['D'].isDown),
+      left: (keys['left-arrow'].isDown || keys['A'].isDown),
+    }
+
+
+    if (pressed.up || pressed.down) {
+
+      let angle = this.angle
+      let accel = 250
+      let aX = accel * Math.sin(Phaser.Math.DegToRad(angle))
+      let aY = accel * Math.cos(Phaser.Math.DegToRad(angle)) * -1
+
+
+      if (pressed.up && !pressed.down) {
+        this.body.setAcceleration(aX, aY)
+      } else if (pressed.down && !pressed.up) {
+        this.body.setAcceleration(-aX, -aY)
+      }
+
+    } else {
+      try {
+        this.body.setAcceleration(0, 0)
+      } catch (e) { }
+    }
+
+    if (pressed.right || pressed.left) {
+      if (pressed.right && !pressed.left) {
+        this.body.setAngularVelocity(140)
+      } else if (pressed.left && !pressed.right) {
+        this.body.setAngularVelocity(-140)
+      }
+    } else {
+      this.body.setAngularVelocity(0)
+    }
+
+    /* disparo */
+    if (this.scene.input.keyboard.checkDown(keys['space'], 250) && this.data.get('vivo') == true) {
+      this.disparo()
+    }
+    let disparos = this.disparos
+    disparos.children.each(object => {
+      let obj = object as Phaser.Physics.Arcade.Sprite
+      if (obj.body.position.x < (0 - obj.displayWidth) || obj.body.position.x > (this.scene.scale.width + obj.displayWidth) || obj.body.position.y < (0 - obj.displayHeight) || obj.body.position.y > (this.scene.scale.height + obj.displayHeight)) {
+        obj.destroy()
+        if (this.scene.physics.config.debug) {
+          console.log(obj, 'salio del mapa')
+        }
+      }
+    })
+
+    if (this.x < (0 - (this.displayWidth / 2)) || this.x > (this.scene.scale.width + this.displayWidth / 2) || this.y < (0 - (this.displayHeight / 2)) || this.y > (this.scene.scale.height + this.displayHeight / 2)) {
+      /* al morir en algun borde */
+      this.perderVida()
+    }
   }
 
 }

@@ -15,8 +15,8 @@ export default class DefaultAsteroidsScene extends Phaser.Scene {
     this.children.getByName(key) as T;
 
   get center(): XY {
-    const { width: x, height: y } = this.scale;
-    return { x: x/2, y: y/2 };
+    const { width, height } = this.scale;
+    return { x: width / 2, y: height / 2 };
   }
 
   /**
@@ -33,8 +33,11 @@ export default class DefaultAsteroidsScene extends Phaser.Scene {
     this.pausa = new Pausa(this);
     this.nivel = new NivelManager(this);
 
-
   };
+
+  update(time: number, delta: number): void {
+    this.children.each(o => o.update(time, delta));
+  }
   
   audio!: AudioManager;
   pausa!: Pausa;

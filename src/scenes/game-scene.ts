@@ -1,6 +1,5 @@
 import Scene from './templates/default';
 import createAsteroides from '../functions/create-asteroides';
-import updateNave from '../functions/update-nave';
 import asset_audiolaser from '../assets/sounds/laser.wav';
 import asset_naveespacial from '../assets/images/SVG/nave-espacial.svg';
 import asset_asteroide1 from '../assets/images/SVG/asteroide-1.svg';
@@ -125,8 +124,6 @@ export default class GameScene extends Scene {
       const texto = this.getElement<Phaser.GameObjects.Text>('texto.debug')
       texto.text = `[scene]: Main Scene (${this.scene.key}) \n\n`
     }
-
-    updateNave.call(this)
 
     if (!this.dato<boolean>('cargado')) {
       this.getElement<Phaser.GameObjects.Sprite>('cargando.sprite').alpha -= 0.03
