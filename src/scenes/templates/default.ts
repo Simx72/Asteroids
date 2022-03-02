@@ -16,7 +16,7 @@ export default class DefaultAsteroidsScene extends Phaser.Scene {
 
   get center(): XY {
     const { width: x, height: y } = this.scale;
-    return { x, y };
+    return { x: x/2, y: y/2 };
   }
 
   /**
