@@ -2,7 +2,7 @@ import Scene from '../../scenes/templates/default';
 import asset_htmlpausa from "./menu-pausa.html";
 import styles from "./styles.module.css";
 
-export let running: boolean = false;
+let running: boolean = false;
 
 class Pausa extends Phaser.GameObjects.DOMElement {
   constructor(scene: Scene) {
@@ -15,10 +15,9 @@ class Pausa extends Phaser.GameObjects.DOMElement {
       .setOrigin(0.5)
       .setPosition(scene.center.x, scene.center.y)
 
-    running = true;
-
-
   }
+
+  get running() { return running; };
 
   pause() {
     this.node.style.display = "flex!important";

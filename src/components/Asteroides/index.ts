@@ -1,5 +1,4 @@
 import Scene from '../../scenes/game-scene';
-import { running } from '../Pausa';
 
 type Child = Phaser.Types.Physics.Arcade.ImageWithDynamicBody;
 
@@ -115,16 +114,14 @@ class Asteroides extends Phaser.GameObjects.Group {
 
     let nivel = this.scene.nivel.currentNivel
 
-    if (running) {
+    if (this.scene.pausa.running) {
       if (
         this.scene.game.getFrame() % nivel.frecuencia == 0 &&
         this.scene.data.values.cargado &&
-        !this.scene.physics.config.debug) {
-        
+        !this.scene.physics.config.debug
+      )
         for (let i = 0; i < nivel.cantidad; i++)
           this.nuevoAsteroide()
-
-      }
     }
   }
 

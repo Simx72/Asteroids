@@ -1,8 +1,6 @@
 import cookies from '../cookies';
 import Scene from './templates/default';
 import { cargarMenu } from '../functions/cargar-menu';
-import { sendError } from '../functions/error';
-import { running } from '../components/Pausa/index';
 export default class AsteroidsLooseScene extends Scene {
   constructor() {
     super('loose-scene');
