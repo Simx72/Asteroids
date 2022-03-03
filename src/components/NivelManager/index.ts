@@ -1,5 +1,6 @@
 import Scene from "../../scenes/templates/default";
 import niveles from "./niveles.array.json";
+import { mostrarTexto } from '../animateCSS';
 
 export interface Nivel {
   points: number;
@@ -58,7 +59,7 @@ export default class NivelManager {
 
       this.scene.audio.setSong(newNivel.music);
 
-      // mostrarTexto(nivel.name)
+      mostrarTexto(newNivel.name);
 
     })(typeof nivel == 'number' ? this.niveles[nivel] : nivel)
 

@@ -1,7 +1,6 @@
 import AsteroidsScene from "../scenes/templates/default";
-import { mostrarTexto } from './animateCSS';
 import cookies from "../cookies";
-import animateCSS from './animateCSS';
+import animateCSS from '../components/animateCSS';
 
 let menuclick = new Phaser.Events.EventEmitter()
 
