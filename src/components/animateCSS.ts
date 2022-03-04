@@ -1,54 +1,27 @@
-export default function animateCSS<T = string | HTMLElement>(element: T, animation: string, duration: number = 2000, prefix = 'animate__') {
+import Scene from "../scenes/templates/default";
+
+export default async function animateCSS<T extends HTMLElement>(element: T, animation: string, duration: number = 2000, prefix = 'animate__') {
   // We create a Promise and return it
-  return new Promise<T>((resolve, reject) => {
-    const animationName = `${prefix}${animation}`;
-    let node: HTMLElement | null
-    if (element instanceof HTMLElement) {
-      node = element;
-    } else if (typeof element == 'string') {
-      let select = document.querySelector<HTMLElement>(element);
-      if (select === null) {
-        reject(new Error('The element is null'))
-      }
-      node = select;
-    } else {
-      node = null;
-      reject(new Error("The element must be either a 'HTMLElement' or a string"))
-    }
+  const animationName = `${prefix}${animation}`;
+  element.style.animationDuration = duration + 'ms'
+  element.classList.add(`${prefix}animated`, animationName);
 
-    if (node != null) {
-      node.style.animationDuration = duration + 'ms'
-      node.classList.add(`${prefix}animated`, animationName);
+  // When the animation ends, we clean the classes and resolve the Promise
 
-      // When the animation ends, we clean the classes and resolve the Promise
-
-      node.addEventListener('animationend', (event) => {
-        if (node != null) {
-          event.stopPropagation();
-          node.classList.remove(`${prefix}animated`, animationName);
-          resolve(element);
-        }
-      }, { once: true });
-    }
-  });
+  element.addEventListener('animationend', async ev => {
+    ev.stopPropagation();
+    element.classList.remove(`${prefix}animated`, animationName);
+  }, { once: true });
+  return element;
 }
 
-export function mostrarTexto(texto: string) {
-  let elt = document.getElementById('mostrar-texto')
-  if (elt) {
-    elt.classList.remove('hide')
-    elt.innerHTML = texto
-    animateCSS('#mostrar-texto', 'zoomInDown')
-      .then(() => {
-        setTimeout(() =>
-          animateCSS('#mostrar-texto', 'fadeOut')
-            .then(() => {
-              if (elt) {
-                elt.classList.add('hide')
-                elt.innerHTML = ""
-              }
-            })
-          , 1500)
-      })
-  }
+export async function mostrarTexto(texto: string, scene: Scene) {
+  const node = scene.add.dom(scene.center.x, 10, 'div', {
+    width: '100vw'
+  }, texto).setVisible(false);
+  await animateCSS(node.node as HTMLElement, 'zoomInDown');
+  setTimeout(async () => {
+    await animateCSS(node.node as HTMLElement, 'fadeOut')
+    node.destroy();
+  }, 1500)
 }

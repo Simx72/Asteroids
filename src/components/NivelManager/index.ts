@@ -26,7 +26,9 @@ export default class NivelManager {
         points: 0,
         className: '',
         music: '',
-        name: 'Siguiente nivel',
+        name: (this.currentNivelIndex > 0) ?
+          "Nivel " + this.currentNivelIndex :
+          "Siguiente nivel",
         cantidad: 1,
         frecuencia: 10
       },
@@ -53,13 +55,12 @@ export default class NivelManager {
 
       const newNivel = this.defaultNivel(n);
 
-      this._currentNivelIndex = -1;
       this.scene.game.domContainer.className = newNivel.className
       this.scene.game.canvas.className = newNivel.className;
 
       this.scene.audio.setSong(newNivel.music);
 
-      mostrarTexto(newNivel.name);
+      mostrarTexto(newNivel.name, this.scene);
 
     })(typeof nivel == 'number' ? this.niveles[nivel] : nivel)
 
