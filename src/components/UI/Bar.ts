@@ -1,5 +1,5 @@
 import Scene from "../../scenes/templates/default";
-import { ItemGroup as Items, ItemConf } from './Item';
+import { ItemGroup as Items } from './Item';
 import UI from '.';
 import barTmpl from "./Bar.bar-template.html"
 import itemTmpl from "./Bar.item-template.html"
@@ -62,7 +62,7 @@ class Bar extends Phaser.GameObjects.DOMElement {
 
   }
 
-  protected items = new Items();
+  readonly items = new Items();
 
   private fromTemplate<T extends Object>(template: string, vars: T) {
     let instance = template.toString()

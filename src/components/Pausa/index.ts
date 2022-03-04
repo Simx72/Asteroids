@@ -1,4 +1,5 @@
 import Scene from '../../scenes/templates/default';
+import animateCSS from '../animateCSS';
 import asset_htmlpausa from "./menu-pausa.html";
 import styles from "./styles.module.css";
 
@@ -17,19 +18,32 @@ class Pausa extends Phaser.GameObjects.DOMElement {
 
   }
 
+  menuAnimationDuration = 200;
+
   get running() { return running; };
 
-  pause(): this {
-    this.node.style.display = "flex!important";
+  syncPause(): this {
+    this.pause();
+    return this;
+  }
+  syncResume(): this {
+    this.resume();
+    return this;
+  }
+
+  async pause() {
     running = false;
+    this.setVisible(true);
+    await animateCSS(this.node, 'fadeIn', this.menuAnimationDuration)
     this.emit(Pausa.Events.PAUSE)
     return this;
   }
   
-  resume(): this {
-    this.node.style.display = "none";
+  async resume() {
     running = true;
-    this.emit(Pausa.Events.RESUME)
+    await animateCSS(this.node, 'fadeOut', this.menuAnimationDuration);
+    this.setVisible(false);
+    this.emit(Pausa.Events.RESUME);
     return this;
   }
 

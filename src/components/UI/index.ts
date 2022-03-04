@@ -1,24 +1,36 @@
 import Scene from "../../scenes/templates/default";
 import Bar from "./Bar";
 
-class UI extends Phaser.GameObjects.GameObject {
+class UI {
   /**
    *
    */
   constructor(scene: Scene) {
-    super(scene, "UI");
+    this.scene = scene;
+    this.bar = [
+      createBar(UI.Border.TOPLEFT),
+      createBar(UI.Border.TOPRIGHT),
+      createBar(UI.Border.BOTTOMLEFT),
+      createBar(UI.Border.TOPRIGHT)
+    ];
+
+    Object.seal(this.bar);
+
+    function createBar(side: UI.Border) {
+      const bar = new Bar(scene, side);
+      scene.add.existing(bar)
+      return bar;
+    }
+
+    this.bar[UI.Border.BOTTOMRIGHT].items.add({
+      icon: '',
+      name: ''
+    })
+
   }
 
-  scene!: Scene;
-
-  bar: { [P in keyof UI.Border as (P extends number? number : never)]: Bar } = {
-    [UI.Border.TOPLEFT]: new Bar(this.scene, UI.Border.TOPLEFT),
-    [UI.Border.TOPRIGHT]: new Bar(this.scene, UI.Border.TOPRIGHT),
-    [UI.Border.BOTTOMLEFT]: new Bar(this.scene, UI.Border.BOTTOMLEFT),
-    [UI.Border.TOPRIGHT]: new Bar(this.scene, UI.Border.TOPRIGHT)
-  }
-
-
+  scene: Scene;
+  bar: { readonly [P in UI.Border]: Bar };
 
 }
 
