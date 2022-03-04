@@ -1,8 +1,8 @@
-import Scene from "../../scenes/templates/default";
-import { ItemGroup as Items } from './Item';
-import UI from '.';
-import barTmpl from "./Bar.bar-template.html"
-import itemTmpl from "./Bar.item-template.html"
+import Scene from "../../../scenes/templates/default";
+import { ItemGroup as Items } from '../Item';
+import UI from '..';
+import barTmpl from "./bar-template.html"
+import itemTmpl from "./item-template.html"
 // import styles from "./Bar.module.css";
 
 class Bar extends Phaser.GameObjects.DOMElement {
