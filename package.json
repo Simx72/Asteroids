@@ -8,7 +8,7 @@
         "test:watch": "jest --watch",
         "build": "webpack -c webpack.config.js",
         "build:watch": "webpack -c webpack.config.js -w",
-        "vercel-install": "npm ci",
+        "vercel-install": "yarn",
         "vercel-build": "webpack --env production -c webpack.config.js",
         "serve": "webpack serve",
         "test:types": "tsc --project tsconfig.test.json -w"
