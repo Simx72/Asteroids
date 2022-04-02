@@ -15,6 +15,7 @@ class Pausa extends Phaser.GameObjects.DOMElement {
       .setClassName(styles["menu-pausa"])
       .setOrigin(0.5)
       .setPosition(scene.center.x, scene.center.y)
+      .syncResume()
 
   }
 
@@ -31,6 +32,14 @@ class Pausa extends Phaser.GameObjects.DOMElement {
     return this;
   }
 
+  setVisible(value: boolean): this {
+    if (value)
+      this.setClassName(styles["menu-pausa"])
+    else
+      this.setClassName(styles["menu-pausa"] + ' ' + styles.hide)
+    return this;
+  }
+
   async pause() {
     running = false;
     this.setVisible(true);
@@ -38,7 +47,7 @@ class Pausa extends Phaser.GameObjects.DOMElement {
     this.emit(Pausa.Events.PAUSE)
     return this;
   }
-  
+
   async resume() {
     running = true;
     await animateCSS(this.node, 'fadeOut', this.menuAnimationDuration);

@@ -70,6 +70,10 @@
     /* creates padding around scroll thumb */
 }
 
+.menu-pausa.hide > * {
+    display: none;
+}
+
 
 /* 
 .menu-pausa>*-button {
