@@ -7,7 +7,7 @@ module.exports = function(paramEnv) {
 
     const env = Object.assign(process.env, paramEnv)
 
-    env.production == env.production || process.env.NODE_ENV == 'production';
+    env.production = env.production || process.env.NODE_ENV == 'production';
 
     // console.log(env)
 
@@ -17,6 +17,11 @@ module.exports = function(paramEnv) {
         resolve: {
             extensions: ['.ts', '.js', '.tsx'],
         },
+        performance: (env.production == 'production')? {
+            hints: false,
+            maxEntrypointSize: 512000,
+            maxAssetSize: 512000
+        } : undefined,
         module: {
             rules: [ // add modules
                 {
