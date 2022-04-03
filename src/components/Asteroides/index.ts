@@ -1,4 +1,5 @@
 import Scene from '../../scenes/game-scene';
+import explosion from '../explosion';
 
 type Child = Phaser.Types.Physics.Arcade.ImageWithDynamicBody;
 
@@ -13,6 +14,41 @@ class Asteroides extends Phaser.GameObjects.Group {
     });
 
     this.setName('grupo.ast')
+
+    scene.physics.add.overlap(
+      this,
+      scene.nave.disparos,
+      (...params: any[]) => {
+        const [asteroide, disparo] = params as Phaser.Types.Physics.Arcade.ImageWithDynamicBody[]
+
+        let astc = asteroide.getCenter()
+        asteroide.destroy()
+        disparo.destroy()
+
+        scene.data.values.puntos++;
+
+        explosion(scene, astc.x, astc.y)
+
+        scene.nivel.updateNivel()
+
+        if (process.env.NODE_ENV == 'production') {
+          console.log(disparo, 'destruyo a', asteroide)
+        }
+      }
+    )
+
+    if (scene.physics.config.debug) {
+      scene.input.keyboard.on('keydown-M', () => {
+        let res = prompt("Posición: ", "")
+        let side: Asteroides.Borde | undefined;
+        if (res != null) {
+          side = <Asteroides.Borde>parseInt(res)
+        } else {
+          side = undefined;
+        }
+        this.nuevoAsteroide(side)
+      });
+    }
 
   }
 

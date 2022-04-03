@@ -1,4 +1,4 @@
-import Scene from "../../../scenes/templates/default";
+import Scene from "../../../scenes/default";
 import { ItemGroup as Items } from '../Item';
 import UI from '..';
 import barTmpl from "./bar-template.html"

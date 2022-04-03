@@ -1,5 +1,5 @@
 import cookies from '../cookies';
-import Scene from './templates/default';
+import Scene from './default';
 export default class AsteroidsLooseScene extends Scene {
   constructor() {
     super('loose-scene');

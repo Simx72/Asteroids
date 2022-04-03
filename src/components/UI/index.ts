@@ -1,4 +1,4 @@
-import Scene from "../../scenes/templates/default";
+import Scene from "../../scenes/default";
 import Bar from "./Bar";
 
 class UI {

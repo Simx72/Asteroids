@@ -1,4 +1,4 @@
-import Scene from '../../scenes/templates/default';
+import Scene from '../../scenes/default';
 import cookies from '../../cookies';
 
 const musicaNode = document.createElement('audio')
@@ -30,17 +30,21 @@ class AudioManager extends Phaser.Events.EventEmitter {
     return this._volume.music;
   }
   set musicVolume(val: number) {
-    this._volume.music = val;
-    this.musica.volume = val;
-    cookies.set('config-volumen-musica', val.toString());
+    if (0 <= val && val <= 100) {
+      this._volume.music = val;
+      this.musica.volume = val;
+      cookies.set('config-volumen-musica', val.toString());
+    } else throw new Error("val param must be a number between 0 and 100")
   }
 
   get fxVolume(): number {
     return this._volume.fx;
   }
   set fxVolume(val: number) {
-    this._volume.fx;
-    cookies.set('config-volumen-fx', val.toString())
+    if (0 <= val && val <= 100) {
+      this._volume.fx = val;
+      cookies.set('config-volumen-fx', val.toString())
+    }
   }
 
   setSong(url: string) {

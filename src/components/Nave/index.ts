@@ -1,6 +1,6 @@
 import Scene from '../../scenes/game-scene';
+import explosion from '../explosion';
 import Disparos from './disparos';
-import { explosion } from '../../functions/explosion';
 
 export let puntos: number = 0;
 
@@ -117,7 +117,7 @@ export default class Nave extends Phaser.Physics.Arcade.Sprite {
 
         this.setVisible(false)
 
-        explosion.call(this.scene, this.x, this.y).then(
+        explosion(this.scene, this.x, this.y)?.then(
           () => this._restart
         )
 

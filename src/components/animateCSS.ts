@@ -1,4 +1,4 @@
-import Scene from "../scenes/templates/default";
+import Scene from "../scenes/default";
 
 export default async function animateCSS<T extends HTMLElement>(element: T, animation: string, duration: number = 2000, prefix = 'animate__') {
   // We create a Promise and return it

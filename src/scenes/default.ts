@@ -1,6 +1,6 @@
-import NivelManager from "../../components/NivelManager";
-import Pausa from "../../components/Pausa";
-import AudioManager from '../../components/AudioManager/index';
+import NivelManager from "../components/NivelManager";
+import Pausa from "../components/Pausa";
+import AudioManager from '../components/AudioManager/index';
 
 
 export default class DefaultAsteroidsScene extends Phaser.Scene {
@@ -19,6 +19,14 @@ export default class DefaultAsteroidsScene extends Phaser.Scene {
     return { x: width / 2, y: height / 2 };
   }
 
+  private grupoUpdate = this.add.group([], {
+    runChildUpdate: true
+  })
+
+  hacerUpdate(element: Phaser.GameObjects.GameObject) {
+    this.grupoUpdate.add(element)
+  }
+
   /**
    * @method preload is called once the scene has been loaded
    */
@@ -34,10 +42,6 @@ export default class DefaultAsteroidsScene extends Phaser.Scene {
     this.nivel = new NivelManager(this);
 
   };
-
-  update(time: number, delta: number): void {
-    this.children.each(o => o.update(time, delta));
-  }
   
   audio!: AudioManager;
   pausa!: Pausa;
