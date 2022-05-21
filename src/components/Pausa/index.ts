@@ -11,11 +11,15 @@ class Pausa extends Phaser.GameObjects.DOMElement {
 
     scene.add.existing(this)
 
-    this.createFromHTML(asset_htmlpausa)
-      .setClassName(styles["menu-pausa"])
-      .setOrigin(0.5)
-      .setPosition(scene.center.x, scene.center.y)
-      .syncResume()
+    import('./menu-pausa.html').then((asset_htmlpausa) => {
+      this.createFromHTML(asset_htmlpausa.default)
+        .setClassName(styles["menu-pausa"])
+        .setOrigin(0.5)
+        .setPosition(scene.center.x, scene.center.y)
+    })
+
+    this.syncResume()
+
 
   }
 

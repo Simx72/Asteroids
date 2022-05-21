@@ -9,19 +9,21 @@ module.exports = function(paramEnv) {
 
     env.production = env.production || process.env.NODE_ENV == 'production';
 
+    console.log(env.production);
+
     // console.log(env)
 
-    return {
-        entry: './src/core.ts',
-        devtool: (env.production) ? undefined : 'inline-source-map',
+    let config = {
+        entry: {
+            core: {
+                import: './src/core.ts',
+                dependOn: 'phaser'
+            },
+            phaser: 'phaser'
+        },
         resolve: {
             extensions: ['.ts', '.js', '.tsx'],
         },
-        performance: (env.production == 'production')? {
-            hints: false,
-            maxEntrypointSize: 512000,
-            maxAssetSize: 512000
-        } : undefined,
         module: {
             rules: [ // add modules
                 {
@@ -82,12 +84,34 @@ module.exports = function(paramEnv) {
                     }
                 }
             })
-        ].concat(env.production ? [new MiniCssExtractPlugin()] : []),
+        ],
         output: {
-            filename: 'bundle.js',
+            filename: '[name].js',
             path: path.resolve(__dirname, 'dist'),
             clean: true,
-        },
-        mode: (env.production) ? 'production' : 'development',
+        }
     };
+
+    if (env.production) { 
+        /* production mode */
+        Object.assign(config, {
+            mode: 'production',
+            performance: {
+                hints: false,
+                maxEntrypointSize: 512000,
+                maxAssetSize: 512000
+            }
+        })
+        config.plugins.concat([
+            new MiniCssExtractPlugin()
+        ])
+    } else { 
+        /* development mode */
+        Object.assign(config, {
+            mode: 'development',
+            devtool: 'inline-source-map'
+        })
+    }
+
+    return config;
 };
