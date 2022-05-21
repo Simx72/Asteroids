@@ -34,7 +34,7 @@ module.exports = function(paramEnv) {
                 {
                     test: /\.css$/,
                     use: [
-                        env.production ? MiniCssExtractPlugin.loader : 'style-loader',
+                        'style-loader',
                         'css-loader'
                     ],
                 },
@@ -102,6 +102,7 @@ module.exports = function(paramEnv) {
                 maxAssetSize: 512000
             }
         })
+        config.module.rules[1].use[0] == MiniCssExtractPlugin.loader
         config.plugins.concat([
             new MiniCssExtractPlugin()
         ])
