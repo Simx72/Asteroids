@@ -9,7 +9,7 @@ module.exports = function(paramEnv) {
 
     env.production = env.production || process.env.NODE_ENV == 'production';
 
-    console.log(env.production);
+    console.log('production: ', env.production);
 
     // console.log(env)
 
