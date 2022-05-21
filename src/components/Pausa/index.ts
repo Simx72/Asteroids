@@ -1,6 +1,5 @@
 import Scene from '../../scenes/default';
 import animateCSS from '../animateCSS';
-import asset_htmlpausa from "./menu-pausa.html";
 import styles from "./styles.module.css";
 
 let running: boolean = false;
