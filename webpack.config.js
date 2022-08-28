@@ -110,7 +110,7 @@ module.exports = function(paramEnv) {
         /* development mode */
         Object.assign(config, {
             mode: 'development',
-            devtool: 'source-map'
+            // devtool: 'inline-cheap-module-source-map'
         })
     }
 
