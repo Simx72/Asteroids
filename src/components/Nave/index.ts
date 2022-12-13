@@ -86,7 +86,7 @@ export default class Nave extends Phaser.Physics.Arcade.Sprite {
       })
   }
 
-  private _vidas = this.scene.add.group()
+  private _vidas = this.scene.add.group([])
     .setName('grupo.vidas')
 
 
