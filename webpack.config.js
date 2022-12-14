@@ -16,7 +16,7 @@ module.exports = function(paramEnv) {
     let config = {
         entry: {
             core: {
-                import: './src/core.ts',
+                import: './src/index.ts',
                 dependOn: 'phaser'
             },
             phaser: 'phaser'
