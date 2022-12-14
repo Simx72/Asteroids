@@ -2,8 +2,6 @@ import * as Phaser from 'phaser';
 import FirstScene from "./scenes/game-scene";
 import './styles.css';
 
-let parent = document.querySelector('#app') as HTMLDivElement;
-
 export const gameConfig: Phaser.Types.Core.GameConfig = {
   type: Phaser.AUTO,
   scale: {
@@ -16,7 +14,7 @@ export const gameConfig: Phaser.Types.Core.GameConfig = {
     createContainer: true,
     behindCanvas: false
   },
-  parent,
+  parent: 'app',
   physics: {
     default: 'arcade',
     arcade: {
