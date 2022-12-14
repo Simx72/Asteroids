@@ -19,10 +19,10 @@ export default class DefaultAsteroidsScene extends Phaser.Scene {
     return { x: width / 2, y: height / 2 };
   }
 
-  private grupoUpdate!: Phaser.GameObjects.Group;
+  private grupoUpdate?: Phaser.GameObjects.Group;
 
   hacerUpdate(element: Phaser.GameObjects.GameObject) {
-    this.grupoUpdate.add(element)
+    this.grupoUpdate?.add(element)
   }
 
   /**
