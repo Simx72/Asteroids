@@ -19,9 +19,7 @@ export default class DefaultAsteroidsScene extends Phaser.Scene {
     return { x: width / 2, y: height / 2 };
   }
 
-  private grupoUpdate = this.add.group([], {
-    runChildUpdate: true
-  })
+  private grupoUpdate!: Phaser.GameObjects.Group;
 
   hacerUpdate(element: Phaser.GameObjects.GameObject) {
     this.grupoUpdate.add(element)
@@ -36,6 +34,10 @@ export default class DefaultAsteroidsScene extends Phaser.Scene {
    * @method create is called on every scene start
    */
   create(): void {
+
+    this.grupoUpdate = this.add.group([], {
+      runChildUpdate: true
+    })
 
     this.audio = new AudioManager(this);
     this.pausa = new Pausa(this);
