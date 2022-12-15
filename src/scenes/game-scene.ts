@@ -25,6 +25,7 @@ export default class GameScene extends Scene {
     super.preload();
 
     this.load.audio('audio.laser', asset_audiolaser)
+    explosion.preload(this);
 
     this.load.svg('nave', asset_naveespacial)
     this.load.svg('asteroide.1', asset_asteroide1)
@@ -46,9 +47,9 @@ export default class GameScene extends Scene {
   public create() {
     super.create();
 
-    
+
     this.data.set('cargado', false);
-    
+
     let cargando = this.add.sprite(this.center.x, 10, 'cargando', 'frame-0.png')
     cargando.setName('cargando.sprite')
 
@@ -78,53 +79,56 @@ export default class GameScene extends Scene {
       repeat: -1
     })
     cargando.anims.play('cargar')
-    
+
     if (process.env.NODE_ENV == 'production') {
       this.add.text(0, 0, `[scene]: Main Scene (${this.scene.key}) \n\n`)
-      .setName('texto.debug')
-      .setOrigin(0, 0)
-      .setPosition(10, 10)
-      .setDepth(100)
+        .setName('texto.debug')
+        .setOrigin(0, 0)
+        .setPosition(10, 10)
+        .setDepth(100)
     } else {
       this.add.text(0, 0, '0', { fontSize: '25pt' })
-      .setName('texto.puntos')
-      .setOrigin(0, 0)
-      .setPosition(10, 10)
+        .setName('texto.puntos')
+        .setOrigin(0, 0)
+        .setPosition(10, 10)
         .setDepth(70)
-      }
-      
+    }
+
     this.pausa.resume();
-    
+
     this.nave = new Nave(this);
     this.asteroides = new Asteroides(this);
   }
-  
+
   /***************
    * UPDATE
    **************/
   public update(time: number, delta: number) {
-    super.update(time, delta);
+    try {
+      super.update(time, delta);
 
-    this.nave.update();
+      this.nave.update();
 
-    if (this.physics.config.debug) {
-      const texto = this.getElement<Phaser.GameObjects.Text>('texto.debug')
-      texto.text = `[scene]: Main Scene (${this.scene.key}) \n\n`
+      if (this.physics.config.debug) {
+        const texto = this.getElement<Phaser.GameObjects.Text>('texto.debug')
+        texto.text = `[scene]: Main Scene (${this.scene.key}) \n\n`
+      }
+
+      if (!this.dato<boolean>('cargado')) {
+        this.getElement<Phaser.GameObjects.Sprite>('cargando.sprite').alpha -= 0.03
+        this.getElement<Phaser.GameObjects.Rectangle>('cargando.rect').alpha -= 0.04
+        this.getElement<Phaser.GameObjects.Image>('cargando.controles').alpha -= 0.04
+      }
+      if ((!this.dato<boolean>('cargado')) && (this.getElement<Phaser.GameObjects.Sprite>('cargando.rect').alpha == 0)) {
+        this.getElement<Phaser.GameObjects.Sprite>('cargando.sprite').destroy()
+        this.getElement<Phaser.GameObjects.Rectangle>('cargando.rect').destroy()
+        this.getElement<Phaser.GameObjects.Image>('cargando.controles').destroy()
+        this.data.set('cargado', true);
+      }
+
+    } catch (e) {
+      throw e;
     }
-
-    if (!this.dato<boolean>('cargado')) {
-      this.getElement<Phaser.GameObjects.Sprite>('cargando.sprite').alpha -= 0.03
-      this.getElement<Phaser.GameObjects.Rectangle>('cargando.rect').alpha -= 0.04
-      this.getElement<Phaser.GameObjects.Image>('cargando.controles').alpha -= 0.04
-    }
-    if ((!this.dato<boolean>('cargado')) && (this.getElement<Phaser.GameObjects.Sprite>('cargando.rect').alpha == 0)) {
-      this.getElement<Phaser.GameObjects.Sprite>('cargando.sprite').destroy()
-      this.getElement<Phaser.GameObjects.Rectangle>('cargando.rect').destroy()
-      this.getElement<Phaser.GameObjects.Image>('cargando.controles').destroy()
-      this.data.set('cargado', true);
-    }
-
-
   }
 
   finalizar() {
@@ -133,19 +137,19 @@ export default class GameScene extends Scene {
       texto.text += `Sin vidas! \n`
     }
     this.data.set('vivo', false)
-  
+
     window.clearInterval(this.dato('intervalo puntos'))
     // cookies.set('puntos', this.dato<number>('puntos').toString())
-  
+
     const nave = this.getElement<Phaser.Types.Physics.Arcade.ImageWithDynamicBody>('nave')
-  
+
     nave.setVisible(false)
-  
+
     explosion(this, nave.x, nave.y)
       ?.then(() => {
         this.game.scene.stop(this).run('loose-scene')
       })
-  
+
     this.physics.pause() /* stops everything */
   }
 
