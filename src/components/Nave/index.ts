@@ -20,9 +20,9 @@ export default class Nave extends Phaser.Physics.Arcade.Sprite {
 
     scene.add.existing(this)
 
-    this.data.set('vivo', true)
-    this.data.set('vidas', 2)
-    this.data.set('intervalo puntos', window.setInterval(() => {
+    this.setData('vivo', true);
+    this.setData('vidas', 2);
+    this.setData('intervalo puntos', window.setInterval(() => {
       if (scene.pausa.running)
         this.data.values.puntos++;
       scene.nivel.updateNivel()
