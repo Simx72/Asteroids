@@ -97,7 +97,7 @@ export default class GameScene extends Scene {
     this.pausa.resume();
 
     this.nave = new Nave(this);
-    this.asteroides = new Asteroides(this);
+    this.asteroides = new Asteroides(this); 
   }
 
   /***************
